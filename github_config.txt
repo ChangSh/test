@@ -1,2 +1,2 @@
 $ git remote add origin git@github.com:yourName/yourRepo.git
-后面的yourName和yourRepo表示github上的用户名和github上的某个仓库
+后面的yourName和yourRepo表示github上的用户名和github上的某个仓库。 
