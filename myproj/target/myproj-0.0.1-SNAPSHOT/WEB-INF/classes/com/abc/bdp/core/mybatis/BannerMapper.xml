@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abc.myproj.mapper.BannerMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+	 <!--userid,cityname,username,email,realname-->
+	</sql>
+ <select  id="getAllBanner" resultType="com.abc.myproj.entity.Banner">
+ 		SELECT * FROM [dbo].[Banner]  
+ 
+    </select>
+    <select  id="getAllOrderId" resultType="String">
+ 		SELECT  DISTINCT [OrderCode] FROM [dbo].[OrderInfo] 
+ 
+    </select>
+     <select  id="getBannerbyIdAndType" resultType="com.abc.myproj.entity.Banner"  parameterType="com.abc.myproj.entity.Banner">
+ 		SELECT * FROM [dbo].[Banner]  where bannerType=#{bannertype} and addOperator=#{addoperator}
+ 
+    </select>
+</mapper>
