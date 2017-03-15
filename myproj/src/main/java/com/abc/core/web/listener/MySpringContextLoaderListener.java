@@ -1,15 +1,12 @@
 package com.abc.core.web.listener;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletContextEvent;
+
 import org.springframework.web.context.ContextLoaderListener;
 
 import com.abc.core.springcontext.util.SpringContextUtils;
 import com.abc.core.web.security.ShiroFilerChainManager;
 import com.abc.myproj.service.IUserInitService;
-import com.abc.myproj.service.UserInitServiceImpl;
 
 
 

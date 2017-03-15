@@ -23,7 +23,6 @@ import com.abc.core.Common.tools.CtResult;
  * 使用spring mvc interceptor进行拦截，拦截完成后返回到此controller
  * 页面点击统计信息时，请求此Controller
  * 
- * @author wangjiashuai
  */
 @Controller
 public class PageLoadingController {

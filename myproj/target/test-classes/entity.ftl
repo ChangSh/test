@@ -1,4 +1,4 @@
-package com.fang.plan.entity;
+package com.abc.myproj.entity;
 
 import java.io.Serializable;
 import java.util.Date;

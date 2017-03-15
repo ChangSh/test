@@ -25,7 +25,6 @@ import com.abc.core.Common.annotation.Token;
 /**
  * 拦截器：加载每个模块的首页时，服务器端加载时间拦截
  * 
- * @author wangjiashuai
  */
 public class PageLoadingTimeInterceptor extends HandlerInterceptorAdapter {
   

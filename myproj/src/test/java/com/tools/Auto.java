@@ -25,11 +25,11 @@ public class Auto {
   public static void main(String[] args) throws Exception {
     
     Scanner s = new Scanner(System.in);
-    System.out.println("请输入（表）实体名称 ：(如 User)");
+    System.out.println("请输入(表)实体名称 :(如 User)");
     String methodname = s.nextLine();
-    System.out.println("请输入模块名称：(首字母 大写 。。。。。。。如 UserInit， 页面中模块名称有首字母转大写控制)");
+    System.out.println("请输入模块名称：(首字母 大写 , UserInit,页面中模块名称有首字母转大写控制)");
     String modelname = s.nextLine();
-    System.out.println("等待生成。。。。。。");
+    System.out.println("等待生成...");
     String[] ftlname = {"controller.ftl", "mapper.ftl", "service.ftl","serviceimpl.ftl","entity.ftl","mapperxml.ftl","page.ftl"};
     String[] filename = {methodname + "Controller.java", methodname + "Mapper.java", "I"+methodname + "Service.java", methodname + "ServiceImpl.java",methodname +".java",methodname +"Mapper.xml","main_"+modelname+".jsp"};
     for (int i = 0; i < ftlname.length; i++) {
@@ -61,11 +61,11 @@ public class Auto {
     root.put("dts","");
     }
 
-    String controllerpath = "src/main/java/com/fang/plan/controller/";
-    String servicepath = "src/main/java/com/fang/plan/service/";
-    String daopath = "src/main/java/com/fang/plan/mapper/";
-    String entity = "src/main/java/com/fang/plan/entity/";
-    String xml = "src/main/resources/com/fang/bdp/core/mybatis/";
+    String controllerpath = "src/main/java/com/abc/myproj/controller/";
+    String servicepath = "src/main/java/com/abc/myproj/service/";
+    String daopath = "src/main/java/com/abc/myproj/mapper/";
+    String entity = "src/main/java/com/abc/myproj/entity/";
+    String xml = "src/main/resources/com/abc/bdp/core/mybatis/";
     String page = "src/main/webapp/bdp/pages/"+modelname+"/";
     String fileN= controllerpath + filename;
     if (filename.contains("Controller.java")) {

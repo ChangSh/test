@@ -25,7 +25,7 @@ public class TencentUpload {
    //private static final String SMALLFile_LOCAL_PATH = "D:/javaCode/SearchAD_V2/src/main/webapp/uploadFiles/";
   
  //测试站
- private static final String SMALLFile_LOCAL_PATH = "/usr/local/resin/webapps/ROOT/media.test.fang.com/uploadFiles/";
+ //private static final String SMALLFile_LOCAL_PATH = "/usr/local/resin/webapps/ROOT/media.test.fang.com/uploadFiles/";
   
   public static String fileUpload(String filename) throws Exception {
     CosCloud cos = new CosCloud(APP_ID, SECRET_ID, SECRET_KEY, 60);

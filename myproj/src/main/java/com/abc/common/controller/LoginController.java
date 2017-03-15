@@ -39,7 +39,6 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 /**
  * 登录
  * 
- * @author 陈军 改自 dbp
  */
 @Controller
 @RequestMapping

@@ -1,9 +1,9 @@
-package com.fang.plan.service;
+package com.abc.myproj.service;
 
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.fang.plan.entity.${name};
-import com.fang.plan.mapper.${name}Mapper;
+import com.abc.myproj.entity.${name};
+import com.abc.myproj.mapper.${name}Mapper;
 
 /**
 * @author ：CHANG

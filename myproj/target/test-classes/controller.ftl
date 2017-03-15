@@ -1,4 +1,4 @@
-package com.fang.plan.controller;
+package com.abc.myproj.controller;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.fang.common.controller.BaseController;
-import com.fang.core.Common.annotation.SystemControllerLog;
-import com.fang.core.Common.tools.MultipleDataSource;
-import com.fang.core.Common.tools.PagedResult;
-import com.fang.plan.entity.${name};
-import com.fang.plan.service.I${name}Service;
+import com.abc.common.controller.BaseController;
+import com.abc.core.Common.annotation.SystemControllerLog;
+import com.abc.core.Common.tools.MultipleDataSource;
+import com.abc.core.Common.tools.PagedResult;
+import com.abc.myproj.entity.${name};
+import com.abc.myproj.service.I${name}Service;
 
 /**
  * ${model}模块

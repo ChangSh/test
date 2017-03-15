@@ -1,7 +1,7 @@
-package com.fang.plan.mapper;
+package com.abc.myproj.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.fang.plan.entity.${name};
+import com.abc.myproj.entity.${name};
 
 
 /**

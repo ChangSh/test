@@ -1,7 +1,7 @@
-package com.fang.plan.service;
+package com.abc.myproj.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.fang.plan.entity.${name};
+import com.abc.myproj.entity.${name};
 /**
 * @author ：CHANG
 * ${model} 表数据服务层接口

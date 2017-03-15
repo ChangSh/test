@@ -19,7 +19,6 @@ import com.abc.core.Common.tools.CtResult;
 /**
  * 登出
  * 
- * @author wangjiashuai
  */
 @Controller
 public class LogoutController {
