@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+ <bean id="myShiro" class="com.fang.core.web.security.MyShiroRealm" >
+    
+  </bean>
+
+  <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+    <property name="realm" ref="myShiro" />
+    <property name="cacheManager" ref="cacheManager" /> 
+    <property name="sessionManager" ref="mySessionManager"></property>
+  </bean>
+
+  <bean id="mySessionManager" class="com.fang.core.web.security.MyWebSessionManager">
+     <property name="sessionDAO" ref="mySessionDAO" /> 
+    <!--当需要redis实现session持久化共享时解开注释替换mySessionDAO  -->
+	 <!--  <property name="sessionDAO" ref="mySessionDaoForRedis" />  -->
+  </bean>
+
+   <bean id="mySessionDAO" class="com.fang.core.web.security.MySessionDao">
+  </bean> 
+	<!--当需要redis实现session持久化共享时使用MySessionDaoForRedis -->
+	<!--<bean id="mySessionDaoForRedis" class="com.fang.bdp.core.web.security.MySessionDaoForRedis"/> -->
+
+  <bean id="filterChainManager" class="org.apache.shiro.web.filter.mgt.DefaultFilterChainManager">
+  </bean> 
+
+  <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+    <property name="securityManager" ref="securityManager" />
+    <property name="loginUrl" value="/bdp/pages/errors/404.jsp" />
+    <!-- 配置我们在登录页登录成功后的跳转地址，如果你访问的是非/login地址，则跳到您访问的地址 -->
+    <property name="successUrl" value="/" />
+    <property name="unauthorizedUrl" value="/bdp/pages/errors/denied.jsp" />
+    <property name="filterChainDefinitions">
+      <value>
+        <!-- anon表示此地址不需要任何权限即可访问 -->
+  		/login.jsp = anon
+        /login.do = anon
+        /resources/**=anon <!-- 资源过滤 -->
+        /api/**=anon  <!-- 接口过滤 -->
+        /download/**=anon <!-- 下载 -->
+        <!--所有的请求(除去配置的静态资源请求或请求地址为anon的请求)都要通过登录验证,如果未登录则跳到/login -->
+       
+      </value>
+    </property>
+  </bean>
+  <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
+  <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+  <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+</beans>

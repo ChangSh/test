@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fang.plan.mapper.UserRoleRelationMapper">
+
+	<delete id="deleteByRoleId" parameterType="int">
+    	delete from dbo.UserRoleRelation where RoleId=#{roleid}
+    </delete>
+  <select  id="getURByRoleId" resultType="com.fang.plan.entity.UserRoleRelation" parameterType="int">
+		 SELECT * FROM dbo.UserRoleRelation where RoleId=#{roleid}
+    </select>
+	<delete id="deleteByEmail" parameterType="String">
+    	delete from dbo.UserRoleRelation where email=#{email}
+    </delete>
+    <select id="ifExistUserRole" resultType="int" parameterType="com.fang.plan.entity.UserRoleRelation">
+        select count(*) from [dbo].[UserRoleRelation] where 1=1 and email=#{email} and roleId=#{roleid}
+   </select>
+</mapper>
