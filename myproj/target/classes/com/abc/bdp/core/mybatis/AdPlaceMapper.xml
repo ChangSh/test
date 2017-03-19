@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abc.myproj.mapper.AdPlaceMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+	 <!--userid,cityname,username,email,realname-->
+	</sql>
+
+   <select  id="GetWebSiteList" resultType="com.abc.myproj.entity.Website">
+     SELECT id,websitename FROM Website 
+    </select>
+    
+    
+    
+       <select  id="GetWebSiteInfo" resultType="com.abc.myproj.entity.Website">
+     SELECT * FROM Website where id=#{id}
+    </select>
+    <select  id="GetChannel" resultType="com.abc.myproj.entity.Channelgroup">
+     SELECT * FROM  Channelgroup
+    </select>
+    
+    <insert  id="AddAdPlace" >
+    INSERT INTO dbo.AdPlace (Name,Width,Height,IsDeleted,AdderID,State,WebId,ChannelId,BannerId,Url,ReMarks,CompanyGroupId,CompanyGroupShort
+    ,CompanyGroupName,CityId,CityShort,CityName)
+    VALUES  ('${a.Name}','${a.Width}','${a.Height}','${a.IsDeleted}','${a.AdderID}','${a.State}','${a.WebId}','${a.ChannelId}','${a.BannerId}','${a.Url}'
+    ,'${a.ReMarks}','${a.CompanyGroupId}',
+    '${a.CompanyGroupShort}','${a.CompanyGroupName}','${a.CityId}','${a.CityShort}','${a.CityName}')
+    </insert>
+    
+    
+    <select  id="GetCitys" resultType="com.abc.myproj.entity.City">
+     SELECT * FROM  Structure_City
+    </select>
+    
+</mapper>

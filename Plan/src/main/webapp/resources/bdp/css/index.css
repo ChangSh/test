@@ -1,0 +1,46 @@
+.progressBar {
+  position: absolute;
+  top: 350px;
+  right: 500px;
+}
+
+a {
+		color: #333;
+}
+
+a:focus,a:hover {
+		color: #333;
+}
+
+#tabs ul {
+		background: #EEEEEE;
+}
+
+#tabs ul li {
+		float: left;
+		list-style-type: none;
+		margin-right: 2px;
+		margin-bottom: -1px;
+}
+
+#tabs ul li a {
+		margin-right: 0px;
+}
+
+#tabs ul li.ui-tabs-active a {
+		background: #fff;
+}
+
+.slfullscreenbutton {
+    background-image: url("../images/enlarge.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    z-index: 999999;
+}
+
+li { outline:none; }
+
+

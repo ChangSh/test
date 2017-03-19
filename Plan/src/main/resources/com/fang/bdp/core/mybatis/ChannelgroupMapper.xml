@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fang.plan.mapper.ChannelgroupMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+	 <!--userid,cityname,username,email,realname-->
+	</sql>
+    <select id="selectsiteandgroup" resultType="com.fang.plan.entity.Channelgroup">
+      <if test="id == 0">
+              SELECT
+ Website.Id AS websiteid,
+ Website.WebsiteName,
+ Website.WebsitePy,
+ Sitegroup.Id AS SitegroupId,
+ Sitegroup.SitegroupName,
+ Sitegroup.SitegroupPy
+ FROM  Website LEFT JOIN Sitegroup ON Website.SitegroupId = Sitegroup.Id
+      </if>
+      <if test="id != 0">
+                SELECT
+ Website.Id AS websiteid,
+ Website.WebsiteName,
+ Website.WebsitePy,
+ Sitegroup.Id AS SitegroupId,
+ Sitegroup.SitegroupName,
+ Sitegroup.SitegroupPy
+ 
+ FROM  Website LEFT JOIN Sitegroup ON Website.SitegroupId = Sitegroup.Id WHERE Websiteid = ${id}
+      </if>
+        
+    </select>
+    
+   <select id="getWebsiteByUser" resultType="String">
+      SELECT website FROM USERINIT WHERE EMAIL = #{email}
+        
+    </select>
+    
+   <select id="getEntity" resultType="com.fang.plan.entity.Channelgroup">
+           SELECT * FROM (SELECT
+               Website.Id AS websiteid,
+               Website.WebsiteName,
+               Website.WebsitePy,
+               Sitegroup.SitegroupPy,
+               Sitegroup.Id AS SitegroupId,
+               Sitegroup.SitegroupName
+               FROM  Website LEFT JOIN Sitegroup ON Website.SitegroupId = Sitegroup.Id) t WHERE t.SitegroupPy = #{sitegrouppy} AND t.WebsitePy = #{websitepy}
+                      
+    </select>
+</mapper>
