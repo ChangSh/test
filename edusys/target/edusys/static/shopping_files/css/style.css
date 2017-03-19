@@ -1,0 +1,504 @@
+body {
+	background-color: #FFFFFF;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	
+} 
+*:focus {
+	outline: none;
+}
+
+body,td,div,li { 
+	font-size:12px;
+	color:#666666;
+	font-family:Tahoma,'新宋体';
+}
+a {
+	text-decoration: none;
+	color:#000000;
+} 
+a:hover {
+	text-decoration: none;
+	color:#2DB8AD;
+} 
+img{
+	border:0px;
+} 
+form{
+	margin:0px;
+	padding:0px;
+}
+ul,li{ 
+ 	padding:0px;
+ 	margin:0px;
+	list-style:none;
+} 
+.clr{
+	clear:both;
+}
+.img_center{
+	vertical-align:middle;
+}
+.w_all{ 
+	width:100%;
+	background-image:url(../images/top_bg.gif); 
+	height:38px;
+}
+.top{ 
+	padding-top:8px;
+	padding-bottom:8px;
+}
+.w{ 
+	width:100%; 
+}
+.w980{
+	margin:0px auto;
+	width:980px;
+} 
+.round { 
+	background-color:#FFFFFF;
+    border: 1px solid #dedede;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+	behavior: url(/common/ie-css3.htc); /* IE */
+}
+.shadow { 
+	background-color:#FFFFFF; 
+    -moz-box-shadow: #666 0px 0px 10px; 
+	box-shadow: #666 0px 0px 10px; 
+	behavior: url(/common/ie-css3.htc); /* IE */
+}
+.header_left{
+	width:260px;
+	float:left;
+	/* padding-top:20px; */
+}
+.header_center{
+	width:400px;
+	float:left;
+	padding-top:25px; 
+}
+.header_right{
+	width:250px;
+	float:right;
+	padding-top:20px;
+}
+.search_form{
+	background-color:#2DB8AD; 
+	width:360px;
+	padding-left:2px;
+}
+.serach_txt{
+	padding:6px; 
+	width:260px; 
+	border:1px solid #2DB8AD;
+	background-image:url(../images/s.gif); 
+	background-repeat:no-repeat;
+	padding-left:28px;
+}
+.search_btn{
+	background:none; 
+	padding-left:10px; 
+	border:0px;  
+	font-size:15px; 
+	color:#FFFFFF; 
+	font-weight:bold;
+}
+.top_block{
+	float:left; 
+	height:40px;
+	margin-left:10px;
+	background-color:#F7F7F7;
+}
+.mycenter{ 
+}
+
+.menu{
+	background-color:#2DB8AD;
+	height:40px; 
+	margin-top:15px;
+}
+.menu a{
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:微软雅黑;
+}
+#menu_nav{
+	width:210px;
+	text-align:center;
+	padding-top:10px;
+	height:30px; 
+	float:left;
+	background-color:#009689;
+}
+.menu_link{
+	height:40px; 
+} 
+.menu_link_item{
+	float:left; 
+	height:30px; 
+	text-align:center;
+	padding-top:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+.menu_link_item:hover{
+	background-color:#009689;  
+}
+.menu_link_item a{
+	padding-top:10px;
+}
+.menu_link a{
+	color:#FFFFFF;
+	font-size:15px;
+	padding:10px;
+	marign:20px;
+}
+.menu_ico{
+	float:right; 
+	padding:6px 10px 0px 0px;
+}
+#all_menu_layer { 
+	width:210px; 
+	z-index:1;
+	float:left;
+}
+.ppt{
+	float:left;
+}
+.menu_block{ 
+}
+.menu_block_content{ 
+	background-color:#FAFAFA;
+}
+.menu_layer_item { 
+	border-bottom:1px solid #FFFFFF; 
+	height:40px; 
+}
+.menu_layer_item:hover {  
+	position:relative;
+	z-index:100;
+	border-left:solid 1px #EFEFEF; 
+	border-top:solid 1px #EFEFEF;
+	border-bottom:solid 1px #EFEFEF;
+	border-right:0px;
+	background-color:#fff; 
+}
+.menu_layer_item h2{ 
+	padding:10px;
+	margin:0px;
+	font-size:14px;
+}
+.menu_layer_item span{
+	color:#999999;
+	font-size:14px; 
+}
+.menu_child_block {
+	display:none;
+	position:absolute;
+	width:480px;
+	height:300px;
+	z-index:10; 
+	background-color:#FFFFFF; 
+    border:solid 1px #EFEFEF;
+}
+
+#hide_menu_layer { 
+	width:210px; 
+	z-index:1;
+	float:left;
+	position:absolute;
+	display:none;
+}
+
+.content_top_left{
+	float:left;
+	width:750px;
+}
+.content_top_right{
+	float:right;
+	width:200px;
+	
+} 
+
+.box{
+	width:100%;
+	margin:auto 0;
+	background:#fff;
+	border:1px solid #d3d3d3;
+	padding:1px;
+}
+.tab_menu{
+	list-style:none;
+	width:100%;
+	overflow:hidden;
+}
+.tab_menu li{
+	width:25%; 
+	float:left;
+	height:30px;
+	line-height:30px;
+	color:#000;
+	background:#efefef;
+	text-align:center;
+	cursor:pointer;
+}
+.tab_menu li.current{
+	color:#fff;
+	background:#2DB8AD;
+}
+.tab_box{
+	padding:20px;
+}
+.tab_box .hide{
+	display:none;
+} 
+
+
+.main_item{
+	float:left;
+	width:48%;
+	height:310px;
+	border-top:1px solid #efefef;
+	border-left:1px solid #efefef;
+	border-right:1px solid #efefef;
+	margin-right:10px;
+	margin-bottom:20px;
+	border-bottom:2px solid #efefef;
+}
+
+.main_item:hover{ 
+	border-bottom:2px solid #009689;
+}
+
+.item_header{ 
+	height:30px;
+}
+
+.item_header h1,h3{
+	margin:0px;
+	padding:0px;
+	font-size:24px;
+}
+
+.help{
+	line-height:1.8;
+	border-top:3px solid #009689;
+}
+
+.help dl,dt,dd{
+	padding:0px;
+	margin:0px;
+}
+
+.help dl {
+	float:left;
+	padding-right:25px;
+	padding-left:50px; 
+} 
+
+.help dt { 
+	padding-bottom:5px;
+	font-size:13px;
+	font-weight:bold;
+	font-family:微软雅黑;
+}
+
+
+.foot {
+	text-align:center;
+	border-top:1px solid #efefef;
+	padding-top:15px;
+	line-height:2.0;
+}
+
+.auth img{
+	height:43px;
+}
+
+
+/* 类目查询条件 */
+.cond{
+	padding:10px;
+}
+.caption h1{
+	float:left; 
+	padding:0px;
+	margin:0px;
+	font-size:18px;
+	padding-left:10px;
+}
+.caption span{
+	float:left;
+	width:300px;
+	padding-left:20px;
+}
+.caption a{
+	float:right;
+	width:300px;
+	text-align:right;
+}
+.cond_item ul{
+	clear:both;
+}
+.cond_item li{
+	float:left; 
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:10px;
+	padding-left:10px; 
+	margin:5px;
+}
+.cond_item a{
+	padding:5px; 
+}
+.cond_item a:hover{ 
+	background-color:#2DB8AD;
+	color:white;
+}
+.cond_hover{
+	background-color:#2DB8AD;
+	color:white;
+}
+.cond_hover a{
+	background-color:#2DB8AD;
+	color:white;
+}
+/* 类目查询条件 */
+
+/* 商品规格 */ 
+.goods_price li.selftypeof{clear:both;float:left;width:100%;margin-top:12px}
+.goods_price li.selftypeof .label{float:left;height:26px;line-height:26px;font-weight:bold;}
+.goods_price li.selftypeof .options{float:left;width:300px}
+.goods_price li.selftypeof .options li{float:left;width:59px;height:26px;text-align:center;padding-right:6px;padding-bottom:6px;line-height:25px}
+.goods_price li.selftypeof .options li a{display:block;width:57px;height:24px;border:1px solid #ccc;text-decoration:none}
+.goods_price li.selftypeof .options li a:hover{border-color:#B42720}
+.goods_price li.selftypeof .options li a.hover,.goods_price li.selftypeof .options li a.hover:hover{width:59px;height:26px;border:none; background-image:url("/common/icon/buy_btn_red.jpg");background-repeat:no-repeat;background-position:-182px -69px}
+ 
+/* 商品规格 */
+
+#real_price_box { 
+	font-size:18px;
+	font-weight:bold;
+	color:#F76120;
+}
+
+.page_number a{
+	background-color:#2DB8AD;
+	padding:5px;
+	color:white;
+	font-weight:thin;
+}
+
+/* 浮动菜单 */
+.col_menu{ width:210px;}   
+.cat_tree{ border:0px;background-color:#FAFAFA;} 
+.cat_tree ul{ padding:0px}
+.cat_tree ul li{
+	height:35px;
+	line-height:35px; 
+	padding:0px; 
+	position:relative;
+	vertical-align:middle; 
+	cursor:pointer;
+	display:block
+}
+.cat_tree ul li .menu_title{ 
+	display:block;
+	font-weight:bold;
+}
+.cat_tree ul li ul{
+	position:absolute;
+	width:400px;
+	height:300px;
+	background:white; 
+	left:178px;
+	top:0; 
+    -moz-box-shadow: 3px 3px 3px #cccccc;
+    -webkit-box-shadow: 3px 3px 3px #cccccc;
+    box-shadow: 3px 3px 3px #cccccc; 
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')"; 
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+	display:none
+}
+.cat_tree ul li ul{padding:0 10px;}
+.cat_tree ul li ul li i{
+	color:#666; 
+	font-size:11px;
+	padding:0px;
+}
+.cat_tree ul li.selected{
+	z-index:10001; 
+	position:relative; 
+	background-color:white;  
+}
+.cat_tree ul li.selected .h2-title{
+	position:absolute; 
+	z-index:10002;
+	background:white;  
+	border-right:0;
+	width:200px;
+	height:35px;
+	line-height:35px;  
+}
+.menu_li_1{
+	border-bottom:1px solid white;
+	
+}
+.menu_li_1 a{ 
+	padding-left:10px;
+}
+.menu_li_2{ 
+	width:120px;
+	float:left;
+}
+.menu_li_2 a{ 
+	padding-left:30px;
+}
+.cat_tree a{
+	color:black;
+	text-align:left;
+	font-family:微软雅黑;
+	font-size:14px;
+}
+#hide_menu_layer a{
+	color:black;
+	text-align:left;
+	font-family:微软雅黑;
+	font-size:14px;
+}
+
+.price{
+	font-size:20px;
+	font-weight:bold;
+	font-family:arial;
+	color:#F76120;
+}
+
+.detail_left{ 
+	background-image:url(../images/buy_bg.gif);
+	width:217px;
+	height:281px;
+	float:left;  
+}
+.detail_left_title{
+	
+	width:217px;
+	height:64px;
+}
+.detail_right{ 
+	width:459px;
+	height:281px;
+	float:left;
+	overflow:hidden;
+}
+
+.buy_price{
+	font-size:18px;
+	font-weight:bold;
+	font-family:arial;
+	color:white;
+}

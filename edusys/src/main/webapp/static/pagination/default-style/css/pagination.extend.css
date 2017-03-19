@@ -1,0 +1,96 @@
+/* CSS Document */
+#Pagination{
+	width:100%;
+	
+}
+#Pagination a{
+  text-align:center;
+  }
+#jq_total{
+	float:left;
+	padding-top: 15px;
+	height:33px;
+	line-height:33px;
+	margin:0 10px;
+}
+.pagination a {
+   text-decoration: none;
+   color: #4d4d4d;
+   line-height:31px;
+   background: #FFFFFF;
+   border: 1px solid #ddd;
+   width: 30px;
+   padding: 0;
+   height: 31px;
+   vertical-align: middle;
+   margin:0 3px;
+   text-align:center;
+}
+.pagination .current {
+   width: 30px;
+   height: 31px;
+   vertical-align: middle;
+   padding: 0;
+   line-height:31px;
+     margin:0 3px;
+}
+.pagination .current .page_current_l{
+	width:0px;
+	height:31px;
+	position:relative;
+	vertical-align: middle;
+    line-height:31px;
+	float:left;
+}
+.pagination .current .page_current_r{
+	width:0px;
+	height:31px;
+	vertical-align: middle;
+   	line-height:31px;
+	float:left;
+	position:relative;
+}
+.pagination .current .page_current_m{
+	width:30px;
+	height:31px;
+	vertical-align: middle;
+   	line-height:31px;
+	position:relative;
+	float:left;
+	color:#fff;
+	background-color:#ffad05;
+}
+.pagination .prev div{
+	background:url(../images/page_prev_03.jpg) no-repeat top;
+	width:67px;
+	height:33px;
+}
+.pagination .next div{
+	width:67px;
+	height:33px;
+	background:url(../images/page_next_03.jpg) no-repeat top;
+}
+.pagination .next,.pagination .prev{
+	width: auto!important;
+	border: none;
+}
+.pagination .current.prev div{
+	background:url(../images/page_prev_dis_03.jpg) no-repeat center;
+	width:67px;
+	height:33px;
+}
+.pagination .current.next div{
+	background:url(../images/page_next_dis_03.jpg) no-repeat center;
+}
+.pagination {
+          text-align:center;  
+	
+	width:400px;
+	margin:0 auto;
+
+padding-top: 15px;
+        }
+#Pagination span{
+	display:inline-block;
+	text-align:center;
+}

@@ -1,0 +1,243 @@
+@charset:"utf-8";
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,input,button,label{margin:0;padding:0;border:0}
+ul,ol,li{list-style:none}
+input,button{margin:0;font-size:12px;vertical-align:middle;font-family:"Microsoft YaHei";}
+body{font-size:12px;font-family:"Microsoft YaHei"; color:#333; margin:0 auto; line-height: 24px; height: 100%; }
+table{border-collapse:collapse;border-spacing:0}
+a{color:#333; text-decoration:none}
+a:hover{text-decoration:none}
+a:focus{
+	outline:none
+}
+ input {outline:none;}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+.mt20{
+	margin-top: 20px;
+}
+.ml20{
+	margin-left: 20px;
+}
+.ml10{
+	margin-left: 10px;
+}
+button{
+	font-family:"Microsoft YaHei";
+}
+/*登录开始*/
+#bottom{
+margin: 8px auto 0px;
+width: 100%;
+position: fixed;
+text-align: center;
+bottom: 0px;
+left: 0px;
+overflow: hidden;
+color: #fff;
+word-spacing: 3px;
+height: 30px;
+line-height: 30px;
+/* background: #ffffff; */
+}
+
+
+.login_box{
+	position:absolute;
+	width: 424px;
+	height: 368px;
+	/*margin: -110px auto 0;*/
+	top: 50%;
+	margin-top: -184px;
+	left: 50%;
+	margin-left: -212px;
+}
+.lt{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/lt_03.png) no-repeat left top;
+}
+.m{
+	width: 400px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/lbg_03.png) repeat;
+}
+.rt{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/rt_03.png) no-repeat left top;
+}
+.l_m{
+	width: 424px;
+	height: 344px;
+	background: url(../images/lbg_03.png) repeat;
+}
+.ld{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/zd_03.png) no-repeat left top;
+}
+.rd{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/yd_03.png) no-repeat left top;
+}
+.login_btn{
+	width: 97px;
+	height: 96px;
+	background: url(../images/login_03.png) no-repeat;
+	position: absolute;
+	bottom:0px;
+	left: 138px;
+	cursor: pointer;
+	color: #fff;
+	font-size: 18px;
+	padding-top: 40px;
+}
+.login_content{
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	width: 400px;
+	height: 400px;
+}
+.zs{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/zs_03.png) no-repeat left top;
+}
+.ys{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/ys_03.png) no-repeat left top;
+}
+.zm{
+	width: 376px;
+	height: 12px;
+	background: #fff;
+}
+.z_m{
+	width: 400px;
+	height: 320px;
+	background: #fff
+}
+.zx{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/zx_03.png) no-repeat left top;
+}
+.yx{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	background: url(../images/yx_07.png) no-repeat left top;
+}
+.lg{
+	width: 376px;
+	height: 376px;
+	position: absolute;
+	left: 24px;
+	top: 24px;
+}
+.lg_tit{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #ececec;
+	font-weight: bold;
+}
+.lg_tit li{
+	float: left;
+	text-align: center;
+	font-size: 20px;
+	width: 100%;
+}
+.active{
+	color: #ffa800;
+}
+.def_input{
+	height: 50px;
+	line-height: 50px;
+	background: #ececec;
+	width: 276px;
+	padding-left: 10px;
+}
+.inpl{
+	width: 10px;
+	height: 50px;
+	background: url(../images/inpl.png) no-repeat;
+}
+.inpr{
+	width: 10px;
+	height: 50px;
+	background: url(../images/inpr.png) no-repeat;
+}
+.user{
+	background:#ececec url(../images/user_11.jpg) left center no-repeat;
+	padding-left: 50px;
+}
+.psw{
+	background:#ececec url(../images/psw_16.jpg) left center no-repeat;
+	padding-left: 50px;
+}
+
+.screenbg {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: -999;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+.screenbg ul li {
+    display: block;
+    list-style: outside none none;
+    position: fixed;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+}
+.logo{
+	width: 100%;
+	height: 226px;
+	/* background: #e0e0e0; */
+	position: relative;
+}
+.logo h1{
+	width: 452px;
+	height: 69px;
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	margin-left: -226px;
+}
+.checkbox{
+		height: 20px;
+	line-height: 20px;
+}
+.checkbox input{
+	width: 20px;
+	height: 20px;
+}
+.thelogin{
+	padding: 0 20px;
+}
+/*登录结束*/
