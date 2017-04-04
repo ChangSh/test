@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.test.edusys.common.utils.spring.SpringContextHolder;
 import com.test.edusys.system.service.CodeDicService;
+
 /**
  * 分页标签.
  * 
@@ -21,17 +22,16 @@ public class SelectTag extends TagSupport {
 
 	private static final long serialVersionUID = -5784043607741818040L;
 
-
 	private String name;
 	private String id;
 	private String defaultName;
-	private boolean showTorF;//显示是否2个选项
+	private boolean showTorF;// 显示是否2个选项
 	private String sectionname;//
 	private String value;//
 	private String cssClass;//
 	private String label;//
-	private String items;//以字符串显示所有option  key@value#
-	
+	private String items;// 以字符串显示所有option key@value#
+	private String onchange;
 
 	/*
 	 * (non-Javadoc)
@@ -42,7 +42,7 @@ public class SelectTag extends TagSupport {
 	public int doEndTag() throws JspException {
 		JspWriter out = pageContext.getOut();
 		try {
-			//out.println(buildStyles());
+			// out.println(buildStyles());
 			out.println(buildPage());
 			out.println(buildScript());
 		} catch (IOException e) {
@@ -52,79 +52,86 @@ public class SelectTag extends TagSupport {
 		return super.doEndTag();
 	}
 
+	@SuppressWarnings("rawtypes")
 	private String buildPage() {
-		if (StringUtils.isEmpty(value) && pageContext.getRequest().getAttribute(name)!=null){
-			//System.out.println(pageContext.getRequest().getAttribute(name));
-			value= pageContext.getRequest().getAttribute(name).toString();
+		if (StringUtils.isEmpty(value) && pageContext.getRequest().getAttribute(name) != null) {
+			// System.out.println(pageContext.getRequest().getAttribute(name));
+			value = pageContext.getRequest().getAttribute(name).toString();
 		}
-		//pages
+		// pages
 		StringBuffer pageBuffer = new StringBuffer();
-		if (StringUtils.isNotEmpty(label)){
+		if (StringUtils.isNotEmpty(label)) {
 			pageBuffer.append("<p>");
-			pageBuffer.append("<label>"+label+"：</label>");
+			pageBuffer.append("<label>" + label + "：</label>");
 		}
-			
+
 		pageBuffer.append("<select");
 		pageBuffer.append(" name=\"").append(name).append("\"");
-		if (id ==null){
+		if (id == null) {
 			pageBuffer.append(" id=\"").append(name).append("\"");
-		}else{
+		} else {
 			pageBuffer.append(" id=\"").append(id).append("\"");
 		}
-		if (cssClass !=null){
+		if (cssClass != null) {
 			pageBuffer.append(" class=\"").append(cssClass).append("\"");
+		}
+		if (onchange != null) {
+			pageBuffer.append(" onchange= \"");
+			pageBuffer.append(onchange);
+			pageBuffer.append("\"");
 		}
 		pageBuffer.append(" >\n");
 
-		if (defaultName !=null){//默认选项
+		if (defaultName != null) {// 默认选项
 			pageBuffer.append("<option value=\"\" >");
 			pageBuffer.append(defaultName);
 			pageBuffer.append("</option>");
 		}
-		if (items !=null){
+		if (items != null) {
 			String[] strs = items.split("#");
 			for (String str : strs) {
 				String[] in_str = str.split("@");
-				pageBuffer.append("<option value=\""+in_str[0]+"\" ");
-				if (StringUtils.isNotEmpty(in_str[0]) && in_str[0].equals(value)){
+				pageBuffer.append("<option value=\"" + in_str[0] + "\" ");
+				if (StringUtils.isNotEmpty(in_str[0]) && in_str[0].equals(value)) {
 					pageBuffer.append(" selected=\"selected\" ");
 				}
-				pageBuffer.append(">"+in_str[1]+"</option>");
+				pageBuffer.append(">" + in_str[1] + "</option>");
 			}
 		}
-		if (sectionname !=null){
-			//Map<String, String> codemap = (Map<String, String>)pageContext.getSession().getServletContext().getAttribute("codeMap");
-			CodeDicService codeDicService = (CodeDicService)SpringContextHolder.getBean("codeDicService"); //即可取到bean  
+		if (sectionname != null) {
+			// Map<String, String> codemap = (Map<String,
+			// String>)pageContext.getSession().getServletContext().getAttribute("codeMap");
+			CodeDicService codeDicService = (CodeDicService) SpringContextHolder.getBean("codeDicService"); // 即可取到bean
 			Map<String, String> map = codeDicService.getRealCodeMapBySectionName(sectionname);
-			Iterator it = map.entrySet().iterator();
+			Iterator<?> it = map.entrySet().iterator();
 			while (it.hasNext()) {
 				Map.Entry key = (Entry) it.next();
-				pageBuffer.append("<option value=\""+key.getKey()+"\" ");
-				if (key.getKey().equals(value)){
+				pageBuffer.append("<option value=\"" + key.getKey() + "\" ");
+				if (key.getKey().equals(value)) {
 					pageBuffer.append(" selected=\"selected\" ");
 				}
-				pageBuffer.append(">"+key.getValue()+"</option>");
+				pageBuffer.append(">" + key.getValue() + "</option>");
 			}
 		}
-		if (showTorF){
+		if (showTorF) {
 			String selected1 = "";
 			String selected2 = "";
-			if ("1".equals(value)){
-				selected1= " selected=\"selected\" ";
+			if ("1".equals(value)) {
+				selected1 = " selected=\"selected\" ";
 			}
-			if ("0".equals(value)){
-				selected2= " selected=\"selected\" ";
+			if ("0".equals(value)) {
+				selected2 = " selected=\"selected\" ";
 			}
-			pageBuffer.append(String.format("<option value=\"1\" %s >是</option>",selected1));
-			pageBuffer.append(String.format("<option value=\"0\" %s >否</option>",selected2));
+			pageBuffer.append(String.format("<option value=\"1\" %s >是</option>", selected1));
+			pageBuffer.append(String.format("<option value=\"0\" %s >否</option>", selected2));
 		}
 		pageBuffer.append("</select>");
-		if (StringUtils.isNotEmpty(label)){
+		if (StringUtils.isNotEmpty(label)) {
 			pageBuffer.append("</p>");
 		}
-		
-		//标签有缓存，所以需要重置成默认值
-		value =null;
+
+		// 标签有缓存，所以需要重置成默认值
+		value = null;
 		return pageBuffer.toString();
 	}
 
@@ -210,6 +217,12 @@ public class SelectTag extends TagSupport {
 		this.items = items;
 	}
 
-	
-	
+	public String getOnchange() {
+		return onchange;
+	}
+
+	public void setOnchange(String onchange) {
+		this.onchange = onchange;
+	}
+
 }

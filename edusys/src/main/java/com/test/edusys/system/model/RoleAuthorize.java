@@ -4,30 +4,30 @@ import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
 import org.nutz.dao.entity.annotation.Table;
 
-
-@Table("t_system_role_authorize") 
+@Table("t_system_role_authorize")
 public class RoleAuthorize {
-	
+
 	@Id
-	private Integer id = null;// 
-	@Column("role_id") 
+	private Integer id = null;//
+	@Column("role_id")
 	private Long role_id = null;// 角色Id
-	@Column("auth_id") 
+	@Column("auth_id")
 	private Long auth_id = null;// 权限id
-	
-	
-	//---------------------------------
-	public RoleAuthorize() {}
-	
+
+	// ---------------------------------
+	public RoleAuthorize() {
+	}
+
 	public RoleAuthorize(long role_id, long auth_id) {
 		super();
 		this.role_id = role_id;
 		this.auth_id = auth_id;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -47,6 +47,5 @@ public class RoleAuthorize {
 	public void setAuth_id(Long auth_id) {
 		this.auth_id = auth_id;
 	}
-
 
 }

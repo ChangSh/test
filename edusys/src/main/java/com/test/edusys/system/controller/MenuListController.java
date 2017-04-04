@@ -23,7 +23,7 @@ public class MenuListController {
 	private MenuGetService service;
 	@RequestMapping("/getmenu")
 	@ResponseBody
-	public Map getmenu(String userid,HttpServletRequest req){
+	public Map<String, Object> getmenu(String userid,HttpServletRequest req){
 		String html="";
 		req.getContextPath();
 		List<Menu>menumodelgen=service.QuerymenuGenbasicuserid(userid);
@@ -55,7 +55,7 @@ public class MenuListController {
 		 html += "</ul>";
 		 
 		 
-		 Map map = new HashMap();
+		 Map<String, Object> map = new HashMap<String, Object>();
 	     map.put("html",html);
 		 return map;	
 	}	

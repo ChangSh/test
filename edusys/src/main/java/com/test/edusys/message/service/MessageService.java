@@ -1,16 +1,12 @@
 package com.test.edusys.message.service;
 
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.nutz.dao.Cnd;
-import org.nutz.dao.Condition;
 import org.nutz.dao.Dao;
-
-import org.nutz.dao.sql.*;
+import org.nutz.dao.sql.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +14,7 @@ import com.test.edusys.common.service.BaseService;
 import com.test.edusys.common.utils.NewPager;
 import com.test.edusys.common.utils.TimeUtil;
 import com.test.edusys.common.utils.UserUtils;
-import com.test.edusys.customer.model.Customer;
-import com.test.edusys.goods.model.Goods;
 import com.test.edusys.goods.model.Msg;
-import com.test.edusys.goods.model.PicFile;
 
 
 

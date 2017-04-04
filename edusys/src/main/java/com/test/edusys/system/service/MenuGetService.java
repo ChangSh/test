@@ -64,9 +64,8 @@ public class MenuGetService {
 	    });
 		
 		 dao.execute(sql);
-		 return sql.getList(Menu.class);
-		
-			
+		return sql.getList(Menu.class);
+
 	}
 
 }

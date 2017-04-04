@@ -8,6 +8,7 @@
 	
 	<tag>   
 		<name>select</name>
+		<tag-class>com.test.edusys.common.tag.SelectTag</tag-class>
 		<body-content>JSP</body-content>
 		
 		<attribute>
@@ -69,6 +70,13 @@
 		<attribute>
 			<description>items</description>
 			<name>items</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description>onchange</description>
+			<name>onchange</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>java.lang.String</type>

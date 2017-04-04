@@ -14,24 +14,22 @@ import com.test.edusys.common.service.BaseService;
 import com.test.edusys.common.utils.NewPager;
 import com.test.edusys.system.model.Authorize;
 
-
-
 @Service
 public class AuthorizeService extends BaseService {
-	
+
 	@Autowired
 	private Dao dao;
 
 	public int delete(Integer id) {
-		return super.delete(Authorize.class,id);
+		return super.delete(Authorize.class, id);
 	}
 
 	public Authorize insert(Authorize record) {
-		return (Authorize)super.insert(record);
+		return (Authorize) super.insert(record);
 	}
 
 	public Authorize fetch(Integer id) {
-		return dao.fetch(Authorize.class,id);
+		return dao.fetch(Authorize.class, id);
 	}
 
 	public int updateIgnoreNull(Authorize record) {
@@ -42,19 +40,19 @@ public class AuthorizeService extends BaseService {
 		return super.update(record);
 	}
 
-	public List<Authorize> query(Condition c){
-		return dao.query(Authorize.class,c, null);
+	public List<Authorize> query(Condition c) {
+		return dao.query(Authorize.class, c, null);
 	}
-	
-	public Map<String,Object> queryPage(NewPager page){
+
+	public Map<String, Object> queryPage(NewPager page) {
 		Criteria cri = getCriteriaFromPage(page);
-		
-	    List<Authorize> list = dao.query(Authorize.class, cri, page);
-	    page.setRecordCount(dao.count(Authorize.class, cri));
-	    Map<String,Object> map = new HashMap<String,Object>();
+
+		List<Authorize> list = dao.query(Authorize.class, cri, page);
+		page.setRecordCount(dao.count(Authorize.class, cri));
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("Total", page.getRecordCount());
 		map.put("Rows", list);
-	    return map;
+		return map;
 	}
-	
+
 }

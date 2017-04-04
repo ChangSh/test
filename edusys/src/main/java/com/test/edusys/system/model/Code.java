@@ -10,13 +10,13 @@ import com.test.edusys.common.utils.reflection.ShowLogTablename;
 
 @ShowLogTablename("代码")
 @Table("t_system_codedic")
-public class Code implements java.io.Serializable{
+public class Code implements java.io.Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6451042982273924032L;
 	@Id
-	private	Integer id = null;
+	private Integer id = null;
 	@Comment("组代码")
 	@Column
 	private String sectionname = null; // 全局类型名称
@@ -33,17 +33,19 @@ public class Code implements java.io.Serializable{
 	@Comment("顺序")
 	@Column
 	private String sortorder = null;// 说明
-	
-	
+
 	public String getSortorder() {
 		return sortorder;
 	}
+
 	public void setSortorder(String sortorder) {
 		this.sortorder = sortorder;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -51,26 +53,33 @@ public class Code implements java.io.Serializable{
 	public String getSectionname() {
 		return sectionname;
 	}
+
 	public void setSectionname(String sectionname) {
 		this.sectionname = sectionname;
 	}
+
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	public String getCodename() {
 		return codename;
 	}
+
 	public void setCodename(String codename) {
 		this.codename = codename;
 	}
+
 	public String getMemo() {
 		return memo;
 	}
+
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
-	
+
 }
