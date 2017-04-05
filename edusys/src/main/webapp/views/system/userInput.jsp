@@ -14,9 +14,10 @@ function checkMajor(){
 		success:function(data){
 			var html = "<select class='sod_select' name='major' id='major'>";
 				  $.each(data.list, function(i, value) {
-					  html += "<option id = '"+value.id+"'>"+value.major+"</option>";
+					  html += "<option value = '"+value.id+"'>"+value.major+"</option>";
 					});
 			html += "</select>";
+			$("#majorList").html("");
 			$("#majorList").html(html);
 		     
 		}
@@ -95,19 +96,26 @@ $(function(){
 					 </td>
 			      </tr>
 				  <tr>
+				  	  <td class="fr">邮箱：</td>
+				      <td>
+				      <input name="email" id="email" class="dfinput required"
+									value="${ob.email}" type="text" />
+					  </td>
+				  </tr>			      
+				  <tr>
 				  	  <td class="fr">手机：</td>
 				      <td>
-				      <input name="email" id="email" class="dfinput "
-									value="${ob.phone}" type="text" />
+				      <input name="phone" id="phone" class="dfinput required"
+									value="${oc.phone}" type="text" />
 					  </td>
 				  </tr>
 				  <tr><td class="fr">学院：</td>
 				      <td><f:select name="college"
-						sectionname="学院"  onchange="checkMajor()" value="${ob.college}"></f:select></td>
+						sectionname="学院"  onchange="checkMajor()" value="${oc.college}"></f:select></td>
 				  </tr>
 				  <tr><td class="fr">专业：</td>
 				      <td><div id="majorList">
-				      
+				     ${major}
 				      </div></td>
 				  </tr>
 	          </table>

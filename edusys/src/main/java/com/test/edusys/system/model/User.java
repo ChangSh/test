@@ -40,6 +40,8 @@ public class User {
 	@Column
 	private String email = null;
 
+	private String phone = null;
+
 	@Many(target = UserRole.class, field = "userid")
 	private List<UserRole> userRoles;
 
@@ -141,6 +143,14 @@ public class User {
 
 	public void setChecked(int checked) {
 		this.checked = checked;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }

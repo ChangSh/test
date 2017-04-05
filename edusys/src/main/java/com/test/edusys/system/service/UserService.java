@@ -25,6 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.test.edusys.college.model.Major;
 import com.test.edusys.common.service.BaseService;
 import com.test.edusys.common.utils.NewPager;
 import com.test.edusys.common.utils.TimeUtil;
@@ -45,6 +46,20 @@ public class UserService extends BaseService {
 
 	public int delete(Integer id) {
 		return super.delete(User.class, id);
+	}
+
+	public Customer getCustomer(String loginname) {
+		return dao.fetch(Customer.class, Cnd.where("loginname", "=", loginname));
+	}
+
+	public Major getMajor(String id) {
+		return dao.fetch(Major.class, id);
+	}
+
+	public void insert(User user, Customer record) {
+		// 首先保存用户生成id
+		dao.insert(user);
+		dao.insert(record);
 	}
 
 	public User insert(User record) {
@@ -91,8 +106,13 @@ public class UserService extends BaseService {
 		return super.update(record);
 	}
 
-	public int updateIgnoreNull(User record) {
-		return super.updateIgnoreNull(record);
+	public int updateIgnoreNull(User user, Customer record) {
+
+		Customer c = dao.fetch(Customer.class, Cnd.where("loginname", "=", record.getLoginname()));
+		record.setId(c.getId());
+		dao.updateIgnoreNull(record);
+		dao.updateIgnoreNull(user);
+		return 1;
 	}
 
 	public Map<String, Object> queryPage(NewPager page) {

@@ -40,7 +40,7 @@ function f_add(){
 	layer.open({
 	    type: 2,
 	    title: ' ',
-	    area: ['600px', '350px'],
+	    area: ['600px', '450px'],
 	    content: '${ctx}/views/system/userInput.jsp' 
 	}); 
 }

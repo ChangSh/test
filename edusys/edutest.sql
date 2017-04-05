@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-04-05 01:23:54
+Date: 2017-04-06 00:35:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -171,8 +171,11 @@ CREATE TABLE `t_customer` (
 -- ----------------------------
 INSERT INTO `t_customer` VALUES ('09e2a961-5d6d-4347-8b46-86c4c20750e2', '20160225134508', '刘诗诗', '12824342434', '2016-02-29 04:45:08', null, null, null, null, null);
 INSERT INTO `t_customer` VALUES ('131e69d4-081a-41b4-ba87-6dded8f430fa', '20160225134443', '吴奇隆', '15824322432', '2016-02-29 04:44:43', null, null, null, null, null);
+INSERT INTO `t_customer` VALUES ('44738020-3043-41e9-b5c8-68dacf8d8838', null, '0405', '13163155021', null, '0405', '236efe36-7863-4bf6-8e9a-262295e49487', 'c609ce59-0f8a-4d44-8ea8-b24d1b008a95', null, null);
+INSERT INTO `t_customer` VALUES ('546c7ef3-df64-45ee-9f83-69e7357b672c', '201755d8', '0405011', '13163155021', '2017-04-06 00:04:15.88', '0405011', 'add4623e-4965-45b8-a9ba-1d0bd0979a36', 'ccc', null, null);
 INSERT INTO `t_customer` VALUES ('5a393a39-43be-4313-a43c-3aa920b3efb3', '20160225134132', '周杰伦', '13163155021', '2016-02-29 04:41:32', null, null, null, null, null);
 INSERT INTO `t_customer` VALUES ('631446d7-dec8-4234-8561-6f93c2b35aab', '20160225134222', '马天宇', '13820977321', '2016-02-29 04:42:22', null, null, null, null, null);
+INSERT INTO `t_customer` VALUES ('7dec6c9e-a51e-43a7-9802-30eb864ddc8a', null, '040501', '13163155021', '2017-04-06 00:00:45.368', '040501', '236efe36-7863-4bf6-8e9a-262295e49487', 'c609ce59-0f8a-4d44-8ea8-b24d1b008a95', null, null);
 INSERT INTO `t_customer` VALUES ('9d2c5e75-afa8-4409-9784-50263469602b', '20160225134201', '王力宏', '13122223333', '2016-02-29 04:42:01', null, null, null, null, null);
 INSERT INTO `t_customer` VALUES ('a02362e7-bd91-4fde-8909-7569b143b680', '20160225134349', '陈伯宇', '13322334567', '2016-02-29 04:43:49', null, null, null, null, null);
 INSERT INTO `t_customer` VALUES ('b19b13f2-f8d1-4cfa-a9d4-0ac370dfb830', '20160225134245', '王小丫', '13429543124', '2016-02-29 04:42:45', null, null, null, null, null);
@@ -1089,7 +1092,7 @@ CREATE TABLE `t_system_user` (
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginname` (`loginname`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2017 DEFAULT CHARSET=utf8 COMMENT='用户信息';
+) ENGINE=InnoDB AUTO_INCREMENT=2022 DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
 -- ----------------------------
 -- Records of t_system_user
@@ -1101,7 +1104,9 @@ INSERT INTO `t_system_user` VALUES ('2011', 'add', '123', 'c4ca4238a0b923820dcc5
 INSERT INTO `t_system_user` VALUES ('2012', 'changshuhao', 'changshuhao', 'c4ca4238a0b923820dcc509a6f75849b', '2016-04-08 16:39:11', '2017-03-23 00:02:57', null, null, null);
 INSERT INTO `t_system_user` VALUES ('2014', 'zzz123', 'zzz123', 'c4ca4238a0b923820dcc509a6f75849b', '2016-04-08 16:42:00', '2017-03-23 00:02:55', null, null, null);
 INSERT INTO `t_system_user` VALUES ('2015', 'tree', 'tree', 'c4ca4238a0b923820dcc509a6f75849b', null, '2017-03-23 00:02:52', null, null, 'tree@163.com');
-INSERT INTO `t_system_user` VALUES ('2016', 'test0405', 'test0405', '96e79218965eb72c92a549dd5a330112', null, null, null, null, '');
+INSERT INTO `t_system_user` VALUES ('2019', '0405', '0405', '96e79218965eb72c92a549dd5a330112', null, null, null, null, 'changshuhao@163.com');
+INSERT INTO `t_system_user` VALUES ('2020', '040501', '040501', '96e79218965eb72c92a549dd5a330112', null, null, null, null, '13163155021@163.com');
+INSERT INTO `t_system_user` VALUES ('2021', '0405011', '0405011', '96e79218965eb72c92a549dd5a330112', '2017-04-06 00:04:16', null, null, null, 'zzz');
 
 -- ----------------------------
 -- Table structure for t_system_user_role

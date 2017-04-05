@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.test.edusys.college.model.Major;
 import com.test.edusys.common.Const;
 import com.test.edusys.common.service.MonitorRealm.Principal;
 import com.test.edusys.common.utils.Encryption;
@@ -33,6 +35,7 @@ import com.test.edusys.common.utils.SearchFilter;
 import com.test.edusys.common.utils.TimeUtil;
 import com.test.edusys.common.utils.UserUtils;
 import com.test.edusys.common.utils.web.Servlets;
+import com.test.edusys.customer.model.Customer;
 import com.test.edusys.system.model.User;
 import com.test.edusys.system.model.UserRole;
 import com.test.edusys.system.service.RoleService;
@@ -82,8 +85,16 @@ public class UserController {
 	@RequestMapping("/input")
 	public String input(HttpServletRequest request, @RequestParam(value = "id", defaultValue = "0") long id) {
 		User u = service.fetch(id);
+		Customer c = service.getCustomer(u.getLoginname());
+		if(c!=null){
+			Major m = service.getMajor(c.getMajor());
+			request.setAttribute("major", m.getMajor());
+		}else{
+			request.setAttribute("major", "");
+		}
 		request.setAttribute("ob", u);
-
+		request.setAttribute("oc", c);
+		
 		return "views/system/userInput";
 	}
 
@@ -435,19 +446,32 @@ public class UserController {
 	 */
 	@RequestMapping("/save")
 	@ResponseBody
-	public String save(User user, HttpServletRequest request,
+	public String save(User user, HttpServletRequest request, String college, String major,
 			@RequestParam(value = "sf", defaultValue = "") String[] sf) {
 		StringBuffer representflag = new StringBuffer();
 		// 先置入用户身份
 		for (String s : sf) {
 			representflag.append(s + ";");
 		}
+		Customer customer = new Customer();
+		customer.setLoginname(user.getLoginname());
+		customer.setCollege(college);
+		customer.setMajor(major);
+		customer.setName(user.getRealname());
+		customer.setPhone(user.getPhone());
+		customer.setRegistration_date(TimeUtil.getCurrentTimestamp().toString());
+		customer.setCode(TimeUtil.getCurYear()+UUID.randomUUID().toString().substring(0, 4));
+
 		user.setPassword(Encryption.hashToMD5(Const.DEFAULT_PASSWORD));// 初始默认密码
+		
 		if (user.getId() == null) {
+			user.setCjsj(TimeUtil.getCurrentTimestamp());
+			customer.setId(UUID.randomUUID().toString());
 			// user.setRepresentflag("0");
-			service.insert(user);
+			service.insert(user, customer);
 		} else {
-			service.updateIgnoreNull(user);
+			user.setXgsj(TimeUtil.getCurrentTimestamp());
+			service.updateIgnoreNull(user, customer);
 		}
 		return "ok";
 	}

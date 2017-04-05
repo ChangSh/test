@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.test.edusys.college.model.College;
+import com.test.edusys.college.model.Major;
 import com.test.edusys.common.service.BaseService;
 import com.test.edusys.common.utils.NewPager;
 import com.test.edusys.system.model.Code;
