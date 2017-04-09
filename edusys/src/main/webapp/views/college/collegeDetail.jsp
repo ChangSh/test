@@ -10,7 +10,7 @@
 		window.location.href = '${ctx}/views/college/collegeList.jsp'
 	}
 </script>
-<title>客户信息</title>
+<title>学院信息</title>
 </head>
 <body>
 	<div class="content">

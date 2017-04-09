@@ -1,0 +1,74 @@
+.pagination {
+ 
+padding-top: 5px;
+        }
+.pagination span,.pagination a{
+	font-size: 12px;
+	text-align:center;
+}        
+.pagination a {
+    text-decoration: none;
+	/*border: solid 1px #AAE;*/
+	color: #15B;
+	text-align:center;
+}
+
+.pagination a, .pagination span {
+    display: block;
+    float: left;
+    padding: 0.3em 0.5em;
+   /* margin-right: 8px;*/
+	margin-bottom: 5px;
+	min-width:1em;
+	text-align:center;
+	color: #717171;
+}
+
+.pagination .current {
+    color: #fff;
+	/*border: solid 1px #AAE;*/
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#999;
+	border-color:#999;
+	background:#fff;
+}
+
+.pagination .current .page_current_l{
+	width:9px;
+	height:21px;
+	position:relative;
+	float:left;
+	/*background:url(images/page_current_l.png) no-repeat;*/
+}
+
+.pagination .current .page_current_r{
+	/*width:9px;*/
+	height:21px;
+	float:left;
+	position:relative;
+	/*background:url(../images/page_current_r.png) no-repeat;*/
+}
+
+.pagination .current .page_current_m{
+	width: 20px;
+	height:20px;
+	position:relative;
+	float:left;
+	background:#e2e2e2;
+	color:#717171;
+	border: 1px solid #CCCCCC;
+}
+
+.pagination .prev div{
+	width:56px;
+	height:36px;
+	background:url(../images/page_prev.png) no-repeat top;
+}
+
+.pagination .next div{
+	width:56px;
+	height:36px;
+	background:url(../images/page_next.png) no-repeat top;
+}

@@ -23,7 +23,6 @@ import com.test.edusys.college.model.College;
 import com.test.edusys.college.model.Major;
 import com.test.edusys.common.service.BaseService;
 import com.test.edusys.common.utils.NewPager;
-import com.test.edusys.customer.model.Customer;
 
 @Service
 public class CollegeMajorService extends BaseService {

@@ -107,8 +107,8 @@ public class UserService extends BaseService {
 	}
 
 	public int updateIgnoreNull(User user, Customer record) {
-
 		Customer c = dao.fetch(Customer.class, Cnd.where("loginname", "=", record.getLoginname()));
+		record.setCode(c.getCode());
 		record.setId(c.getId());
 		dao.updateIgnoreNull(record);
 		dao.updateIgnoreNull(user);

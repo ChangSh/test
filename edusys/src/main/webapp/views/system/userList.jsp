@@ -31,7 +31,7 @@ function f_edit(id){
 	layer.open({
 	    type: 2,
 	    title: ' ',
-	    area: ['600px', '350px'],
+	    area: ['600px', '400px'],
 	    content: '${ctx}/system/user/input.do?id='+id
 	}); 
 }

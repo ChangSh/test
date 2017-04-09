@@ -13,7 +13,7 @@
 				width : 2
 			},
 			{
-				display : '客户编号',
+				display : '学号/教职编号',
 				name : 'code',
 				width : 8
 			},
@@ -76,7 +76,7 @@
 </head>
 <body>
 	<div class="content">
-		<div class="tit">客户信息列表</div>
+		<div class="tit">信息列表</div>
 		<div class="tit_down">
 		<form id="fromdr">
 		<input type="file"  id="fileinput" name="file" style="display:none" onchange="fileUpload()"/>
@@ -85,7 +85,7 @@
 						
 			<ul class="select">
 
-					<li><label class="fl">客户编号：</label><input type="text"
+					<li><label class="fl">学号/教职编号：</label><input type="text"
 						placeholder="模糊查询..." name="search_LIKE@code"></li>
 					<li><label class="fl">姓名：</label><input type="text"
 						placeholder="模糊查询..." name="search_LIKE@name"></li>

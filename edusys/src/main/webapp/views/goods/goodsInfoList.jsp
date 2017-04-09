@@ -107,6 +107,18 @@ Free.getCodeNames("${ctx}","分类");
 			}); 
 		   
 	}
+	function addedu(){
+		   layer.open({
+			    type: 2,
+			    title: '选择课题',
+			    shadeClose: true,
+			    shade: 0.8,
+			    offset: ['50px', '50px'], 
+			    area: ['1000px', '500px'],
+			    content:'${ctx}/views/stus/topicList.jsp'//'${ctx}/buildingPackAdmin/building/findBuildingInfo.do'
+			}); 
+		   
+	}
 </script>
 </head>
 <body>
@@ -134,6 +146,7 @@ Free.getCodeNames("${ctx}","分类");
 				<button class="btn1"
 					onclick="window.location='${ctx}/views/goods/goodsNew.jsp'">+新增商品</button>
 					<button class="btn1" onclick="addFenlei()">+新增分类</button>
+					<button class="btn1" onclick="addedu()">+</button>
 			</div>
 			<div class="clear"></div>
 			

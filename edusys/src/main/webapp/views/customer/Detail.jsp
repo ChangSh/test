@@ -10,18 +10,18 @@
 		window.location.href = '${ctx}/views/customer/InfoList.jsp'
 	}
 </script>
-<title>客户信息</title>
+<title>人员信息</title>
 </head>
 <body>
 	<div class="content">
-		<div class="tit">客户信息</div>
+		<div class="tit">人员信息</div>
 		<div class="tit_down">
 			<form id="form">
 				<table width="100%" class="table2">
 					<tr>
-						<td width="15%"><label for="" class="lb">客户姓名：</label></td>
+						<td width="15%"><label for="" class="lb">姓名：</label></td>
 						<td width="30%">${ob.name}</td>
-						<td width="15%"><label for="" class="lb">客户编号：</label></td>
+						<td width="15%"><label for="" class="lb">编号：</label></td>
 						<td width="30%"><p>${ob.code}</p></td>
 					</tr>
 					<tr>

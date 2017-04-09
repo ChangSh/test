@@ -86,15 +86,15 @@ public class UserController {
 	public String input(HttpServletRequest request, @RequestParam(value = "id", defaultValue = "0") long id) {
 		User u = service.fetch(id);
 		Customer c = service.getCustomer(u.getLoginname());
-		if(c!=null){
+		if (c != null) {
 			Major m = service.getMajor(c.getMajor());
 			request.setAttribute("major", m.getMajor());
-		}else{
+		} else {
 			request.setAttribute("major", "");
 		}
 		request.setAttribute("ob", u);
 		request.setAttribute("oc", c);
-		
+
 		return "views/system/userInput";
 	}
 
@@ -459,15 +459,13 @@ public class UserController {
 		customer.setMajor(major);
 		customer.setName(user.getRealname());
 		customer.setPhone(user.getPhone());
-		customer.setRegistration_date(TimeUtil.getCurrentTimestamp().toString());
-		customer.setCode(TimeUtil.getCurYear()+UUID.randomUUID().toString().substring(0, 4));
-
 		user.setPassword(Encryption.hashToMD5(Const.DEFAULT_PASSWORD));// 初始默认密码
-		
+
 		if (user.getId() == null) {
+			customer.setRegistration_date(TimeUtil.getCurrentTimestamp().toString());
+			customer.setCode(TimeUtil.getCurYear() + UUID.randomUUID().toString().substring(0, 4));
 			user.setCjsj(TimeUtil.getCurrentTimestamp());
 			customer.setId(UUID.randomUUID().toString());
-			// user.setRepresentflag("0");
 			service.insert(user, customer);
 		} else {
 			user.setXgsj(TimeUtil.getCurrentTimestamp());
