@@ -100,7 +100,7 @@ function jiesuan(){
   <div class="navbar-inner">
     <a class="brand" href="#">会员中心</a>
     <ul class="nav">  
-     <li ><a href="buycart.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的购物车</a></li>
+     <li ><a href="buycart.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的喜欢</a></li>
     <li class="active"><a href="#" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的订单</a></li>
    
 		<li class=" dropdown">
