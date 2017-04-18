@@ -8,13 +8,10 @@ public class CargoChild {
 	private String id;
 	@Column
 	private String pid;// 主表ID
-
 	@Column
 	private String gid;// 进货总额
-
 	@Column
 	private double cargounitprice;// 进货单价
-
 	@Column
 	private int cargoamount; // 进货数量
 

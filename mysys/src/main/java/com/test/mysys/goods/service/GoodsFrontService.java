@@ -69,7 +69,7 @@ public class GoodsFrontService extends BaseService {
 		return map;
 	}
 
-	public List findCart() {
+	public List<GoodsDetailVo> findCart() {
 		String str = " SELECT * FROM (SELECT * FROM t_buycart WHERE loginname= '" + UserUtils.getUser().getLoginname()
 				+ "' AND issettle=0) t LEFT JOIN t_goods ON t.gid=t_goods.id LEFT JOIN t_file ON t.gid=t_file.fileid ";
 		Sql sql = Sqls.create(str);
@@ -95,7 +95,7 @@ public class GoodsFrontService extends BaseService {
 		return list;
 	}
 
-	public List findOrder() {
+	public List<GoodsDetailVo> findOrder() {
 		String str = " SELECT * FROM t_order  LEFT JOIN t_goods ON t_order.gid=t_goods.id LEFT JOIN t_file ON t_order.gid=t_file.fileid WHERE loginname= '"
 				+ UserUtils.getUser().getLoginname() + "'";
 		Sql sql = Sqls.create(str);
@@ -171,7 +171,7 @@ public class GoodsFrontService extends BaseService {
 	 * return dao.insert(cart); }
 	 */
 
-	public List guess() {
+	public List<GoodsDetailVo> guess() {
 		Condition c = Cnd.wrap(" WHERE 1=1  ORDER BY gclick  DESC LIMIT 0,4 ");
 		return dao.query(GoodsDetailVo.class, c);
 
@@ -182,9 +182,8 @@ public class GoodsFrontService extends BaseService {
 		return dao.fetch(GoodsDetailVo.class, cnd);
 	}
 
-	public List fenleiList() {
+	public List<Code> fenleiList() {
 		Condition cnd = Cnd.wrap(" sectionname = '分类' ");
-		List l = dao.query(Code.class, cnd);
-		return l;
+		return dao.query(Code.class, cnd);
 	}
 }

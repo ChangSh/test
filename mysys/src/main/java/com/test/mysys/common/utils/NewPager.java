@@ -9,17 +9,22 @@ import java.util.Map;
 
 import org.nutz.dao.pager.Pager;
 
-public class NewPager extends Pager { 
+public class NewPager extends Pager {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String ASC = "asc";
 	public static final String DESC = "desc";
-	
+
 	private Map<String, SearchFilter> filters;
-	private String order;//DESC ASC
-	private String orderBy;//排序字段
-	private String[] orders;//多个排序字段  key为字段 value 为asc  new String[]{"hc", pager.DESC,"filename", pager.ASC}
-	
-	//---------------------------------
+	private String order;// DESC ASC
+	private String orderBy;// 排序字段
+	private String[] orders;// 多个排序字段 key为字段 value 为asc new String[]{"hc",
+							// pager.DESC,"filename", pager.ASC}
+
+	// ---------------------------------
 
 	public Map<String, SearchFilter> getFilters() {
 		return filters;
@@ -53,6 +58,4 @@ public class NewPager extends Pager {
 		this.orders = orders;
 	}
 
-	
-	
 }

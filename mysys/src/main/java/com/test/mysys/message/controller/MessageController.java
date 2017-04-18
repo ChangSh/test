@@ -27,7 +27,8 @@ public class MessageController {
 
 	@RequestMapping("/ajax_list")
 	@ResponseBody
-	public Map msg_list(HttpServletRequest request, @RequestParam(value = "page", defaultValue = "1") int page,
+	public Map<String, Object> msg_list(HttpServletRequest request,
+			@RequestParam(value = "page", defaultValue = "1") int page,
 			@RequestParam(value = "pagesize", defaultValue = "10") int pageSize) throws ParseException {
 		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
 		Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);

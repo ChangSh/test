@@ -15,8 +15,8 @@ import net.sf.ehcache.Element;
  * Cache工具类
  */
 public class CacheUtils {
-	
-	private static CacheManager cacheManager = ((CacheManager)SpringContextHolder.getBean("cacheManager"));
+
+	private static CacheManager cacheManager = ((CacheManager) SpringContextHolder.getBean("cacheManager"));
 
 	private static final String SYS_CACHE = "sysCache";
 
@@ -31,10 +31,10 @@ public class CacheUtils {
 	public static void remove(String key) {
 		remove(SYS_CACHE, key);
 	}
-	
+
 	public static Object get(String cacheName, String key) {
 		Element element = getCache(cacheName).get(key);
-		return element==null?null:element.getObjectValue();
+		return element == null ? null : element.getObjectValue();
 	}
 
 	public static void put(String cacheName, String key, Object value) {
@@ -45,15 +45,16 @@ public class CacheUtils {
 	public static void remove(String cacheName, String key) {
 		getCache(cacheName).remove(key);
 	}
-	
+
 	/**
 	 * 获得一个Cache，没有则创建一个。
+	 * 
 	 * @param cacheName
 	 * @return
 	 */
-	public static Cache getCache(String cacheName){
+	public static Cache getCache(String cacheName) {
 		Cache cache = cacheManager.getCache(cacheName);
-		if (cache == null){
+		if (cache == null) {
 			cacheManager.addCache(cacheName);
 			cache = cacheManager.getCache(cacheName);
 			cache.getCacheConfiguration().setEternal(true);
@@ -64,5 +65,5 @@ public class CacheUtils {
 	public static CacheManager getCacheManager() {
 		return cacheManager;
 	}
-	
+
 }

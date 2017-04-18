@@ -70,6 +70,7 @@ public class TimeUtil {
 		}
 		return String.valueOf(rtn);
 	}
+
 	/**
 	 * 返回上报月份
 	 * 
@@ -79,10 +80,10 @@ public class TimeUtil {
 	public static String getCurReportMonth() {
 		Calendar cal = Calendar.getInstance();
 		int month = cal.get(Calendar.MONTH) + 1;
-		if (cal.get(Calendar.DATE)>=20){
-			month=1;
-		}else{
-			month=2;
+		if (cal.get(Calendar.DATE) >= 20) {
+			month = 1;
+		} else {
+			month = 2;
 		}
 		String reportDate = "";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
@@ -97,6 +98,7 @@ public class TimeUtil {
 		}
 		return reportDate;
 	}
+
 	/**
 	 * 返回当前日期
 	 * 
@@ -209,7 +211,7 @@ public class TimeUtil {
 		int year = cal.get(Calendar.YEAR) - n;
 		return (year + "-01-01");
 	}
-	
+
 	public static String getDateBeforeYear(int n) {
 		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
 		String now = f.format(new Date());
@@ -292,30 +294,33 @@ public class TimeUtil {
 		}
 		return threeMonths;
 	}
-	
+
 	/**
 	 * 得到当前时间加上秒数
+	 * 
 	 * @param ms
 	 * @return
 	 */
 	public static String getStringTimestampAddSecond(int ms) {
-		Date date = new Date(System.currentTimeMillis()+ms);
+		Date date = new Date(System.currentTimeMillis() + ms);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return sdf.format(date);
 	}
+
 	public static String getStringTimestamp() {
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return sdf.format(date);
 	}
-	public static String getTimeString(){
+
+	public static String getTimeString() {
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		return sdf.format(date);
 	}
+
 	/***
-	 * 按计生委统计方法，取年度
-	 * 需要spring容器，lastDayOfYearStr需从数据库中获取
+	 * 按计生委统计方法，取年度 需要spring容器，lastDayOfYearStr需从数据库中获取
 	 */
 	public static int getJswYear() {
 		Calendar c = Calendar.getInstance();
@@ -324,12 +329,14 @@ public class TimeUtil {
 		} else {
 			return c.get(Calendar.YEAR);
 		}
-				
-				// 不从数据库里取
-//		SystemConfigService systemConfigService = SpringContextHolder.getBean(SystemConfigService.class);
-//		String lastDayOfYearStr = systemConfigService.getConfigValue("LAST_DAY_OF_YEAR");
-//		Date lastDayOfYearDate = strToDate(lastDayOfYearStr);
-//		return getYear(lastDayOfYearDate);
+
+		// 不从数据库里取
+		// SystemConfigService systemConfigService =
+		// SpringContextHolder.getBean(SystemConfigService.class);
+		// String lastDayOfYearStr =
+		// systemConfigService.getConfigValue("LAST_DAY_OF_YEAR");
+		// Date lastDayOfYearDate = strToDate(lastDayOfYearStr);
+		// return getYear(lastDayOfYearDate);
 	}
 
 	public static int getJswYear(String date) {
@@ -372,16 +379,19 @@ public class TimeUtil {
 	 */
 	public static Integer getCurQuarter() {
 		Integer month = Integer.valueOf(getCurMonth());
-		return  getCurQuarter(month);
+		return getCurQuarter(month);
 	}
+
 	public static Integer getCurYear(String dateStr) {
-		Date date = strToDate( dateStr); 
-		return  date.getYear();
+		Date date = strToDate(dateStr);
+		return date.getYear();
 	}
+
 	public static Integer getCurQuarter(String dateStr) {
-		Date date = strToDate( dateStr); 
-		return  getCurQuarter(date.getMonth()+1);
+		Date date = strToDate(dateStr);
+		return getCurQuarter(date.getMonth() + 1);
 	}
+
 	/**
 	 * 取当前时间季度
 	 */
@@ -401,7 +411,7 @@ public class TimeUtil {
 		}
 		return quarter;
 	}
-	
+
 	public static Date strToDate(String dateStr) {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		ParsePosition pos = new ParsePosition(0);
@@ -433,6 +443,7 @@ public class TimeUtil {
 
 	/**
 	 * 将一个日期时间转化为午夜时间，即 23:59:59秒
+	 * 
 	 * @param date
 	 */
 	public static Date dateToMidnight(Date date) {
@@ -447,12 +458,12 @@ public class TimeUtil {
 
 	public static String getLastModay(Date date) {
 		Calendar cal = Calendar.getInstance();
-		//n为推迟的周数，1本周，-1向前推迟一周，2下周，依次类推
+		// n为推迟的周数，1本周，-1向前推迟一周，2下周，依次类推
 		int n = -1;
 		String monday;
-		cal.add(Calendar.DATE, n*7);
-		//想周几，这里就传几Calendar.MONDAY（TUESDAY...）
-		cal.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);
+		cal.add(Calendar.DATE, n * 7);
+		// 想周几，这里就传几Calendar.MONDAY（TUESDAY...）
+		cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 		monday = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
 		return monday;
 	}

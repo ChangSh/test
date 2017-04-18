@@ -7,16 +7,21 @@ package com.test.mysys.common.utils;
 
 import org.nutz.dao.pager.Pager;
 
-public class Pagination extends Pager { 
+public class Pagination extends Pager {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String ASC = "asc";
 	public static final String DESC = "desc";
-	
-	private String order;//DESC ASC
-	private String orderBy;//排序字段
-	private String[] orders;//多个排序字段  key为字段 value 为asc  new String[]{"hc", pager.DESC,"filename", pager.ASC}
-	
-	//---------------------------------
+
+	private String order;// DESC ASC
+	private String orderBy;// 排序字段
+	private String[] orders;// 多个排序字段 key为字段 value 为asc new String[]{"hc",
+							// pager.DESC,"filename", pager.ASC}
+
+	// ---------------------------------
 	public String getOrder() {
 		return order;
 	}
@@ -41,6 +46,4 @@ public class Pagination extends Pager {
 		this.orders = orders;
 	}
 
-	
-	
 }

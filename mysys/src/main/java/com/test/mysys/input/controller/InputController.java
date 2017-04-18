@@ -56,7 +56,8 @@ public class InputController {
 	 */
 	@RequestMapping("/addGoods")
 	@ResponseBody
-	public Map addGoods(HttpServletRequest request, @RequestParam(value = "pid", defaultValue = "1") String pid,
+	public Map<String, Object> addGoods(HttpServletRequest request,
+			@RequestParam(value = "pid", defaultValue = "1") String pid,
 			@RequestParam(value = "cid", defaultValue = "0") String goodsid,
 			@RequestParam(value = "jj", defaultValue = "0") double inputprice,
 			@RequestParam(value = "amount", defaultValue = "0") int amount) {
@@ -69,7 +70,7 @@ public class InputController {
 		cargo_c.setGid(goodsid);
 		service.insertChild(cargo_c);
 		service.sumTotal(pid, amount, inputprice);
-		Map map = new HashMap();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("info", "添加成功");
 
 		return map;
@@ -78,7 +79,8 @@ public class InputController {
 	// 显示子表的信息
 	@RequestMapping("/ajax_ChildList")
 	@ResponseBody
-	public Map listDetail(HttpServletRequest request, @RequestParam(value = "pid", defaultValue = "1") String pid,
+	public Map<String, Object> listDetail(HttpServletRequest request,
+			@RequestParam(value = "pid", defaultValue = "1") String pid,
 			@RequestParam(value = "page", defaultValue = "1") int page,
 			@RequestParam(value = "pagesize", defaultValue = "10") int pageSize) throws ParseException {
 		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
@@ -97,7 +99,8 @@ public class InputController {
 	// 显示主表的信息
 	@RequestMapping("/ajax_ParentList")
 	@ResponseBody
-	public Map list(HttpServletRequest request, @RequestParam(value = "page", defaultValue = "1") int page,
+	public Map<String, Object> list(HttpServletRequest request,
+			@RequestParam(value = "page", defaultValue = "1") int page,
 			@RequestParam(value = "pagesize", defaultValue = "10") int pageSize) throws ParseException {
 		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
 		Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);

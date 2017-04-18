@@ -57,7 +57,7 @@ public class GoodsFrontController {
 
 	@RequestMapping("/ajax_listIndex")
 	@ResponseBody
-	public Map pagination(@RequestParam(value = "pageIndex", defaultValue = "0") int pageIndex,
+	public Map<String, Object> pagination(@RequestParam(value = "pageIndex", defaultValue = "0") int pageIndex,
 			@RequestParam(value = "pageSize", defaultValue = "15") int pageSize, HttpServletRequest request) {
 
 		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
@@ -89,7 +89,7 @@ public class GoodsFrontController {
 
 	@RequestMapping("/ajax_listFenlei")
 	@ResponseBody
-	public Map pagination_fenlei(@RequestParam(value = "pageIndex", defaultValue = "0") int pageIndex,
+	public Map<String, Object> pagination_fenlei(@RequestParam(value = "pageIndex", defaultValue = "0") int pageIndex,
 			@RequestParam(value = "pageSize", defaultValue = "15") int pageSize, String code,
 			HttpServletRequest request) {
 

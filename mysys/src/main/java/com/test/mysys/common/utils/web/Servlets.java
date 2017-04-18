@@ -18,8 +18,6 @@ import javax.servlet.ServletRequest;
  */
 public class Servlets {
 
-	
-
 	/**
 	 * 取得带相同前缀的Request Parameters, copy from spring WebUtils.
 	 * 
@@ -48,5 +46,4 @@ public class Servlets {
 		return params;
 	}
 
-	
 }

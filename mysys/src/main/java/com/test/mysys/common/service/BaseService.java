@@ -143,8 +143,9 @@ public class BaseService {
 	}
 
 	// 拼开查询条件
+	@SuppressWarnings("rawtypes")
 	public Criteria getCriteriaFromPage(NewPager page) {
-		Iterator it = page.getFilters().entrySet().iterator();
+		Iterator<?> it = page.getFilters().entrySet().iterator();
 		Criteria cri = Cnd.cri();
 		while (it.hasNext()) {
 			Map.Entry item = (Entry) it.next();
@@ -195,9 +196,10 @@ public class BaseService {
 	}
 
 	// 拼查询条件
+	@SuppressWarnings("rawtypes")
 	public String getStringSqlFromPage(NewPager page, String tablename) {
 		String sql = "";
-		Iterator it = page.getFilters().entrySet().iterator();
+		Iterator<?> it = page.getFilters().entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry item = (Entry) it.next();
 			SearchFilter sf = (SearchFilter) item.getValue();

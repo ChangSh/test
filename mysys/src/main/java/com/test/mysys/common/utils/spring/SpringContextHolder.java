@@ -38,7 +38,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 					+ SpringContextHolder.applicationContext);
 		}
 
-		SpringContextHolder.applicationContext = applicationContext; //NOSONAR
+		SpringContextHolder.applicationContext = applicationContext; // NOSONAR
 	}
 
 	/**
@@ -90,11 +90,11 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 			throw new IllegalStateException("applicaitonContext未注入,请在applicationContext.xml中定义SpringContextHolder");
 		}
 	}
-	
-	public static String getRootRealPath(){
-		String rootRealPath ="";
+
+	public static String getRootRealPath() {
+		String rootRealPath = "";
 		try {
-			rootRealPath=getApplicationContext().getResource("").getFile().getAbsolutePath();
+			rootRealPath = getApplicationContext().getResource("").getFile().getAbsolutePath();
 		} catch (IOException e) {
 			logger.warn("获取系统根目录失败");
 		}

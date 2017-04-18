@@ -19,16 +19,17 @@ public class DesUtil {
 		String data = "JJ456778";
 		String key = "*@&KEY$^";
 		System.err.println(encrypt(data, key));
-//		System.err.println(decrypt(encrypt(data, key), key));
-		
-		
-//		System.err.println(decrypt("LD6i0tccH4E=", key));
+		// System.err.println(decrypt(encrypt(data, key), key));
+
+		// System.err.println(decrypt("LD6i0tccH4E=", key));
 	}
-	
+
 	/**
 	 * Description 根据键值进行加密
-	 * @param data 
-	 * @param key  加密键byte数组
+	 * 
+	 * @param data
+	 * @param key
+	 *            加密键byte数组
 	 * @return
 	 * @throws Exception
 	 */
@@ -40,31 +41,34 @@ public class DesUtil {
 
 	/**
 	 * Description 根据键值进行解密
+	 * 
 	 * @param data
-	 * @param key  加密键byte数组
+	 * @param key
+	 *            加密键byte数组
 	 * @return
 	 * @throws IOException
 	 * @throws Exception
 	 */
-	public static String decrypt(String data, String key) throws IOException,
-			Exception {
+	public static String decrypt(String data, String key) throws IOException, Exception {
 		if (data == null)
 			return null;
 		BASE64Decoder decoder = new BASE64Decoder();
 		byte[] buf = decoder.decodeBuffer(data);
-//		String base64 = new String(buf);
-//		System.out.println("base64:  "+base64);
-//		byte[] buf = Base64Utils.decode(data.toCharArray());
-		byte[] bt = decrypt(buf,key.getBytes());
-		
-//		byte[] bt = getECBResultTest(buf,key.getBytes());
+		// String base64 = new String(buf);
+		// System.out.println("base64: "+base64);
+		// byte[] buf = Base64Utils.decode(data.toCharArray());
+		byte[] bt = decrypt(buf, key.getBytes());
+
+		// byte[] bt = getECBResultTest(buf,key.getBytes());
 		return new String(bt);
 	}
 
 	/**
 	 * Description 根据键值进行加密
+	 * 
 	 * @param data
-	 * @param key  加密键byte数组
+	 * @param key
+	 *            加密键byte数组
 	 * @return
 	 * @throws Exception
 	 */
@@ -87,12 +91,13 @@ public class DesUtil {
 
 		return cipher.doFinal(data);
 	}
-	
-	
+
 	/**
 	 * Description 根据键值进行解密
+	 * 
 	 * @param data
-	 * @param key  加密键byte数组
+	 * @param key
+	 *            加密键byte数组
 	 * @return
 	 * @throws Exception
 	 */
@@ -112,8 +117,8 @@ public class DesUtil {
 
 		// 用密钥初始化Cipher对象
 		cipher.init(Cipher.DECRYPT_MODE, securekey, sr);
-		
+
 		return cipher.doFinal(data);
 	}
-	
+
 }

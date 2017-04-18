@@ -9,22 +9,22 @@ import com.test.mysys.common.utils.reflection.ShowLog;
 import com.test.mysys.common.utils.reflection.ShowLogTablename;
 
 @ShowLogTablename("配置信息")
-@Table("t_system_config") 
+@Table("t_system_config")
 public class Config {
-	
+
 	@Id
 	private Long id = null;
-	
+
 	@Comment("名称")
 	@ShowLog
 	@Column
-	private String name = null;//名称
-	
+	private String name = null;// 名称
+
 	@Comment("值")
 	@ShowLog
 	@Column
 	private String val = null;// 值
-	
+
 	@Comment("说明")
 	@ShowLog
 	@Column
@@ -61,10 +61,5 @@ public class Config {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
-	
-	
-	
-	
-	
+
 }

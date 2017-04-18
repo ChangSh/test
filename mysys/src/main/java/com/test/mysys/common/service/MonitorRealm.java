@@ -2,10 +2,8 @@ package com.test.mysys.common.service;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.apache.shiro.authc.AuthenticationException;
@@ -80,7 +78,7 @@ public class MonitorRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
 		String loginname = (String) token.getPrincipal();
-		Map<String, Object> params = new HashMap<String, Object>();
+		//Map<String, Object> params = new HashMap<String, Object>();
 		Condition c = Cnd.where("loginname", "=", loginname);
 		List<User> users = service.query(c);
 

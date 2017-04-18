@@ -12,12 +12,10 @@ import org.nutz.dao.entity.annotation.Table;
 import com.test.mysys.common.utils.reflection.ShowLog;
 import com.test.mysys.common.utils.reflection.ShowLogTablename;
 
-
-
 @ShowLogTablename("用户")
-@Table("t_system_user") 
+@Table("t_system_user")
 public class User {
-	
+
 	@Id
 	private Long id = null;// id
 
@@ -41,90 +39,108 @@ public class User {
 	private String xgr = null;// 修改人
 	@Column
 	private String email = null;
-	
-	@Many(target = UserRole.class, field = "userid")
-    private List<UserRole> userRoles;
 
-	private String  yzcode; //验证码
+	@Many(target = UserRole.class, field = "userid")
+	private List<UserRole> userRoles;
+
+	private String yzcode; // 验证码
+
 	public String getYzcode() {
 		return yzcode;
 	}
+
 	public void setYzcode(String yzcode) {
 		this.yzcode = yzcode;
 	}
+
 	private int checked;
 
-	
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getLoginname() {
 		return loginname;
 	}
+
 	public void setLoginname(String loginname) {
 		this.loginname = loginname;
 	}
+
 	public String getRealname() {
 		return realname;
 	}
+
 	public void setRealname(String realname) {
 		this.realname = realname;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public Timestamp getCjsj() {
 		return cjsj;
 	}
+
 	public void setCjsj(Timestamp cjsj) {
 		this.cjsj = cjsj;
 	}
+
 	public Timestamp getXgsj() {
 		return xgsj;
 	}
+
 	public void setXgsj(Timestamp xgsj) {
 		this.xgsj = xgsj;
 	}
+
 	public String getCjr() {
 		return cjr;
 	}
+
 	public void setCjr(String cjr) {
 		this.cjr = cjr;
 	}
+
 	public String getXgr() {
 		return xgr;
 	}
+
 	public void setXgr(String xgr) {
 		this.xgr = xgr;
 	}
+
 	public List<UserRole> getUserRoles() {
 		return userRoles;
 	}
+
 	public void setUserRoles(List<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
+
 	public int getChecked() {
 		return checked;
 	}
+
 	public void setChecked(int checked) {
 		this.checked = checked;
 	}
-	
-	
-	
-	
-
 
 }

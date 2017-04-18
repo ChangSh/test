@@ -24,7 +24,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
-
 /**
  * 反射工具类.
  * 
@@ -48,8 +47,8 @@ public class ReflectionUtils {
 	 * 调用Setter方法.使用value的Class来查找Setter方法.
 	 */
 	public static void invokeSetterMethod(Object obj, String propertyName, Object value) {
-		//value如果为null会报空指针
-		if(value == null){
+		// value如果为null会报空指针
+		if (value == null) {
 			value = "";
 		}
 		invokeSetterMethod(obj, propertyName, value, null);
@@ -58,7 +57,8 @@ public class ReflectionUtils {
 	/**
 	 * 调用Setter方法.
 	 * 
-	 * @param propertyType 用于查找Setter方法,为空时使用value的Class替代.
+	 * @param propertyType
+	 *            用于查找Setter方法,为空时使用value的Class替代.
 	 */
 	public static void invokeSetterMethod(Object obj, String propertyName, Object value, Class<?> propertyType) {
 		Class<?> type = propertyType != null ? propertyType : value.getClass();
@@ -103,19 +103,20 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * 循环向上转型, 获取对象的DeclaredField,	 并强制设置为可访问.
+	 * 循环向上转型, 获取对象的DeclaredField, 并强制设置为可访问.
 	 * 
 	 * 如向上转型到Object仍无法找到, 返回null.
 	 */
 	public static Field getAccessibleField(final Object obj, final String fieldName) {
 		Assert.notNull(obj, "object不能为空");
 		Assert.hasText(fieldName, "fieldName");
-		for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass.getSuperclass()) {
+		for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass
+				.getSuperclass()) {
 			try {
 				Field field = superClass.getDeclaredField(fieldName);
 				field.setAccessible(true);
 				return field;
-			} catch (NoSuchFieldException e) {//NOSONAR
+			} catch (NoSuchFieldException e) {// NOSONAR
 				// Field不在当前类定义,继续向上转型
 			}
 		}
@@ -123,14 +124,14 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * 直接调用对象方法, 无视private/protected修饰符.
-	 * 用于一次性调用的情况.
+	 * 直接调用对象方法, 无视private/protected修饰符. 用于一次性调用的情况.
 	 */
 	public static Object invokeMethod(final Object obj, final String methodName, final Class<?>[] parameterTypes,
 			final Object[] args) {
 		Method method = getAccessibleMethod(obj, methodName, parameterTypes);
 		if (method == null) {
-			//throw new IllegalArgumentException("Could not find method [" + methodName + "] on target [" + obj + "]");
+			// throw new IllegalArgumentException("Could not find method [" +
+			// methodName + "] on target [" + obj + "]");
 			return null;
 		}
 
@@ -142,16 +143,17 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * 循环向上转型, 获取对象的DeclaredMethod,并强制设置为可访问.
-	 * 如向上转型到Object仍无法找到, 返回null.
+	 * 循环向上转型, 获取对象的DeclaredMethod,并强制设置为可访问. 如向上转型到Object仍无法找到, 返回null.
 	 * 
-	 * 用于方法需要被多次调用的情况. 先使用本函数先取得Method,然后调用Method.invoke(Object obj, Object... args)
+	 * 用于方法需要被多次调用的情况. 先使用本函数先取得Method,然后调用Method.invoke(Object obj, Object...
+	 * args)
 	 */
 	public static Method getAccessibleMethod(final Object obj, final String methodName,
 			final Class<?>... parameterTypes) {
 		Assert.notNull(obj, "object不能为空");
 
-		for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass.getSuperclass()) {
+		for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass
+				.getSuperclass()) {
 			try {
 				Method method = superClass.getDeclaredMethod(methodName, parameterTypes);
 
@@ -159,7 +161,7 @@ public class ReflectionUtils {
 
 				return method;
 
-			} catch (NoSuchMethodException e) {//NOSONAR
+			} catch (NoSuchMethodException e) {// NOSONAR
 				// Method不在当前类定义,继续向上转型
 			}
 		}
@@ -167,13 +169,13 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * 通过反射, 获得Class定义中声明的父类的泛型参数的类型.
-	 * 如无法找到, 返回Object.class.
-	 * eg.
-	 * public UserDao extends HibernateDao<User>
+	 * 通过反射, 获得Class定义中声明的父类的泛型参数的类型. 如无法找到, 返回Object.class. eg. public UserDao
+	 * extends HibernateDao<User>
 	 *
-	 * @param clazz The class to introspect
-	 * @return the first generic declaration, or Object.class if cannot be determined
+	 * @param clazz
+	 *            The class to introspect
+	 * @return the first generic declaration, or Object.class if cannot be
+	 *         determined
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> Class<T> getSuperClassGenricType(final Class clazz) {
@@ -181,14 +183,16 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * 通过反射, 获得Class定义中声明的父类的泛型参数的类型.
-	 * 如无法找到, 返回Object.class.
+	 * 通过反射, 获得Class定义中声明的父类的泛型参数的类型. 如无法找到, 返回Object.class.
 	 * 
 	 * 如public UserDao extends HibernateDao<User,Long>
 	 *
-	 * @param clazz clazz The class to introspect
-	 * @param index the Index of the generic ddeclaration,start from 0.
-	 * @return the index generic declaration, or Object.class if cannot be determined
+	 * @param clazz
+	 *            clazz The class to introspect
+	 * @param index
+	 *            the Index of the generic ddeclaration,start from 0.
+	 * @return the index generic declaration, or Object.class if cannot be
+	 *         determined
 	 */
 	@SuppressWarnings("unchecked")
 	public static Class getSuperClassGenricType(final Class clazz, final int index) {
@@ -241,65 +245,67 @@ public class ReflectionUtils {
 			try {
 				superClass.getDeclaredField(fieldName);
 				return true;
-			} catch (NoSuchFieldException e) {//NOSONAR
+			} catch (NoSuchFieldException e) {// NOSONAR
 				// Field不在当前类定义,继续向上转型
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * 判断类中的属性的注释
 	 */
 	public static String getKeyFieldName(final Class clazz) {
-		 Field[] fields =  clazz.getDeclaredFields();
-		    for(Field f : fields){
-		      String filedName = f.getName();
-		      Annotation[] annotation = f.getAnnotations();
-		      for (Annotation annotation2 : annotation) {
-			      Class annotationType =  annotation2.annotationType();
-			      if (annotationType.getName().equals("org.nutz.dao.entity.annotation.Id"))
-			    	 return filedName;
-			      if (annotationType.getName().equals("org.nutz.dao.entity.annotation.Name"))
-			    	 return filedName;
-			  }
+		Field[] fields = clazz.getDeclaredFields();
+		for (Field f : fields) {
+			String filedName = f.getName();
+			Annotation[] annotation = f.getAnnotations();
+			for (Annotation annotation2 : annotation) {
+				Class annotationType = annotation2.annotationType();
+				if (annotationType.getName().equals("org.nutz.dao.entity.annotation.Id"))
+					return filedName;
+				if (annotationType.getName().equals("org.nutz.dao.entity.annotation.Name"))
+					return filedName;
 			}
-		    return null;
+		}
+		return null;
 	}
 
 	/**
 	 * 判断类中的Comment属性的集合
 	 */
-	public static Map<String,String> getCommentName(final Class clazz) {
-		 Field[] fields =  clazz.getDeclaredFields();
-		 Map<String,String> map = new HashMap<String,String>();
-	    for(Field f : fields){
-	      Annotation[] aAnnotation = f.getAnnotations();
-	      for (Annotation annotation : aAnnotation) {
-		      if (annotation.annotationType()==Comment.class){
-		    	  Comment element = (Comment) annotation;
-			      map.put(f.getName(), element.value());
-		      }
-		  }
+	public static Map<String, String> getCommentName(final Class clazz) {
+		Field[] fields = clazz.getDeclaredFields();
+		Map<String, String> map = new HashMap<String, String>();
+		for (Field f : fields) {
+			Annotation[] aAnnotation = f.getAnnotations();
+			for (Annotation annotation : aAnnotation) {
+				if (annotation.annotationType() == Comment.class) {
+					Comment element = (Comment) annotation;
+					map.put(f.getName(), element.value());
+				}
+			}
 		}
 		return map;
 	}
+
 	/**
 	 * 判断类中的属性的注释
 	 */
 	public static List<String> getShowLogFieldName(final Class clazz) {
 		List<String> lS = new ArrayList<String>();
-		 Field[] fields =  clazz.getDeclaredFields();
-		    for(Field f : fields){
-		      String filedName = f.getName();
-		      Annotation[] annotation = f.getAnnotations();
-		      for (Annotation annotation2 : annotation) {
-			      if (annotation2.annotationType()==ShowLog.class)
-			    	  lS.add(filedName);
-			  }
+		Field[] fields = clazz.getDeclaredFields();
+		for (Field f : fields) {
+			String filedName = f.getName();
+			Annotation[] annotation = f.getAnnotations();
+			for (Annotation annotation2 : annotation) {
+				if (annotation2.annotationType() == ShowLog.class)
+					lS.add(filedName);
 			}
-		    return lS;
+		}
+		return lS;
 	}
+
 	/**
 	 * 判断类的注释值
 	 */
@@ -313,33 +319,35 @@ public class ReflectionUtils {
 		}
 		return null;
 	}
+
 	public static void main(String[] args) {
-		
-		//User user = new User();
-		//invokeSetterMethod(user, "xm","test");
-		//System.out.println(new Gson().toJson(user));
+
+		// User user = new User();
+		// invokeSetterMethod(user, "xm","test");
+		// System.out.println(new Gson().toJson(user));
 	}
-	
-	 /**
-	  * object转map
+
+	/**
+	 * object转map
+	 * 
 	 * @param obj
 	 * @return
 	 * @throws Exception
 	 */
-	public static Map<String, Object> objectToMap(Object obj) throws Exception {    
-	        if(obj == null){    
-	            return null;    
-	        }   
-	   
-	        Map<String, Object> map = new HashMap<String, Object>();    
-	   
-	        Field[] declaredFields = obj.getClass().getDeclaredFields();    
-	        for (Field field : declaredFields) {    
-	            field.setAccessible(true);  
-	            map.put(field.getName(), field.get(obj));  
-	        }    
-	   
-	        return map;  
-	 } 
-	
+	public static Map<String, Object> objectToMap(Object obj) throws Exception {
+		if (obj == null) {
+			return null;
+		}
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		Field[] declaredFields = obj.getClass().getDeclaredFields();
+		for (Field field : declaredFields) {
+			field.setAccessible(true);
+			map.put(field.getName(), field.get(obj));
+		}
+
+		return map;
+	}
+
 }

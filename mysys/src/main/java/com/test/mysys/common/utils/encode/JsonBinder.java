@@ -30,11 +30,11 @@ public class JsonBinder {
 
 	public JsonBinder(Inclusion inclusion) {
 		mapper = new ObjectMapper();
-		//设置输出包含的属性
+		// 设置输出包含的属性
 		mapper.getSerializationConfig().setSerializationInclusion(inclusion);
-		//设置输入时忽略JSON字符串中存在而Java对象实际没有的属性
-		mapper.getDeserializationConfig().set(
-				org.codehaus.jackson.map.DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		// 设置输入时忽略JSON字符串中存在而Java对象实际没有的属性
+		mapper.getDeserializationConfig()
+				.set(org.codehaus.jackson.map.DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	}
 
 	/**
@@ -59,11 +59,11 @@ public class JsonBinder {
 	}
 
 	/**
-	 * 如果JSON字符串为Null或"null"字符串,返回Null.
-	 * 如果JSON字符串为"[]",返回空集合.
+	 * 如果JSON字符串为Null或"null"字符串,返回Null. 如果JSON字符串为"[]",返回空集合.
 	 * 
-	 * 如需读取集合如List/Map,且不是List<String>这种简单类型时使用如下语句:
-	 * List<MyBean> beanList = binder.getMapper().readValue(listString, new TypeReference<List<MyBean>>() {});
+	 * 如需读取集合如List/Map,且不是List<String>这种简单类型时使用如下语句: List<MyBean> beanList =
+	 * binder.getMapper().readValue(listString, new TypeReference<List
+	 * <MyBean>>() {});
 	 */
 	public <T> T fromJson(String jsonString, Class<T> clazz) {
 		if (StringUtils.isEmpty(jsonString)) {
@@ -79,8 +79,7 @@ public class JsonBinder {
 	}
 
 	/**
-	 * 如果对象为Null,返回"null".
-	 * 如果集合为空集合,返回"[]".
+	 * 如果对象为Null,返回"null". 如果集合为空集合,返回"[]".
 	 */
 	public String toJson(Object object) {
 

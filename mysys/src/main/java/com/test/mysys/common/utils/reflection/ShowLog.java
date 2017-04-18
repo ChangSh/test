@@ -17,18 +17,17 @@ import java.lang.annotation.Target;
  * 
  * <b style=color:red>需要说明的是：</b>
  * <ul>
- * <li>
- * 如果你的 POJO <u><b>没有任何一个字段</b></u> 声明了这个注解，那么所有的 Java 字段都会被认为是数据库字段。
+ * <li>如果你的 POJO <u><b>没有任何一个字段</b></u> 声明了这个注解，那么所有的 Java 字段都会被认为是数据库字段。
  * <li>声明了 '@Id' 和 '@Name' 的字段没必要声明这个注解。
  * </ul>
  * 
  * @author zozoh(zozohtnt@gmail.com)
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD})
+@Target({ ElementType.FIELD, ElementType.METHOD })
 @Documented
 public @interface ShowLog {
 
-    String value() default "";
+	String value() default "";
 
 }
