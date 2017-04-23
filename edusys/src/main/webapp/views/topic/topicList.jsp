@@ -67,18 +67,30 @@
 				width : 8
 			},
 			{
+				display : '论文',
+				name : 'fileName',
+				unbindClick : true,
+				width : 8
+			},
+			{
 				display : '操作',
 				name : '',
 				width : 5,
 				unbindClick : true,
 				render : function(row) {
 					var html = "";
-					html += '<a href="${ctx}/topic/topicInput.do?id={0}"><img src="${ctx}/static/images/modi.png" title="修改"></a>';
+					if(row.fileName!=""||row.fileName!=null){
+						html += '<a href="${ctx}/topic/online.do?stuloginname={0}" target="_blank"><img src="${ctx}/static/images/see.png" title="查看论文"></a>';
+						html += ' | ';
+						html += '<a href="${ctx}/topic/download.do?stuloginname={0}" target="_blank"><img src="${ctx}/static/images/downarrow.png" title="下载论文"></a>';;
+					}
+					html += ' | ';
+					html += '<a href="${ctx}/topic/topicInput.do?id={1}"><img src="${ctx}/static/images/modi.png" title="修改"></a>';
 					if(row.stuloginname==""||row.stuloginname==null){
 						html += ' | ';
 						html += '<a href="javascript:void(0);" onclick="gridDelete(\'{0}\',\'${ctx}/college/deleteTopic.do\')"><img src="${ctx}/static/images/del.png" title="删除"></a>';
 					}
-					return Free.replace(html, row.id);
+					return Free.replace(html, row.stuloginname, row.id);
 				}
 			} ];
 	var opt = {

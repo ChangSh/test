@@ -5,6 +5,13 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring.xml,classpath:spring-nutzdao.xml,classpath:spring-shiro.xml</param-value>
   </context-param>
+  <context-param>  
+        <param-name>webAppRootKey</param-name>   
+        <param-value>evan.webapp</param-value>  
+   </context-param>  
+	<listener>   
+        <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>   
+    </listener>
   <filter>
     <filter-name>shiroFilter</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

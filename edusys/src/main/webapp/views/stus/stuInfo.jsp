@@ -26,6 +26,8 @@
 					$("#edu").html("<lable>已选<lable>");
 					$("#topic").text(data.stu.topic);
 					$("#tutor").text(data.stu.tutor);
+					html += "<input id='file' type='file'/> <button id='upload' class='btn3' onclick='upload()'>上传</button>"
+					$("#uploadForm").html(html);
 				}
 		}
 	})
@@ -41,6 +43,48 @@ function addedu(){
 		    content:'${ctx}/views/stus/topicList.jsp'//'${ctx}/buildingPackAdmin/building/findBuildingInfo.do'
 		}); 
 	   
+}
+function upload(){
+	var formData = new FormData();
+	formData.append("file",$("#file")[0].files[0]);
+	$.ajax({
+		beforeSend:function(){
+			var fileName = $("#file").val();
+			if(fileName == ""){
+				alert("请选择文件");
+				return false;
+			}else{
+				var suffix = fileName.substring(fileName.lastIndexOf(".")+1);
+				if(suffix != "doc" && suffix != "docx"){
+					alert("文件格式错误");
+					return false;
+				}
+			}
+		},
+		type:"POST",
+		url:"${ctx}/stu/upload.do",
+		data:formData,
+		contentType:false,
+		cache:false,
+		processData:false,
+		success:function(data){
+			var json = eval("["+data+"]");
+			if(json[0].filerealname.length>0){
+				alert("上传成功");
+			var html = "";
+				html += "<a href=''>";
+				html += json[0].filerealname;
+				html += "</a>";
+				$("#txtname").html(html);
+				$("#topicname").css('display','');
+			
+			}else{
+				alert("上传失败");
+			}
+			
+			
+		}
+	})
 }
 </script>
 <title>个人信息</title>
@@ -77,7 +121,6 @@ function addedu(){
 						<td><label for="" class="lb">毕设选题：</label></td>
 						<td><div id="edu"></div></td>
 					</tr>
-					<div id="edu1">
 					<tr>
 						<td><label for="" class="lb">课题名称：</label></td>
 						<td><label id="topic"></label></td>
@@ -86,7 +129,14 @@ function addedu(){
 						<td><label for="" class="lb">指导老师：</label></td>
 						<td><label id="tutor"></label></td>
 					</tr>
-					</div>
+					<tr>
+						<td><label for="" class="lb">上传论文：</label></td>
+						<td><div id="uploadForm"> </div></td>
+					</tr>
+					<tr id="topicname" style="display: none">
+						<td><label for="" class="lb">论文名称：</label></td>
+						<td><div id="txtname"> </div></td>
+					</tr>						
 				</table>
 	
 		</div>

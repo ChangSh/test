@@ -25,6 +25,8 @@ public class Topic {
 	@Column
 	private String code;
 
+	private String fileName;
+
 	public String getId() {
 		return id;
 	}
@@ -103,6 +105,14 @@ public class Topic {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }

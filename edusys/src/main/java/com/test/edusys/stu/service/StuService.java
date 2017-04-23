@@ -3,7 +3,9 @@ package com.test.edusys.stu.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import org.nutz.dao.Chain;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Dao;
 import org.nutz.dao.sql.Criteria;
@@ -14,6 +16,7 @@ import com.test.edusys.common.service.BaseService;
 import com.test.edusys.common.utils.NewPager;
 import com.test.edusys.common.utils.UserUtils;
 import com.test.edusys.customer.model.Customer;
+import com.test.edusys.goods.model.PicFile;
 import com.test.edusys.system.model.User;
 import com.test.edusys.topic.model.Topic;
 
@@ -39,7 +42,20 @@ public class StuService extends BaseService {
 		return c;
 	}
 
-	public int checkTopic(String topicid){
+	public int insertUpload(PicFile file) {
+		PicFile p = dao.fetch(PicFile.class, Cnd.where("fileid", "=", file.getFileid()));
+		if (p != null) {
+			dao.update(PicFile.class, Chain.make("filepath", file.getFilepath()),
+					Cnd.where("fileid", "=", file.getFileid()));
+		} else {
+			file.setId(UUID.randomUUID().toString());
+			dao.insert(file);
+		}
+		return 1;
+
+	}
+
+	public int checkTopic(String topicid) {
 		User u = UserUtils.getUser();
 		Customer c = dao.fetch(Customer.class, Cnd.where("loginname", "=", u.getLoginname()));
 		Topic t = dao.fetch(Topic.class, topicid);
@@ -52,6 +68,6 @@ public class StuService extends BaseService {
 		dao.update(c);
 		dao.update(t);
 		return 1;
-		
+
 	}
 }

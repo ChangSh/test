@@ -25,6 +25,7 @@ import com.test.edusys.common.service.BaseService;
 import com.test.edusys.common.utils.NewPager;
 import com.test.edusys.common.utils.UserUtils;
 import com.test.edusys.customer.model.Customer;
+import com.test.edusys.goods.model.PicFile;
 import com.test.edusys.system.model.User;
 import com.test.edusys.topic.model.Topic;
 
@@ -37,10 +38,55 @@ public class TopicService extends BaseService {
 		Criteria cri = getCriteriaFromPage(page);
 		User user = UserUtils.getUser();
 		cri.where().and("tealoginname", "=", user.getLoginname());
-		List<Topic> list = dao.query(Topic.class, cri, page);
-		page.setRecordCount(dao.count(Topic.class, cri));
+		StringBuffer sb = new StringBuffer();
+		sb.append(
+				"SELECT t_topic.*,t_file.filepath FROM t_topic LEFT JOIN t_file ON t_topic.stuloginname = t_file.fileid ");
+		sb.append(cri);
+		int pageNumber = page.getPageNumber() * page.getPageSize() - page.getPageSize();
+		String ss = "Limit " + pageNumber + "," + page.getPageSize();
+		Sql sqlList = Sqls.create(sb.toString());
+		sb.append(ss);
+		Sql sqlCount = Sqls.create(sb.toString());
+		sqlList.setCallback(new SqlCallback() {
+			@Override
+			public Object invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
+				List<Topic> list = new LinkedList<Topic>();
+				while (rs.next()) {
+					Topic topic = new Topic();
+					topic.setId(rs.getString("id"));
+					topic.setTname(rs.getString("tname"));
+					topic.setTbackinfo(rs.getString("tbackinfo"));
+					topic.setTdetailinfo(rs.getString("tdetailinfo"));
+					topic.setTfunction(rs.getString("tfunction"));
+					topic.setSturealname(rs.getString("sturealname"));
+					topic.setStuloginname(rs.getString("stuloginname"));
+					topic.setTearealname(rs.getString("tearealname"));
+					topic.setCode(rs.getString("code"));
+					topic.setTealoginname(rs.getString("tealoginname"));
+					topic.setFileName(rs.getString("filepath"));
+					list.add(topic);
+				}
+				return list;
+			}
+		});
+		sqlCount.setCallback(new SqlCallback() {
+			@Override
+			public Object invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
+				List<Topic> list = new LinkedList<Topic>();
+				while (rs.next()) {
+					Topic topic = new Topic();
+					topic.setId(rs.getString("id"));
+					list.add(topic);
+				}
+				return list;
+			}
+		});
+		dao.execute(sqlList);
+		dao.execute(sqlCount);
+		List<Topic> list = sqlList.getList(Topic.class);
+		List<Topic> list1 = sqlList.getList(Topic.class);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("Total", page.getRecordCount());
+		map.put("Total", list1.size());
 		map.put("Rows", list);
 		return map;
 	}
@@ -168,6 +214,10 @@ public class TopicService extends BaseService {
 		dao.execute(sql);
 		return sql.getList(Major.class);
 
+	}
+
+	public PicFile fetchFile(String stuloginname) {
+		return dao.fetch(PicFile.class, Cnd.where("fileid", "=", stuloginname));
 	}
 
 }
