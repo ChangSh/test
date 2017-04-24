@@ -79,6 +79,7 @@ ul,li{
 .header_center{
 	width:400px;
 	float:left;
+	padding-left:50px; /* modify by CHANG */
 	padding-top:25px; 
 }
 .header_right{
