@@ -30,6 +30,8 @@ public class GoodsDetailVo {
 	private String cartId;
 	@Column
 	private String gaddr;
+	@Column
+	private String status;
 
 	public String getId() {
 		return id;
@@ -133,6 +135,14 @@ public class GoodsDetailVo {
 
 	public void setGaddr(String gaddr) {
 		this.gaddr = gaddr;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

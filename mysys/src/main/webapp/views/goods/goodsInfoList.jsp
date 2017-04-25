@@ -66,7 +66,22 @@ Free.getCodeNames("${ctx}","分类");
 				unbindClick : true,
 				render : function(row) {
 					var html = "";
+					var stat = row.status;
+					switch(stat){
+						case 0:
+							html += '<a href="${ctx}/goods/edit.do?id={0}">发布|';
+							break;
+						case 1:
+							html += '<a href="${ctx}/goods/edit.do?id={0}">撤销|';
+							break;
+						case 2:
+							html += '已租';
+							break;	
+							
+					}
+					if(stat != 2){
 					html += '<a href="${ctx}/goods/edit.do?id={0}"><img src="${ctx}/static/images/modi.png" title="修改"></a>';
+					}
 						html += ' | ';
 						html += '<a href="javascript:void(0);" onclick="gridDelete(\'{0}\',\'${ctx}/goods/delete.do\')"><img src="${ctx}/static/images/del.png" title="删除"></a>';
 						return Free.replace(html, row.id);
