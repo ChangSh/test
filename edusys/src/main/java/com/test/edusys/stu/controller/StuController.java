@@ -1,13 +1,30 @@
 package com.test.edusys.stu.controller;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.converter.PicturesManager;
+import org.apache.poi.hwpf.converter.WordToHtmlConverter;
+import org.apache.poi.hwpf.usermodel.Picture;
+import org.apache.poi.hwpf.usermodel.PictureType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.w3c.dom.Document;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import com.test.edusys.college.model.College;
@@ -79,12 +97,11 @@ public class StuController {
 
 	@RequestMapping(value = "/upload", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String upload(HttpServletRequest request) throws IOException {
+	public String upload(HttpServletRequest request) throws IOException, Exception {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		MultipartFile file = multipartRequest.getFile("file");
 		String fileName = file.getOriginalFilename();
-		String filename1 = fileName.indexOf(".") != -1 ? fileName.substring(0, fileName.lastIndexOf("."))
-				: null;
+		String filename1 = fileName.indexOf(".") != -1 ? fileName.substring(0, fileName.lastIndexOf(".")) : null;
 		String ctxPath = PropertiesUtil.getString("uploadFilePath"); // 当前路径
 		InputStream stream = file.getInputStream();
 		ImgUtils.uploadImg(stream, ctxPath + fileName);
@@ -97,6 +114,42 @@ public class StuController {
 		pf.setFileid(loginname);
 		pf.setFilepath(fileName);
 		service.insertUpload(pf);
+
+		// 转换成html
+		HWPFDocument wordDocument = new HWPFDocument(stream);
+		WordToHtmlConverter wordToHtmlConverter = new WordToHtmlConverter(
+				DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument());
+		wordToHtmlConverter.setPicturesManager(new PicturesManager() {
+			public String savePicture(byte[] content, PictureType pictureType, String suggestedName, float widthInches,
+					float heightInches) {
+				return suggestedName;
+			}
+		});
+		wordToHtmlConverter.processDocument(wordDocument);
+		List<Picture> pics = wordDocument.getPicturesTable().getAllPictures();
+		if (pics != null) {
+			for (int i = 0; i < pics.size(); i++) {
+				Picture pic = (Picture) pics.get(i);
+				try {
+					pic.writeImageContent(new FileOutputStream(ctxPath + pic.suggestFullFileName()));
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		Document htmlDocument = wordToHtmlConverter.getDocument();
+		ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+		DOMSource domSource = new DOMSource(htmlDocument);
+		StreamResult streamResult = new StreamResult(outStream);
+		TransformerFactory tf = TransformerFactory.newInstance();
+		Transformer serializer = tf.newTransformer();
+		serializer.setOutputProperty(OutputKeys.ENCODING, "utf-8");
+		serializer.setOutputProperty(OutputKeys.INDENT, "yes");
+		serializer.setOutputProperty(OutputKeys.METHOD, "html");
+		serializer.transform(domSource, streamResult);
+		outStream.close();
+		String content = new String(outStream.toByteArray());
+		FileUtils.writeStringToFile(new File(ctxPath, filename1 + ".html"), content, "UTF-8");
 		System.out.println(JSONUtils.toJSONString(map));
 		return JSONUtils.toJSONString(map);
 	}
