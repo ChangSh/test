@@ -35,7 +35,7 @@ public class GoodsFrontService extends BaseService {
 	private Dao dao;
 
 	public List<GoodsDetailVo> findFocus() {
-		String str = " SELECT t_goods.id,t_goods.gname,t_file.filepath FROM t_goods LEFT JOIN t_file ON t_goods.id=t_file.fileid WHERE gisfocus=1 ";
+		String str = " SELECT t_goods.id,t_goods.gname,t_file.filepath FROM t_goods LEFT JOIN t_file ON t_goods.id=t_file.fileid WHERE gisfocus=1 and status=1";
 		Sql sql = Sqls.create(str);
 		sql.setCallback(new SqlCallback() {
 			public Object invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
@@ -161,15 +161,6 @@ public class GoodsFrontService extends BaseService {
 	public int updateIgnoreNull(BuyCart bc) {
 		return dao.updateIgnoreNull(bc);
 	}
-
-	/*
-	 * public BuyCart newCart(){ BuyCart cart=new BuyCart(); UUID
-	 * uuid=UUID.randomUUID(); cart.setId(uuid.toString());
-	 * cart.setCartcount(0); cart.setCartprice(0); cart.setIssettle(1);
-	 * cart.setLoginname(UserUtils.getUser().getLoginname());
-	 * 
-	 * return dao.insert(cart); }
-	 */
 
 	public List<GoodsDetailVo> guess() {
 		Condition c = Cnd.wrap(" WHERE 1=1  ORDER BY gclick  DESC LIMIT 0,4 ");

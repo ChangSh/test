@@ -191,7 +191,7 @@ $(document).ready(function() {
 
 					<div class="detail_left">
 						<div style="padding-left:20px;padding-top:15px">
-							<span class="buy_price">￥<span id="real_price_box" style="color:white">${ob.gunitprice}</span></span>
+							<span class="buy_price"><span id="real_price_box" style="color:white">${ob.gunitprice}</span>元/月</span>
 							&nbsp; 
 							
 						</div>
@@ -204,13 +204,15 @@ $(document).ready(function() {
 							<a href="javascript:member_dialog('${ctx}/goodsFront/addCart.do?id=${ob.id}',850,450,'');"><img src="${ctx}/static/shopping_files/images/addtocart.jpg"/></a>
 							</shiro:hasRole>
 						</div>
-						<div style="padding-left:20px;padding-top:30px;text-align:center;"> 
-							已售出 <b style="font-size:18px;color:#EE5239"></b> 件 
-							
+						<div style="padding-left:20px;padding-top:30px;text-align:left;"> 
+							<!-- 已售出 <b style="font-size:18px;color:#EE5239"></b> 件  -->
+							<b style="font-size:15px;color:#000000">面积:${ob.gsize}㎡</b><br/>
+							<b style="font-size:15px;color:#000000">类型:${ob.codename}</b><br/>
+							<b style="font-size:15px;color:#000000">地址:${ob.gaddr}</b><br/>
 						</div> 
 						<div style="padding-left:20px;padding-top:40px;">
-							<img src="${ctx}/static/shopping_files/images/buy_ico01.gif"/>
-							<img src="${ctx}/static/shopping_files/images/buy_ico02.gif" style="padding-left:50px"/>
+						<%-- 	<img src="${ctx}/static/shopping_files/images/buy_ico01.gif"/>
+							<img src="${ctx}/static/shopping_files/images/buy_ico02.gif" style="padding-left:50px"/> --%>
 						</div>  
 					</div>
 					<div class="detail_right">
@@ -282,7 +284,7 @@ $(document).ready(function() {
 	<div class="tab_body my_tab">
 		<ul class="tab_menu">
 			<li class="current">房源信息</li>
-			<li>评价</li>
+			<li></li>
 			<li></li>
 			<li></li>
 		</ul>
@@ -294,11 +296,13 @@ $(document).ready(function() {
 		<p style="text-align:left;color:#a37e37;">
 			${ob.gdetailintro}
 		</p>
-		规格:
+		面积:
 		<p style="text-align:left;color:#a37e37;">
 			${ob.gsize}
 		</p>
+		实拍图：<br/>
 		<img src="${ob.filepath}" onerror=javascript:this.src="${ctx}/static/images/model.png"  width="459" title="" >
+		<br/>
 	</div>
  		</div>
 

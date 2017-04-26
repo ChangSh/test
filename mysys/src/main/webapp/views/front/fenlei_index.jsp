@@ -1,9 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/views/common/taglibs.jsp"%>
-
-
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -143,7 +140,6 @@ $(function(){
 		您好，欢迎来到吉祥租房网  
 		</li> 
 		<li style="float:right;padding-top:6px;">
-	</ul>	
 
 <shiro:lacksRole name="普通用户">
 <a class="member_a" href="javascript:member_dialog('login.jsp',850,450,'');">登录/注册</a>  
@@ -152,9 +148,8 @@ $(function(){
  	你好,<a class="member_a" href="javascript:member_dialog('order.jsp',850,450,'');"> <shiro:principal property="realname"/></a>|
  	<a href="${ctx}/system/user/frontlogout.do" rel="nofollow" onclick="return confirm('确认退出账户？');"> 安全退出</a>
 </shiro:hasRole>
-		
-	
 		</li>
+	</ul>	
 	</div> 
 </div>
 

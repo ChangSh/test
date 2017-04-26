@@ -86,8 +86,9 @@ function jiesuan(){
   <div class="navbar-inner">
     <a class="brand" href="#">会员中心</a>
     <ul class="nav">  
-	<li class="active"><a href="#" rel="nofollow"><i class=" icon-shopping-cart"></i>我的喜欢</a></li>
-	 <li ><a href="order.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的订单</a></li>
+    <li ><a href="buycart.jsp" rel="nofollow">我的房源</a></li>
+	<li class="active"><a href="#" rel="nofollow"><i class=" icon-shopping-cart"></i>我的预定</a></li>
+	 <li ><a href="order.jsp" rel="nofollow">预定详情</a></li>
 		<li class=" dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户 <b class="caret"></b></a>
 		<ul class="dropdown-menu">
@@ -120,8 +121,8 @@ function jiesuan(){
      	<table width="100%" border="0" class="table table-hover">
 	  	  <tr>
         <td colspan="6" align="right">
-		<a href="javascript:window.top.location.reload();" class="btn btn-large btn-info">再逛逛</a> &nbsp; &nbsp; 
-		<button class="btn btn-large btn-warning" onclick="jiesuan()">去结算 </button><i class="icon-credit-card"></i> &nbsp; &nbsp; 
+		<a href="javascript:window.top.location.reload();" class="btn btn-large btn-info">再看看</a> &nbsp; &nbsp; 
+		<button class="btn btn-large btn-warning" onclick="jiesuan()">去支付 </button>&nbsp; &nbsp; 
 		</td>
 	  </tr> 
 	  </table>

@@ -182,4 +182,18 @@ public class GoodsController {
 		return JSONUtils.toJSONString(map);
 	}
 
+	@RequestMapping("/push")
+	@ResponseBody
+	public String push(HttpServletRequest request, @RequestParam(value = "id", defaultValue = "0") String id) {
+		service.updateStatus(id, 1);
+		return "ok";
+	}
+
+	@RequestMapping("/cancle")
+	@ResponseBody
+	public String cancle(HttpServletRequest request, @RequestParam(value = "id", defaultValue = "0") String id) {
+		service.updateStatus(id, 0);
+		return "ok";
+	}
+
 }

@@ -155,7 +155,7 @@ uploader.on( 'uploadSuccess', function( file,response) {
 		data:$("#form").serialize(),
 		success:function(data){
               alert("保存成功");
-              window.location.href='${ctx}/views/goods/goodsInfoList.jsp';
+              parent.location.reload();
 		}
 	})
 });

@@ -3,14 +3,14 @@ Navicat MySQL Data Transfer
 
 Source Server         : localhost
 Source Server Version : 50610
-Source Host           : localhost:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : edutest
 
 Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-04-06 00:35:42
+Date: 2017-04-27 01:07:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -73,6 +73,7 @@ INSERT INTO `t_cargo_p` VALUES ('f2db2bfa-a8c4-40b0-9225-18d60dba1495', '2016-03
 INSERT INTO `t_cargo_p` VALUES ('38d3de0d-f795-4ce5-b794-e21c2509bc00', '2016-05-02 23:52:36', '0');
 INSERT INTO `t_cargo_p` VALUES ('adab3926-e5bf-4692-ac30-5b2886a42cfa', '2017-03-19 23:47:46', '0');
 INSERT INTO `t_cargo_p` VALUES ('4600aab2-d122-436f-aabf-b6a49c7b6590', '2017-03-25 15:35:22', '0');
+INSERT INTO `t_cargo_p` VALUES ('30559007-1eba-471d-b4b3-895fb0404b66', '2017-04-09 16:22:23', '0');
 
 -- ----------------------------
 -- Table structure for t_cart_goods
@@ -169,18 +170,11 @@ CREATE TABLE `t_customer` (
 -- ----------------------------
 -- Records of t_customer
 -- ----------------------------
-INSERT INTO `t_customer` VALUES ('09e2a961-5d6d-4347-8b46-86c4c20750e2', '20160225134508', '刘诗诗', '12824342434', '2016-02-29 04:45:08', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('131e69d4-081a-41b4-ba87-6dded8f430fa', '20160225134443', '吴奇隆', '15824322432', '2016-02-29 04:44:43', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('44738020-3043-41e9-b5c8-68dacf8d8838', null, '0405', '13163155021', null, '0405', '236efe36-7863-4bf6-8e9a-262295e49487', 'c609ce59-0f8a-4d44-8ea8-b24d1b008a95', null, null);
-INSERT INTO `t_customer` VALUES ('546c7ef3-df64-45ee-9f83-69e7357b672c', '201755d8', '0405011', '13163155021', '2017-04-06 00:04:15.88', '0405011', 'add4623e-4965-45b8-a9ba-1d0bd0979a36', 'ccc', null, null);
-INSERT INTO `t_customer` VALUES ('5a393a39-43be-4313-a43c-3aa920b3efb3', '20160225134132', '周杰伦', '13163155021', '2016-02-29 04:41:32', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('631446d7-dec8-4234-8561-6f93c2b35aab', '20160225134222', '马天宇', '13820977321', '2016-02-29 04:42:22', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('7dec6c9e-a51e-43a7-9802-30eb864ddc8a', null, '040501', '13163155021', '2017-04-06 00:00:45.368', '040501', '236efe36-7863-4bf6-8e9a-262295e49487', 'c609ce59-0f8a-4d44-8ea8-b24d1b008a95', null, null);
-INSERT INTO `t_customer` VALUES ('9d2c5e75-afa8-4409-9784-50263469602b', '20160225134201', '王力宏', '13122223333', '2016-02-29 04:42:01', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('a02362e7-bd91-4fde-8909-7569b143b680', '20160225134349', '陈伯宇', '13322334567', '2016-02-29 04:43:49', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('b19b13f2-f8d1-4cfa-a9d4-0ac370dfb830', '20160225134245', '王小丫', '13429543124', '2016-02-29 04:42:45', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('c4d5b03d-8fe8-423e-b53c-02a00b970045', '20160225134304', '李晨', '13324421212', '2016-02-29 04:43:04', null, null, null, null, null);
-INSERT INTO `t_customer` VALUES ('e819de93-4242-4160-aff6-804aa5c10bcb', '20160225134325', '范冰冰', '13833555533', '2016-02-29 04:43:25', null, null, null, null, null);
+INSERT INTO `t_customer` VALUES ('09e2a961-5d6d-4347-8b46-86c4c20750e2', '20160225134508', '树教授', '12824342434', '2016-02-29 04:45:08', 'tree', 'adasdas', 'aaa', null, null);
+INSERT INTO `t_customer` VALUES ('131e69d4-081a-41b4-ba87-6dded8f430fa', '20160225134443', '测老师', '15824322432', '2016-02-29 04:44:43', '0406test', 'adasdas', 'aaa', null, null);
+INSERT INTO `t_customer` VALUES ('5bc95e8b-7142-40c8-97fe-b8c8769b3ea6', '20173090', '0406test', '13163155021', '2017-04-06 22:23:43.492', '0406test', '236efe36-7863-4bf6-8e9a-262295e49487', 'c609ce59-0f8a-4d44-8ea8-b24d1b008a95', null, null);
+INSERT INTO `t_customer` VALUES ('ac735276-8da9-4a86-af1e-e5fc2bb21443', '20170b1c', '张小白', '13111111111', '2017-04-09 17:19:07.767', 'zhangxiaobai', 'adasdas', 'aaa', '基于JavaEE的毕业设计管理系统', '树教授');
+INSERT INTO `t_customer` VALUES ('admin', 'admin', 'admin', 'admin', null, 'admin', 'adasdas', 'aaa', null, null);
 
 -- ----------------------------
 -- Table structure for t_file
@@ -199,6 +193,7 @@ CREATE TABLE `t_file` (
 INSERT INTO `t_file` VALUES ('12b03586-83cd-4316-aaee-0012d3addc33', 'a484272c-4523-454b-abe8-7d819a9bc0ca', '/f1764bfa-4900-488e-937d-c34b36e4caa4.gif');
 INSERT INTO `t_file` VALUES ('3c2f0d9f-98b2-466c-a5f7-2ae693c4702a', 'aa735f25-1b56-4359-929d-5e6e75f16331', '/979c66f5-09f1-41a7-848e-31d30cf64a3c.gif');
 INSERT INTO `t_file` VALUES ('42f392ed-e653-4f32-a874-4aacb1711ec2', '023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '/f57de4b8-e418-4de4-9a4a-6f144c65192a.jpg');
+INSERT INTO `t_file` VALUES ('5ca772aa-7a1d-4a33-a06c-6260d8a71221', 'zhangxiaobai', '开题报告表.doc');
 INSERT INTO `t_file` VALUES ('86f6d374-0809-4664-a5e2-7edf7498ba97', '3939e9a1-020d-4da9-a87d-d04fb829e47b', '/77ac81c3-8153-48a8-ab72-1cd156309beb.jpg');
 INSERT INTO `t_file` VALUES ('922bdc6d-21aa-46ba-b6b0-06ff3dfe8773', '2e207cde-996a-4761-88e0-d506367d5196', '/f001777c-7633-45c2-9668-b56423a1847e.jpg');
 
@@ -514,7 +509,7 @@ CREATE TABLE `t_system_log` (
   `requestIp` varchar(100) DEFAULT NULL,
   `createBy` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8 COMMENT='日志';
+) ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8 COMMENT='日志';
 
 -- ----------------------------
 -- Records of t_system_log
@@ -694,6 +689,12 @@ INSERT INTO `t_system_log` VALUES ('190', '对菜单信息执行了操作，记�
 INSERT INTO `t_system_log` VALUES ('191', '对null信息执行了操作，记录为', null, '新增', null, null, null, '2017-04-04 09:34:55', '2017-04-04 09:34:55', '0:0:0:0:0:0:0:1', 'admin');
 INSERT INTO `t_system_log` VALUES ('192', '对代码信息执行了操作，记录为null', null, '新增', null, '代码', null, '2017-04-04 09:36:17', '2017-04-04 09:36:17', '0:0:0:0:0:0:0:1', 'admin');
 INSERT INTO `t_system_log` VALUES ('193', '对null信息执行了操作，记录为', null, '新增', null, null, null, '2017-04-04 09:48:23', '2017-04-04 09:48:23', '0:0:0:0:0:0:0:1', 'admin');
+INSERT INTO `t_system_log` VALUES ('194', '对菜单信息进行更新,前后记录对比: 菜单名称[会员管理 =>更改为=> 人员管理]', null, '更新', null, '菜单', null, '2017-04-08 17:47:16', '2017-04-08 17:47:16', '0:0:0:0:0:0:0:1', 'admin');
+INSERT INTO `t_system_log` VALUES ('195', '对菜单信息进行更新,前后记录对比: 菜单名称[会员列表 =>更改为=> 人员列表]', null, '更新', null, '菜单', null, '2017-04-08 17:47:23', '2017-04-08 17:47:23', '0:0:0:0:0:0:0:1', 'admin');
+INSERT INTO `t_system_log` VALUES ('196', '对菜单信息执行了操作，记录为课题信息', null, '新增', null, '菜单', null, '2017-04-09 01:21:08', '2017-04-09 01:21:08', '0:0:0:0:0:0:0:1', 'admin');
+INSERT INTO `t_system_log` VALUES ('197', '对null信息执行了操作，记录为', null, '新增', null, null, null, '2017-04-09 01:25:51', '2017-04-09 01:25:51', '0:0:0:0:0:0:0:1', 'tree');
+INSERT INTO `t_system_log` VALUES ('198', '对null信息执行了操作，记录为', null, '新增', null, null, null, '2017-04-09 01:26:58', '2017-04-09 01:26:58', '0:0:0:0:0:0:0:1', 'tree');
+INSERT INTO `t_system_log` VALUES ('199', '对菜单信息执行了操作，记录为个人信息', null, '新增', null, '菜单', null, '2017-04-09 17:05:13', '2017-04-09 17:05:13', '0:0:0:0:0:0:0:1', 'admin');
 
 -- ----------------------------
 -- Table structure for t_system_menu
@@ -708,7 +709,7 @@ CREATE TABLE `t_system_menu` (
   `sx` varchar(2) DEFAULT NULL COMMENT '顺序',
   `imagesrc` varchar(100) DEFAULT NULL COMMENT '图标路径',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_system_menu
@@ -720,8 +721,8 @@ INSERT INTO `t_system_menu` VALUES ('15', '权限管理', 'views/system/authoriz
 INSERT INTO `t_system_menu` VALUES ('16', '菜单管理', 'views/system/tree-menu.jsp', '7', '1', '4', null);
 INSERT INTO `t_system_menu` VALUES ('19', '日志管理', 'views/system/logList.jsp', '7', '1', '6', null);
 INSERT INTO `t_system_menu` VALUES ('20', '参数管理', 'views/system/codeList.jsp', '7', '1', '7', null);
-INSERT INTO `t_system_menu` VALUES ('81', '会员管理', '', '0', '1', null, 'nav3.png');
-INSERT INTO `t_system_menu` VALUES ('82', '会员列表', 'views/customer/CustomerInfoList.jsp', '81', '1', null, '');
+INSERT INTO `t_system_menu` VALUES ('81', '人员管理', '', '0', '1', null, 'nav3.png');
+INSERT INTO `t_system_menu` VALUES ('82', '人员列表', 'views/customer/CustomerInfoList.jsp', '81', '1', null, '');
 INSERT INTO `t_system_menu` VALUES ('84', '商品信息', 'views/goods/goodsInfoList.jsp', '83', '1', null, '');
 INSERT INTO `t_system_menu` VALUES ('85', '进货管理', '', '0', '1', null, 'nav3.png');
 INSERT INTO `t_system_menu` VALUES ('88', '进货明细', 'views/input/inputTotalList.jsp', '85', '1', null, '');
@@ -736,6 +737,8 @@ INSERT INTO `t_system_menu` VALUES ('96', '毕业生归档资料管理', '', '0'
 INSERT INTO `t_system_menu` VALUES ('97', '院系管理', '', '0', '1', null, 'nav3.png');
 INSERT INTO `t_system_menu` VALUES ('98', '院系管理', 'views/college/collegeList.jsp', '97', '1', null, '');
 INSERT INTO `t_system_menu` VALUES ('99', '专业管理', 'views/college/majorList.jsp', '97', '1', null, '');
+INSERT INTO `t_system_menu` VALUES ('100', '课题信息', 'views/topic/topicList.jsp', '96', '1', null, '');
+INSERT INTO `t_system_menu` VALUES ('101', '个人信息', 'views/stus/stuInfo.jsp', '95', '1', null, '');
 
 -- ----------------------------
 -- Table structure for t_system_role
@@ -979,40 +982,33 @@ CREATE TABLE `t_system_role_menu` (
   `menuid` int(11) NOT NULL COMMENT '{"name":"菜单ID","inputType":"text"}',
   PRIMARY KEY (`id`),
   KEY `idx_t_rold_menu_rid_mid` (`roleid`,`menuid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13481 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13551 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_system_role_menu
 -- ----------------------------
 INSERT INTO `t_system_role_menu` VALUES ('11343', '1', '19');
-INSERT INTO `t_system_role_menu` VALUES ('13474', '3', '7');
-INSERT INTO `t_system_role_menu` VALUES ('13476', '3', '12');
-INSERT INTO `t_system_role_menu` VALUES ('13475', '3', '13');
-INSERT INTO `t_system_role_menu` VALUES ('13477', '3', '15');
-INSERT INTO `t_system_role_menu` VALUES ('13478', '3', '16');
-INSERT INTO `t_system_role_menu` VALUES ('13479', '3', '19');
-INSERT INTO `t_system_role_menu` VALUES ('13480', '3', '20');
-INSERT INTO `t_system_role_menu` VALUES ('13472', '3', '81');
-INSERT INTO `t_system_role_menu` VALUES ('13473', '3', '82');
-INSERT INTO `t_system_role_menu` VALUES ('13471', '3', '84');
-INSERT INTO `t_system_role_menu` VALUES ('13469', '3', '85');
-INSERT INTO `t_system_role_menu` VALUES ('13470', '3', '88');
-INSERT INTO `t_system_role_menu` VALUES ('13467', '3', '89');
-INSERT INTO `t_system_role_menu` VALUES ('13468', '3', '90');
-INSERT INTO `t_system_role_menu` VALUES ('13458', '3', '91');
-INSERT INTO `t_system_role_menu` VALUES ('13459', '3', '92');
-INSERT INTO `t_system_role_menu` VALUES ('13460', '3', '93');
-INSERT INTO `t_system_role_menu` VALUES ('13461', '3', '94');
-INSERT INTO `t_system_role_menu` VALUES ('13462', '3', '95');
-INSERT INTO `t_system_role_menu` VALUES ('13463', '3', '96');
-INSERT INTO `t_system_role_menu` VALUES ('13464', '3', '97');
-INSERT INTO `t_system_role_menu` VALUES ('13466', '3', '98');
-INSERT INTO `t_system_role_menu` VALUES ('13465', '3', '99');
-INSERT INTO `t_system_role_menu` VALUES ('13435', '5', '96');
-INSERT INTO `t_system_role_menu` VALUES ('13432', '6', '7');
-INSERT INTO `t_system_role_menu` VALUES ('13434', '6', '12');
-INSERT INTO `t_system_role_menu` VALUES ('13433', '6', '13');
-INSERT INTO `t_system_role_menu` VALUES ('13431', '6', '95');
+INSERT INTO `t_system_role_menu` VALUES ('13544', '3', '7');
+INSERT INTO `t_system_role_menu` VALUES ('13546', '3', '12');
+INSERT INTO `t_system_role_menu` VALUES ('13545', '3', '13');
+INSERT INTO `t_system_role_menu` VALUES ('13547', '3', '15');
+INSERT INTO `t_system_role_menu` VALUES ('13548', '3', '16');
+INSERT INTO `t_system_role_menu` VALUES ('13549', '3', '19');
+INSERT INTO `t_system_role_menu` VALUES ('13550', '3', '20');
+INSERT INTO `t_system_role_menu` VALUES ('13542', '3', '81');
+INSERT INTO `t_system_role_menu` VALUES ('13543', '3', '82');
+INSERT INTO `t_system_role_menu` VALUES ('13535', '3', '95');
+INSERT INTO `t_system_role_menu` VALUES ('13537', '3', '96');
+INSERT INTO `t_system_role_menu` VALUES ('13539', '3', '97');
+INSERT INTO `t_system_role_menu` VALUES ('13540', '3', '98');
+INSERT INTO `t_system_role_menu` VALUES ('13541', '3', '99');
+INSERT INTO `t_system_role_menu` VALUES ('13538', '3', '100');
+INSERT INTO `t_system_role_menu` VALUES ('13536', '3', '101');
+INSERT INTO `t_system_role_menu` VALUES ('13505', '5', '95');
+INSERT INTO `t_system_role_menu` VALUES ('13506', '5', '96');
+INSERT INTO `t_system_role_menu` VALUES ('13507', '5', '100');
+INSERT INTO `t_system_role_menu` VALUES ('13508', '6', '95');
+INSERT INTO `t_system_role_menu` VALUES ('13509', '6', '101');
 INSERT INTO `t_system_role_menu` VALUES ('11712', '7', '7');
 INSERT INTO `t_system_role_menu` VALUES ('11714', '7', '12');
 INSERT INTO `t_system_role_menu` VALUES ('11713', '7', '13');
@@ -1092,21 +1088,16 @@ CREATE TABLE `t_system_user` (
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginname` (`loginname`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2022 DEFAULT CHARSET=utf8 COMMENT='用户信息';
+) ENGINE=InnoDB AUTO_INCREMENT=2024 DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
 -- ----------------------------
 -- Records of t_system_user
 -- ----------------------------
 INSERT INTO `t_system_user` VALUES ('2007', 'admin', '管理员', 'e10adc3949ba59abbe56e057f20f883e', '2015-12-09 09:10:31', '2016-03-27 19:48:46', null, null, 'fengddjiayou@163.com1');
 INSERT INTO `t_system_user` VALUES ('2008', 'ad', 'kaikaixinxin', 'c4ca4238a0b923820dcc509a6f75849b', '2016-02-18 15:29:22', '2016-02-18 15:59:12', null, null, '');
-INSERT INTO `t_system_user` VALUES ('2009', 'chang', 'chang', 'bf9017d04f72c1b5ba407971fbf61289', null, '2017-03-24 00:54:04', null, null, null);
-INSERT INTO `t_system_user` VALUES ('2011', 'add', '123', 'c4ca4238a0b923820dcc509a6f75849b', null, '2017-03-23 00:02:59', null, null, '');
-INSERT INTO `t_system_user` VALUES ('2012', 'changshuhao', 'changshuhao', 'c4ca4238a0b923820dcc509a6f75849b', '2016-04-08 16:39:11', '2017-03-23 00:02:57', null, null, null);
-INSERT INTO `t_system_user` VALUES ('2014', 'zzz123', 'zzz123', 'c4ca4238a0b923820dcc509a6f75849b', '2016-04-08 16:42:00', '2017-03-23 00:02:55', null, null, null);
-INSERT INTO `t_system_user` VALUES ('2015', 'tree', 'tree', 'c4ca4238a0b923820dcc509a6f75849b', null, '2017-03-23 00:02:52', null, null, 'tree@163.com');
-INSERT INTO `t_system_user` VALUES ('2019', '0405', '0405', '96e79218965eb72c92a549dd5a330112', null, null, null, null, 'changshuhao@163.com');
-INSERT INTO `t_system_user` VALUES ('2020', '040501', '040501', '96e79218965eb72c92a549dd5a330112', null, null, null, null, '13163155021@163.com');
-INSERT INTO `t_system_user` VALUES ('2021', '0405011', '0405011', '96e79218965eb72c92a549dd5a330112', '2017-04-06 00:04:16', null, null, null, 'zzz');
+INSERT INTO `t_system_user` VALUES ('2015', 'tree', '树教授', '96e79218965eb72c92a549dd5a330112', null, '2017-04-09 17:19:52', null, null, 'tree@163.com');
+INSERT INTO `t_system_user` VALUES ('2022', '0406test', '测老师', '96e79218965eb72c92a549dd5a330112', '2017-04-06 22:23:43', '2017-04-09 17:20:08', null, null, 'eheroic@163.com');
+INSERT INTO `t_system_user` VALUES ('2023', 'zhangxiaobai', '张小白', '96e79218965eb72c92a549dd5a330112', '2017-04-09 17:19:08', null, null, null, '1213@163.com');
 
 -- ----------------------------
 -- Table structure for t_system_user_role
@@ -1118,7 +1109,7 @@ CREATE TABLE `t_system_user_role` (
   `roleid` int(11) NOT NULL DEFAULT '0' COMMENT '{"name":"角色id","inputType":"text"}',
   PRIMARY KEY (`id`),
   KEY `idx_t_user_rold_uid_rid` (`userid`,`roleid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=31758 DEFAULT CHARSET=utf8 COMMENT='用户角色';
+) ENGINE=InnoDB AUTO_INCREMENT=31764 DEFAULT CHARSET=utf8 COMMENT='用户角色';
 
 -- ----------------------------
 -- Records of t_system_user_role
@@ -5353,7 +5344,7 @@ INSERT INTO `t_system_user_role` VALUES ('31451', '1982', '10');
 INSERT INTO `t_system_user_role` VALUES ('31509', '1983', '36');
 INSERT INTO `t_system_user_role` VALUES ('31457', '1984', '10');
 INSERT INTO `t_system_user_role` VALUES ('31458', '2006', '9');
-INSERT INTO `t_system_user_role` VALUES ('31749', '2007', '3');
+INSERT INTO `t_system_user_role` VALUES ('31762', '2007', '3');
 INSERT INTO `t_system_user_role` VALUES ('31751', '2008', '3');
 INSERT INTO `t_system_user_role` VALUES ('31468', '2008', '10');
 INSERT INTO `t_system_user_role` VALUES ('31752', '2009', '4');
@@ -5373,7 +5364,9 @@ INSERT INTO `t_system_user_role` VALUES ('31499', '2018', '10');
 INSERT INTO `t_system_user_role` VALUES ('31500', '2019', '11');
 INSERT INTO `t_system_user_role` VALUES ('31481', '2020', '12');
 INSERT INTO `t_system_user_role` VALUES ('31494', '2021', '38');
+INSERT INTO `t_system_user_role` VALUES ('31759', '2022', '5');
 INSERT INTO `t_system_user_role` VALUES ('31496', '2022', '14');
+INSERT INTO `t_system_user_role` VALUES ('31763', '2023', '6');
 INSERT INTO `t_system_user_role` VALUES ('31498', '2023', '15');
 INSERT INTO `t_system_user_role` VALUES ('31501', '2024', '36');
 INSERT INTO `t_system_user_role` VALUES ('31495', '2025', '37');
@@ -5613,6 +5606,32 @@ INSERT INTO `t_system_user_role` VALUES ('31746', '2393', '14');
 INSERT INTO `t_system_user_role` VALUES ('31747', '2393', '15');
 INSERT INTO `t_system_user_role` VALUES ('31748', '2393', '49');
 INSERT INTO `t_system_user_role` VALUES ('31750', '2424', '38');
+
+-- ----------------------------
+-- Table structure for t_topic
+-- ----------------------------
+DROP TABLE IF EXISTS `t_topic`;
+CREATE TABLE `t_topic` (
+  `id` varchar(36) NOT NULL DEFAULT '',
+  `tname` varchar(255) DEFAULT NULL COMMENT '课题名称',
+  `tbackinfo` text COMMENT '简介',
+  `tdetailinfo` text COMMENT '详细信息',
+  `tfunction` text,
+  `stuloginname` varchar(255) DEFAULT NULL,
+  `sturealname` varchar(255) DEFAULT NULL,
+  `tealoginname` varchar(255) DEFAULT NULL,
+  `tearealname` varchar(255) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_topic
+-- ----------------------------
+INSERT INTO `t_topic` VALUES ('2d1b0e0a-1c42-4012-9aba-f0c09349f076', 'test', '111', '11', '11', null, null, '0406test', '测老师', '20173090');
+INSERT INTO `t_topic` VALUES ('72463d9a-f1c4-4928-b944-83b3722828bc', '基于JavaEE的毕业设计管理系统', '随着社会的发展，接受高等教育的学生越来越多，高校毕业设计管理工作也越来越繁重。作为高等教育考核最后环节的毕业设计，是对毕业生技术水平的综合考核，体现一个学生的技术水平和实践能力，管理工作非常重要。传统的人工毕业设计管理需要投入大量的人力物力，工作效率较低，数据信息缺乏准确性。因此，毕业设计管理系统研究非常必要。基于javaEE的毕业设计管理系统对实现毕业设计管理工作自动化具有深远意义，不但可以提高毕业设计管理工作效率，还可以为广大师生在答辩环节带来便利，促进高校稳定发展。', '该系统基于JavaEE平台构建，应用软件能力成熟度模型集成开发流程，采用 B/S开发模式，运用MySQL数据库，主要由Web应用服务器，数据库等部分组成。本系统的主要包括学生毕业设计工作管理，学生归档资料管理和学生就业信息管理等三大模块本系统。对于教师管理员而言，具有用户管理、学生管理、成绩管理和学位管理等功能模块；对于研究生而言，具有选课管理、成绩查询和科研论文提交等功能模块。开发这一套系统目的是为了使教师与学生可以跨越时间、空间限制实现协同工作。该系统具有较强的实用性，大大提高了工作效率，使毕业生信息管理更加及时、高效。而且做到了公平，公正和公开。', '1）毕业设计管理子系统\r\n学生模块：主要功能有学生选择导师、学生选择课题、上传论文等。\r\n教师模块：主要功能有确认学生，确认课题，审阅学生论文(下载查看)等。\r\n2）毕业生归档资料管理子系统\r\n主要包括管理员,教师和学生三个角色，管理员登陆可以管理教师信息、学生信息、院系信息、资料信息、统计信息等，并可以对各部分信息进行增、删、改、查；\r\n3）登录模块\r\n学生登陆可以上传资料文件、条件查询相关文件等；\r\n教师登陆可以在线预览学生上交的资料文件，下载学生上交的资料文件等；\r\n4）其他模块\r\n共部分进行发送消息模块；\r\n学生就业信息管理子系统主要对毕业生的就业状况进行统计分析管理；\r\n毕设指导过程的管理。\r\n', 'zhangxiaobai', '张小白', 'tree', '树教授', null);
+INSERT INTO `t_topic` VALUES ('8e6da811-f7a1-4490-bb71-c084f258904d', 'test0409', '111', '111', '111222', null, null, 'admin', '管理员', null);
+INSERT INTO `t_topic` VALUES ('aa52c92d-66f9-419c-9422-f4676f6e6e96', '基于JAVAEE技术的网上论坛系统的设计与实现', '随着网络在现代社会中的广泛应用及当今社会快节奏的发展，人们越来越需要一个平台来进行分享并交流相应的资讯信息。现在有各种的论坛网站等系统来实现人们的这一需要，获得有益信息并与他人进行交流，以方便个人扩展知识层面。', '随着网络在现代社会中的广泛应用及当今社会快节奏的发展，人们越来越需要一个平台来进行分享并交流相应的资讯信息。现在有各种的论坛网站等系统来实现人们的这一需要，获得有益信息并与他人进行交流，以方便个人扩展知识层面。', '该课题主要的工作是对论坛网站的主要功能进行设计与实现，实现用户浏览帖子，发表及回复论坛帖子的功能以及系统管理员对后台的管理功能，如删除帖子和用户信息，对用户权限的设置。主要作用是通过发表新帖并回复他人帖子来实现信息交流。此文章中首先对整个系统功能进行详细的分析与设计；其次采用SQL Server数据库技术实现对系统中涉及的数据信息进行管理，最后利用SSH框架进一步具体实现论坛网站各项功能，运行调试确保网站的正常工作。', '1', '1', 'admin', '管理员', null);
 
 -- ----------------------------
 -- Table structure for t_user_push

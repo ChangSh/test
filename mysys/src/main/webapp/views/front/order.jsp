@@ -100,9 +100,9 @@ function jiesuan(){
   <div class="navbar-inner">
     <a class="brand" href="#">会员中心</a>
     <ul class="nav">  
-     <li ><a href="buycart.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的喜欢</a></li>
-    <li class="active"><a href="#" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的订单</a></li>
-   
+    <li ><a href="buycart.jsp" rel="nofollow"> 我的房源</a></li>
+     <li ><a href="buycart.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的预定</a></li>
+    <li class="active"><a href="#" rel="nofollow">预定详情</a></li>
 		<li class=" dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户 <b class="caret"></b></a>
 		<ul class="dropdown-menu">

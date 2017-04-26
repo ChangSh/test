@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.nutz.dao.Chain;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Condition;
 import org.nutz.dao.Dao;
@@ -140,5 +141,12 @@ public class GoodsService extends BaseService {
 		dao.updateIgnoreNull(o);
 		return "ok";
 
+	}
+
+	public int updateStatus(String id, int status) {
+		Goods g = dao.fetch(Goods.class, id);
+		g.setStatus(status);
+		dao.update(Goods.class, Chain.make("status", status), Cnd.where("id", "=", id));
+		return 1;
 	}
 }
