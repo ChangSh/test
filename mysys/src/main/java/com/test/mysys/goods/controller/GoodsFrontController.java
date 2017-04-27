@@ -84,6 +84,7 @@ public class GoodsFrontController {
 		goodsService.updateIgnoreNull(g);
 		GoodsDetailVo gdv = service.fetchDetail(goodsid);
 		request.setAttribute("ob", gdv);
+
 		return "/views/front/goodsDetail";
 	}
 
@@ -139,26 +140,6 @@ public class GoodsFrontController {
 
 	}
 
-	/*
-	 * @RequestMapping("/addCart") public String addCart(HttpServletRequest
-	 * request,String id){ BuyCart cart=new BuyCart(); //改用户还有购物车未结算，加到购物车
-	 * if(service.cartIsSettle()!=null){ cart=service.cartIsSettle();} else{
-	 * //没有未结算购物车，new一个 cart=service.newCart(); } String cid=cart.getId();
-	 * CartGoods cartgoods=new CartGoods(); cartgoods.setCid(cid);
-	 * cartgoods.setGid(id); service.insertCart(cartgoods); Goods
-	 * g=goodsService.fetch(id);
-	 * 
-	 * cart.setCartprice(cart.getCartprice()+g.getGunitprice());
-	 * 
-	 * cart.setCartcount(cart.getCartcount()+1);
-	 * 
-	 * service.updateIgnoreNull(cart);
-	 * 
-	 * return "/views/front/buycart";
-	 * 
-	 * }
-	 */
-
 	@RequestMapping("/guess")
 	@ResponseBody
 	public Map<String, Object> guess(HttpServletRequest request) {
@@ -190,5 +171,12 @@ public class GoodsFrontController {
 		map.put("fenleilist", service.fenleiList());
 		return map;
 
+	}
+
+	@RequestMapping("/book")
+	@ResponseBody
+	public String book(HttpServletRequest request, @RequestParam(value = "id", defaultValue = "0") String id) {
+		goodsService.updateStatus(id, 2);
+		return "ok";
 	}
 }

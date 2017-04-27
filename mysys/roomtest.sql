@@ -3,14 +3,14 @@ Navicat MySQL Data Transfer
 
 Source Server         : localhost
 Source Server Version : 50610
-Source Host           : localhost:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : roomtest
 
 Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-04-10 00:32:09
+Date: 2017-04-27 01:08:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -155,11 +155,14 @@ CREATE TABLE `t_file` (
 INSERT INTO `t_file` VALUES ('0d89412e-7113-469b-8ece-a8265bd712ff', '49e672e3-6b47-4366-ae97-15c3421cd63d', '/09b59d90-0bd5-4d03-ab3f-5844bceab7f1.jpg');
 INSERT INTO `t_file` VALUES ('12b03586-83cd-4316-aaee-0012d3addc33', 'a484272c-4523-454b-abe8-7d819a9bc0ca', '/f1764bfa-4900-488e-937d-c34b36e4caa4.gif');
 INSERT INTO `t_file` VALUES ('2be13ae1-49ad-409a-8865-c3b457103deb', 'f4597c96-6ef4-4d16-81c6-b365821d1d87', '/d2e98e05-7343-4bed-8515-07fdad55c1be.jpg');
+INSERT INTO `t_file` VALUES ('31908c67-c6f6-4ce6-baca-51170f0faefe', '864acacc-7f24-4038-bc2e-11039ef97d4d', '/70045c01-cede-4a1a-957b-6adac8f8d44f.jpg');
 INSERT INTO `t_file` VALUES ('3c2f0d9f-98b2-466c-a5f7-2ae693c4702a', 'aa735f25-1b56-4359-929d-5e6e75f16331', '/979c66f5-09f1-41a7-848e-31d30cf64a3c.gif');
 INSERT INTO `t_file` VALUES ('42f392ed-e653-4f32-a874-4aacb1711ec2', '023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '/0b1f83bf-b690-4d1d-bf7f-3b1ffee1775f.jpg');
 INSERT INTO `t_file` VALUES ('4b925c20-0596-4d36-995f-df50cf7f8a48', '74a1f600-7d9b-4779-9a45-48809c2039a1', '/27b109e4-518d-49a4-b4f3-a29a5441e888.jpg');
+INSERT INTO `t_file` VALUES ('4e417ca5-e8cd-4e3b-82d6-a1a3bd1aa9f5', 'bc05139a-2dae-44d0-a5ed-307c0fa797d8', '/add24e86-780c-4ccd-acab-ef48c7ea1b8b.jpg');
 INSERT INTO `t_file` VALUES ('86f6d374-0809-4664-a5e2-7edf7498ba97', '3939e9a1-020d-4da9-a87d-d04fb829e47b', '/77ac81c3-8153-48a8-ab72-1cd156309beb.jpg');
 INSERT INTO `t_file` VALUES ('922bdc6d-21aa-46ba-b6b0-06ff3dfe8773', '2e207cde-996a-4761-88e0-d506367d5196', '/5787a849-b308-4bcd-b241-e7d9282bd500.jpg');
+INSERT INTO `t_file` VALUES ('c2881873-37b2-405f-b63f-fdf3738ba2c4', '73e4a807-3be3-43bd-a664-88c3521a1ac8', '/d51b56b2-824c-4cfa-bc2f-d7da7e9f5b2a.jpg');
 INSERT INTO `t_file` VALUES ('d296cba1-6627-4d5e-8830-8797aead5190', '70f37346-c42a-4eff-953c-db79b562c4c5', '/5e363502-b106-4b46-a9e7-0abcd3c67593.jpg');
 INSERT INTO `t_file` VALUES ('da8c5f8b-1ffa-4409-87e1-1640a355d522', '66974b91-03fd-47d2-ab6b-a61fdffa55a0', '/3974eead-cb84-4f39-940e-1e3164d039d8.jpg');
 
@@ -169,7 +172,7 @@ INSERT INTO `t_file` VALUES ('da8c5f8b-1ffa-4409-87e1-1640a355d522', '66974b91-0
 DROP TABLE IF EXISTS `t_goods`;
 CREATE TABLE `t_goods` (
   `id` varchar(36) NOT NULL DEFAULT '',
-  `gname` varchar(20) DEFAULT NULL COMMENT '商品名',
+  `gname` varchar(255) DEFAULT NULL COMMENT '商品名',
   `gunitprice` double DEFAULT NULL COMMENT '商品单价',
   `gbriefintro` varchar(255) DEFAULT NULL COMMENT '简介',
   `gdetailintro` varchar(255) DEFAULT NULL COMMENT '详细信息',
@@ -186,12 +189,15 @@ CREATE TABLE `t_goods` (
 -- ----------------------------
 -- Records of t_goods
 -- ----------------------------
-INSERT INTO `t_goods` VALUES ('023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '阳光100', '11', 'das', 'dsa', '华苑新城北,das', null, '01', '2', '35', null, null);
-INSERT INTO `t_goods` VALUES ('49e672e3-6b47-4366-ae97-15c3421cd63d', '米兰小屋', '2000', '米兰小屋', '米兰小屋', '120', null, '02', '1', '7', null, null);
-INSERT INTO `t_goods` VALUES ('66974b91-03fd-47d2-ab6b-a61fdffa55a0', '塞纳北岸', '3000', '塞纳北岸', '塞纳北岸', '100', null, '01', '1', null, null, null);
-INSERT INTO `t_goods` VALUES ('70f37346-c42a-4eff-953c-db79b562c4c5', '水竹花园', '1100', '水竹花园', '水竹花园', '50', null, '01', '1', null, '红桥区', null);
-INSERT INTO `t_goods` VALUES ('74a1f600-7d9b-4779-9a45-48809c2039a1', '五福居', '1110', '五福居', '五福居', '111', null, '01', '1', null, null, null);
-INSERT INTO `t_goods` VALUES ('f4597c96-6ef4-4d16-81c6-b365821d1d87', '水云居', '2700', '水云居', '水云居', '300', null, '01', '1', '11', null, null);
+INSERT INTO `t_goods` VALUES ('023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '阳光100', '11', 'das', 'dsa', '华苑新城北,das', null, '01', '2', '37', null, '1');
+INSERT INTO `t_goods` VALUES ('49e672e3-6b47-4366-ae97-15c3421cd63d', '米兰小屋', '2000', '米兰小屋', '米兰小屋', '120', null, '02', '1', '19', null, '1');
+INSERT INTO `t_goods` VALUES ('66974b91-03fd-47d2-ab6b-a61fdffa55a0', '塞纳北岸', '3000', '塞纳北岸', '塞纳北岸', '100', null, '01', '1', '2', null, '1');
+INSERT INTO `t_goods` VALUES ('70f37346-c42a-4eff-953c-db79b562c4c5', '水竹花园', '1100', '水竹花园', '水竹花园', '50', null, '01', '1', '3', '红桥区', '1');
+INSERT INTO `t_goods` VALUES ('73e4a807-3be3-43bd-a664-88c3521a1ac8', '恒大华府', '9000', '别名/恒大水岸嘉园', '东坝中街与单店北街交汇处西北侧（接待时间 9:00 - 18:00）', '100', null, '02', '1', null, '东坝中街与单店北街交汇处西北侧', '0');
+INSERT INTO `t_goods` VALUES ('74a1f600-7d9b-4779-9a45-48809c2039a1', '五福居', '1110', '五福居', '五福居', '111', null, '01', '1', '4', null, '2');
+INSERT INTO `t_goods` VALUES ('864acacc-7f24-4038-bc2e-11039ef97d4d', '霞公府', '10000', '北京饭店北侧，霞公府街', '北京饭店北侧，霞公府街', '100', null, '02', '2', null, '北京饭店北侧，霞公府街', '0');
+INSERT INTO `t_goods` VALUES ('bc05139a-2dae-44d0-a5ed-307c0fa797d8', '翠云居', '3000', '翠云居', '翠云居', '90', null, '02', '1', '19', '天通苑太平庄中介', '1');
+INSERT INTO `t_goods` VALUES ('f4597c96-6ef4-4d16-81c6-b365821d1d87', '水云居', '2700', '水云居', '水云居', '300', null, '01', '1', '19', null, '1');
 
 -- ----------------------------
 -- Table structure for t_msg
@@ -452,7 +458,7 @@ CREATE TABLE `t_system_log` (
   `requestIp` varchar(100) DEFAULT NULL,
   `createBy` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8 COMMENT='日志';
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COMMENT='日志';
 
 -- ----------------------------
 -- Records of t_system_log
@@ -607,6 +613,9 @@ INSERT INTO `t_system_log` VALUES ('165', '对用户信息进行更新,前后记
 INSERT INTO `t_system_log` VALUES ('166', '对用户信息进行更新,前后记录对比: 密码[00b7691d86d96aebd21dd9e138f90840 =>更改为=> e10adc3949ba59abbe56e057f20f883e] null[null =>更改为=> com.test.mysys.system.model.UserRole@6acc8cf]', null, '更新', null, '用户', null, '2016-06-04 00:26:36', '2016-06-04 00:26:36', '0:0:0:0:0:0:0:1', 'chang');
 INSERT INTO `t_system_log` VALUES ('167', '对菜单信息进行更新,前后记录对比: 菜单名称[商品管理 =>更改为=> 房源管理]', null, '更新', null, '菜单', null, '2017-04-09 22:50:45', '2017-04-09 22:50:45', '0:0:0:0:0:0:0:1', 'admin');
 INSERT INTO `t_system_log` VALUES ('168', '对菜单信息进行更新,前后记录对比: 菜单名称[商品管理 =>更改为=> 房源信息]', null, '更新', null, '菜单', null, '2017-04-09 22:50:52', '2017-04-09 22:50:52', '0:0:0:0:0:0:0:1', 'admin');
+INSERT INTO `t_system_log` VALUES ('169', '对菜单信息执行了操作，记录为商品信息', null, '删除', null, '菜单', null, '2017-04-10 21:12:26', '2017-04-10 21:12:26', '0:0:0:0:0:0:0:1', 'admin');
+INSERT INTO `t_system_log` VALUES ('170', '对菜单信息执行了操作，记录为进货管理', null, '删除', null, '菜单', null, '2017-04-10 21:12:32', '2017-04-10 21:12:32', '0:0:0:0:0:0:0:1', 'admin');
+INSERT INTO `t_system_log` VALUES ('171', '对用户信息执行了操作，记录为changshuhao', null, '删除', null, '用户', null, '2017-04-10 21:12:43', '2017-04-10 21:12:43', '0:0:0:0:0:0:0:1', 'admin');
 
 -- ----------------------------
 -- Table structure for t_system_menu
@@ -635,8 +644,6 @@ INSERT INTO `t_system_menu` VALUES ('19', '日志管理', 'views/system/logList.
 INSERT INTO `t_system_menu` VALUES ('20', '参数管理', 'views/system/codeList.jsp', '7', '1', '7', null);
 INSERT INTO `t_system_menu` VALUES ('81', '会员管理', '', '0', '1', null, 'nav3.png');
 INSERT INTO `t_system_menu` VALUES ('82', '会员列表', 'views/customer/CustomerInfoList.jsp', '81', '1', null, '');
-INSERT INTO `t_system_menu` VALUES ('84', '商品信息', 'views/goods/goodsInfoList.jsp', '83', '1', null, '');
-INSERT INTO `t_system_menu` VALUES ('85', '进货管理', '', '0', '1', null, 'nav3.png');
 INSERT INTO `t_system_menu` VALUES ('88', '进货明细', 'views/input/inputTotalList.jsp', '85', '1', null, '');
 INSERT INTO `t_system_menu` VALUES ('89', '留言管理', '', '0', '1', null, 'nav3.png');
 INSERT INTO `t_system_menu` VALUES ('90', '留言管理', 'views/message/msgInfoList.jsp', '89', '1', null, '');
@@ -885,28 +892,25 @@ CREATE TABLE `t_system_role_menu` (
   `menuid` int(11) NOT NULL COMMENT '{"name":"菜单ID","inputType":"text"}',
   PRIMARY KEY (`id`),
   KEY `idx_t_rold_menu_rid_mid` (`roleid`,`menuid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13447 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13460 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_system_role_menu
 -- ----------------------------
 INSERT INTO `t_system_role_menu` VALUES ('11343', '1', '19');
-INSERT INTO `t_system_role_menu` VALUES ('13440', '3', '7');
-INSERT INTO `t_system_role_menu` VALUES ('13442', '3', '12');
-INSERT INTO `t_system_role_menu` VALUES ('13441', '3', '13');
-INSERT INTO `t_system_role_menu` VALUES ('13443', '3', '15');
-INSERT INTO `t_system_role_menu` VALUES ('13444', '3', '16');
-INSERT INTO `t_system_role_menu` VALUES ('13445', '3', '19');
-INSERT INTO `t_system_role_menu` VALUES ('13446', '3', '20');
-INSERT INTO `t_system_role_menu` VALUES ('13438', '3', '81');
-INSERT INTO `t_system_role_menu` VALUES ('13439', '3', '82');
-INSERT INTO `t_system_role_menu` VALUES ('13437', '3', '84');
-INSERT INTO `t_system_role_menu` VALUES ('13435', '3', '89');
-INSERT INTO `t_system_role_menu` VALUES ('13436', '3', '90');
-INSERT INTO `t_system_role_menu` VALUES ('13433', '3', '91');
-INSERT INTO `t_system_role_menu` VALUES ('13434', '3', '92');
-INSERT INTO `t_system_role_menu` VALUES ('13431', '3', '93');
-INSERT INTO `t_system_role_menu` VALUES ('13432', '3', '94');
+INSERT INTO `t_system_role_menu` VALUES ('13453', '3', '7');
+INSERT INTO `t_system_role_menu` VALUES ('13455', '3', '12');
+INSERT INTO `t_system_role_menu` VALUES ('13454', '3', '13');
+INSERT INTO `t_system_role_menu` VALUES ('13456', '3', '15');
+INSERT INTO `t_system_role_menu` VALUES ('13457', '3', '16');
+INSERT INTO `t_system_role_menu` VALUES ('13458', '3', '19');
+INSERT INTO `t_system_role_menu` VALUES ('13459', '3', '20');
+INSERT INTO `t_system_role_menu` VALUES ('13451', '3', '89');
+INSERT INTO `t_system_role_menu` VALUES ('13452', '3', '90');
+INSERT INTO `t_system_role_menu` VALUES ('13449', '3', '91');
+INSERT INTO `t_system_role_menu` VALUES ('13450', '3', '92');
+INSERT INTO `t_system_role_menu` VALUES ('13447', '3', '93');
+INSERT INTO `t_system_role_menu` VALUES ('13448', '3', '94');
 INSERT INTO `t_system_role_menu` VALUES ('12162', '6', '7');
 INSERT INTO `t_system_role_menu` VALUES ('12164', '6', '12');
 INSERT INTO `t_system_role_menu` VALUES ('12163', '6', '13');
@@ -999,7 +1003,6 @@ INSERT INTO `t_system_user` VALUES ('2008', 'ad', 'kaikaixinxin', 'c4ca4238a0b92
 INSERT INTO `t_system_user` VALUES ('2009', 'chang', 'chang', 'e10adc3949ba59abbe56e057f20f883e', null, '2016-03-21 14:03:52', null, null, null);
 INSERT INTO `t_system_user` VALUES ('2010', 'yangke', 'yangke', 'e10adc3949ba59abbe56e057f20f883e', '2016-03-21 14:04:28', null, null, null, null);
 INSERT INTO `t_system_user` VALUES ('2011', 'add', '123', '96e79218965eb72c92a549dd5a330112', null, null, null, null, '');
-INSERT INTO `t_system_user` VALUES ('2012', 'changshuhao', 'changshuhao', 'e10adc3949ba59abbe56e057f20f883e', '2016-04-08 16:39:11', null, null, null, null);
 INSERT INTO `t_system_user` VALUES ('2014', 'zzz123', 'zzz123', 'e10adc3949ba59abbe56e057f20f883e', '2016-04-08 16:42:00', null, null, null, null);
 
 -- ----------------------------
@@ -5566,4 +5569,23 @@ LEFT JOIN t_goods ON t_cargo_c.gid = t_goods.id ;
 -- View structure for v_goods_files
 -- ----------------------------
 DROP VIEW IF EXISTS `v_goods_files`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `v_goods_files` AS SELECT t_goods.*, t_file.filepath FROM t_goods LEFT JOIN t_file ON t_goods.id=t_file.fileid ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `v_goods_files` AS SELECT
+	t_goods.discount,
+	t_goods.gaddr,
+t_goods.gbriefintro,
+t_goods.gclick,
+t_goods.gtype,
+t_goods.gdetailintro,
+t_goods.gisfocus,
+t_goods.gname,
+t_goods.gsize,
+t_goods.gunitprice,
+t_goods.id,
+t_goods.`status`,
+(SELECT codename FROM t_system_codedic WHERE sectionname = '分类' AND t_system_codedic.`code` = t_goods.gtype ) as codename,
+  t_file.filepath
+FROM
+	t_goods
+LEFT JOIN t_file ON t_goods.id = t_file.fileid
+WHERE
+	t_goods.`status` = 1 ;

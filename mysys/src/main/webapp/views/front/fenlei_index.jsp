@@ -1,16 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/views/common/taglibs.jsp"%>
-
-
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title>租房网</title>
- <script src="${ctx}/static/jquery-1.9.0.min.js"></script> 
- <script type="text/javascript" src="${ctx}/static/pagination_zh/lib/jquery.pagination.js"></script>
+<title>吉祥租房网</title>
+<script src="${ctx}/static/jquery-1.9.0.min.js"></script> 
+<script type="text/javascript" src="${ctx}/static/pagination_zh/lib/jquery.pagination.js"></script>
 <link href="${ctx}/static/shopping_files/css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css">
 <script src="${ctx}/static/shopping_files/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="${ctx}/static/shopping_files/js/common.js"></script>
@@ -21,13 +18,9 @@
 <link type="text/css" rel="stylesheet" href="${ctx}/static/focus/css/owl.carousel.css"> 
 <link type="text/css" rel="stylesheet" href="${ctx}/static/shopping_files/css/style.css">   
 <link rel="stylesheet" type="text/css" href="${ctx}/static/shopping_files/css/main.css">
-
 <link href="${ctx}/static/pagination_zh/lib/pagination.css" rel="stylesheet" type="text/css" />
 
-
-
 <script type="text/javascript"> 
-
 var pageIndex = 0; //页面索引初始值   
 var pageSize = 4; //每页显示条数初始化，修改显示条数，修改这里即可    
 var opt = {//分页参数
@@ -65,11 +58,6 @@ function InitTable(pageIndex, pageSize) {
 											'<br><span class="price">查看详细</span></div></div>');
 				
 						});
-				   /*    for(int i=0;i<data.Rows.length;i++){
-				    	  html
-				    	  
-				      } */
-			
 				}
 			});
 } 
@@ -138,13 +126,8 @@ $(function(){
 .ui-dialog-titlebar{display:none}
 .memberbox{display:none} 
 </style>
-
 </head>
-
 <body> 
-
-
-
 <div id="memberbox" class="memberbox">
 	<div id="member_dialog" class="member_dialog" title="&#160;">
 		<div>&nbsp;</div>
@@ -152,11 +135,11 @@ $(function(){
 	</div>
 </div><div class="w_all">
 	<div class="w980">
+	<ul>
 		<li style="padding:8px 0 8px 0;float:left;">
-		您好，欢迎来到租房网  <img src="${ctx}/static/shopping_files/images/m.gif" align="absmiddle"> <a href="#">商城手机版</a> 
+		您好，欢迎来到吉祥租房网  
 		</li> 
 		<li style="float:right;padding-top:6px;">
-		
 
 <shiro:lacksRole name="普通用户">
 <a class="member_a" href="javascript:member_dialog('login.jsp',850,450,'');">登录/注册</a>  
@@ -165,16 +148,15 @@ $(function(){
  	你好,<a class="member_a" href="javascript:member_dialog('order.jsp',850,450,'');"> <shiro:principal property="realname"/></a>|
  	<a href="${ctx}/system/user/frontlogout.do" rel="nofollow" onclick="return confirm('确认退出账户？');"> 安全退出</a>
 </shiro:hasRole>
-		
-	
 		</li>
+	</ul>	
 	</div> 
 </div>
 
 <div class="header w980">
 	<div class="clr"></div>
 	<div class="header_left">
-		<a href="${ctx}/static/shopping_files/shopping.html"><img src="${ctx}/static/shopping_files/images/logo.jpg"></a>
+		<a href="${ctx}/static/shopping_files/shopping.html"><img src="${ctx}/static/shopping_files/images/logo.jpg" width="240" height="60"></a>
 	</div>
 	<div class="header_center">
 				<form action="${ctx}/goodsFront/find.do" method="POST" class="search_form"> 

@@ -26,6 +26,8 @@ public class Goods {
 	private Integer gclick;
 	@Column
 	private String gaddr;
+	@Column
+	private int status;
 
 	public String getId() {
 		return id;
@@ -113,6 +115,14 @@ public class Goods {
 
 	public void setGaddr(String gaddr) {
 		this.gaddr = gaddr;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 }

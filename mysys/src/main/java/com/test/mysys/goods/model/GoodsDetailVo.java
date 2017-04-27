@@ -30,6 +30,10 @@ public class GoodsDetailVo {
 	private String cartId;
 	@Column
 	private String gaddr;
+	@Column
+	private String status;
+	@Column
+	private String codename;
 
 	public String getId() {
 		return id;
@@ -133,6 +137,22 @@ public class GoodsDetailVo {
 
 	public void setGaddr(String gaddr) {
 		this.gaddr = gaddr;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getCodename() {
+		return codename;
+	}
+
+	public void setCodename(String codename) {
+		this.codename = codename;
 	}
 
 }

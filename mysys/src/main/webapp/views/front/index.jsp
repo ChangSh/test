@@ -111,8 +111,8 @@ function InitTable(pageIndex, pageSize) {
 									'<div style="text-align:center;height:215px;overflow:hidden;"> '+
 							'<a href="${ctx}/goodsFront/fetchDetail.do?goodsid='+value.id+'" target="_blank"><img src='+pic+' width="100%"></a></div> '+
 						'<div style="padding:2px">'+
-							'<a href="#" target="_blank" style="font-size:16px;font-weight:bold;">'+value.gname+'</a><br>'+
-											'<br><span class="price">查看详细</span></div></div>');
+							'<a href="${ctx}/goodsFront/fetchDetail.do?goodsid='+value.id+'" target="_blank" style="font-size:16px;font-weight:bold;">'+value.gname+'</a><br>'+
+											'<br><a href="${ctx}/goodsFront/fetchDetail.do?goodsid='+value.id+'" target="_blank"><span class="price">查看详细</span></a></div></div>');
 				
 						});
 				   /*    for(int i=0;i<data.Rows.length;i++){
@@ -234,8 +234,15 @@ $(function(){
 		
 		<div class="menu_link">
 			<div class="menu_link_item"><a href="${ctx}/views/front/index.jsp">首页</a></div>
-						<div class="menu_link_item"><a href="#">关于</a></div> 
-						<div class="menu_link_item"><a href="#">联系我们</a></div> 
+<shiro:lacksRole name="普通用户">
+	<div class="menu_link_item"><a href="javascript:member_dialog('login.jsp',850,450,'');">发布房源</a></div> 
+</shiro:lacksRole>
+<shiro:hasRole name="普通用户">
+ 	<div class="menu_link_item"><a href="javascript:member_dialog('goodsNew.jsp',900,600,'');">发布房源</a></div> 
+</shiro:hasRole>
+			
+			<div class="menu_link_item"><a href="#">关于</a></div> 
+			<div class="menu_link_item"><a href="#">联系我们</a></div> 
 			<div class="clr"></div> 
 		</div>
 		<div class="clr"></div>   
@@ -318,12 +325,8 @@ load_top_menu();
 	</div>
 	<div class="ppt">
 			 <div id="owl-demo" class="owl-carousel">
-	
 </div>
-	
 	</div>
-	
-
 <div class="clr"><br></div>
 
 <div class="w980">
@@ -335,12 +338,8 @@ load_top_menu();
 				<div id="detail">
 		
 		</div>	
-		
-		 
 		<div class="clr"></div> 
 	   <div class='pagination' id="pagination" style="text-align:center;"></div>	
-
-	 
 	</div>
 
 	<div style="float:right;width:240px;padding-top:30px;">
