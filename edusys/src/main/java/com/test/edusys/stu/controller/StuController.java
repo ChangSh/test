@@ -2,6 +2,7 @@ package com.test.edusys.stu.controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,7 +39,6 @@ import com.alibaba.druid.support.json.JSONUtils;
 import com.test.edusys.college.model.College;
 import com.test.edusys.college.model.Major;
 import com.test.edusys.college.service.CollegeMajorService;
-import com.test.edusys.common.utils.ImgUtils;
 import com.test.edusys.common.utils.NewPager;
 import com.test.edusys.common.utils.PropertiesUtil;
 import com.test.edusys.common.utils.SearchFilter;
@@ -104,7 +104,29 @@ public class StuController {
 		String filename1 = fileName.indexOf(".") != -1 ? fileName.substring(0, fileName.lastIndexOf(".")) : null;
 		String ctxPath = PropertiesUtil.getString("uploadFilePath"); // 当前路径
 		InputStream stream = file.getInputStream();
-		ImgUtils.uploadImg(stream, ctxPath + fileName);
+		ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+		// 创建一个Buffer字符串
+		byte[] buffer = new byte[1024];
+		// 每次读取的字符串长度，如果为-1，代表全部读取完毕
+		int len = 0;
+		// 使用一个输入流从buffer里把数据读取出来
+		while ((len = stream.read(buffer)) != -1) {
+			// 用输出流往buffer里写入数据，中间参数代表从哪个位置开始读，len代表读取的长度
+			outStream.write(buffer, 0, len);
+		}
+		// 关闭输入流
+		stream.close();
+		// 把outStream里的数据写入内存
+
+		// 得到图片的二进制数据，以二进制封装得到数据，具有通用性
+		byte[] data = outStream.toByteArray();
+		// new一个文件对象用来保存图片，默认保存当前工程根目录
+		File imageFile = new File(ctxPath + fileName);
+		// 创建输出流
+		FileOutputStream fileOutStream = new FileOutputStream(imageFile);
+		// 写入数据
+		fileOutStream.write(data);
+		fileOutStream.close();
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("fid", "fid");
 		map.put("filepath", ctxPath + fileName);
@@ -115,8 +137,9 @@ public class StuController {
 		pf.setFilepath(fileName);
 		service.insertUpload(pf);
 
+		InputStream input = new FileInputStream(ctxPath + fileName);
 		// 转换成html
-		HWPFDocument wordDocument = new HWPFDocument(stream);
+		HWPFDocument wordDocument = new HWPFDocument(input);
 		WordToHtmlConverter wordToHtmlConverter = new WordToHtmlConverter(
 				DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument());
 		wordToHtmlConverter.setPicturesManager(new PicturesManager() {
@@ -138,17 +161,17 @@ public class StuController {
 			}
 		}
 		Document htmlDocument = wordToHtmlConverter.getDocument();
-		ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+		ByteArrayOutputStream bOutStream = new ByteArrayOutputStream();
 		DOMSource domSource = new DOMSource(htmlDocument);
-		StreamResult streamResult = new StreamResult(outStream);
+		StreamResult streamResult = new StreamResult(bOutStream);
 		TransformerFactory tf = TransformerFactory.newInstance();
 		Transformer serializer = tf.newTransformer();
 		serializer.setOutputProperty(OutputKeys.ENCODING, "utf-8");
 		serializer.setOutputProperty(OutputKeys.INDENT, "yes");
 		serializer.setOutputProperty(OutputKeys.METHOD, "html");
 		serializer.transform(domSource, streamResult);
-		outStream.close();
-		String content = new String(outStream.toByteArray());
+		bOutStream.close();
+		String content = new String(bOutStream.toByteArray());
 		FileUtils.writeStringToFile(new File(ctxPath, filename1 + ".html"), content, "UTF-8");
 		System.out.println(JSONUtils.toJSONString(map));
 		return JSONUtils.toJSONString(map);
