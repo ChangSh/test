@@ -28,6 +28,8 @@ public class Goods {
 	private String gaddr;
 	@Column
 	private int status;
+	@Column
+	private String loginname;
 
 	public String getId() {
 		return id;
@@ -123,6 +125,14 @@ public class Goods {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public String getLoginname() {
+		return loginname;
+	}
+
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
 	}
 
 }

@@ -96,7 +96,7 @@ public class GoodsFrontService extends BaseService {
 	}
 
 	public List<GoodsDetailVo> findOrder() {
-		String str = " SELECT * FROM t_order  LEFT JOIN t_goods ON t_order.gid=t_goods.id LEFT JOIN t_file ON t_order.gid=t_file.fileid WHERE loginname= '"
+		String str = " SELECT * FROM t_order  LEFT JOIN t_goods ON t_order.gid=t_goods.id LEFT JOIN t_file ON t_order.gid=t_file.fileid WHERE t_order.loginname= '"
 				+ UserUtils.getUser().getLoginname() + "'";
 		Sql sql = Sqls.create(str);
 		sql.setCallback(new SqlCallback() {
@@ -115,6 +115,43 @@ public class GoodsFrontService extends BaseService {
 					v.setTotalprice(rs.getDouble("totalprice"));
 					v.setGname(rs.getString("gname"));
 					v.setFilepath(rs.getString("filepath"));
+					list.add(v);
+				}
+				return list;
+			}
+
+		});
+		dao.execute(sql);
+		List<GoodsDetailVo> list = sql.getObject(null);
+		return list;
+	}
+
+	public List<GoodsDetailVo> findHouse() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("SELECT t_goods.discount,t_goods.gaddr,t_goods.gbriefintro,t_goods.gclick, ");
+		sb.append("t_goods.gtype,t_goods.gdetailintro,t_goods.gisfocus,t_goods.gname, ");
+		sb.append("t_goods.gsize,t_goods.gunitprice,t_goods.id,t_goods.`status`, ");
+		sb.append(
+				"(SELECT codename FROM t_system_codedic WHERE sectionname = '分类' AND t_system_codedic.`code` = t_goods.gtype ) as codename, ");
+		sb.append("t_file.filepath FROM t_goods ");
+		sb.append("LEFT JOIN t_file ON t_goods.id = t_file.fileid ");
+		sb.append(
+				" LEFT JOIN t_system_user ON t_goods.loginname = t_system_user.loginname WHERE t_system_user.loginname =");
+		sb.append("'");
+		sb.append(UserUtils.getUser().getLoginname());
+		sb.append("'");
+		Sql sql = Sqls.create(sb.toString());
+		sql.setCallback(new SqlCallback() {
+			public Object invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
+
+				List<GoodsDetailVo> list = new ArrayList<GoodsDetailVo>();
+				while (rs.next()) {
+					GoodsDetailVo v = new GoodsDetailVo();
+					v.setId(rs.getString("id"));
+					v.setGname(rs.getString("gname"));
+					v.setFilepath(rs.getString("filepath"));
+					v.setStatus(rs.getString("status"));
+					v.setGaddr(rs.getString("gaddr"));
 					list.add(v);
 				}
 				return list;

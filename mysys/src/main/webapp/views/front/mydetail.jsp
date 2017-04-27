@@ -56,10 +56,10 @@ $(document).ready(function() {
   <div class="navbar-inner">
     <a class="brand" href="#">会员中心</a>
     <ul class="nav">  
-<li ><a href="buycart.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的购物车</a></li>
-	 <li ><a href="order.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的订单</a></li>
+<li ><a href="house.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的房源</a></li>
+	 <li ><a href="order.jsp" rel="nofollow"><i class=" icon-shopping-cart"></i> 我的预定</a></li>
 		<li class=" dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户 <b class="caret"></b></a>
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#">预定详情 <b class="caret"></b></a>
 		<ul class="dropdown-menu">
 			<li class="active"><a href="#" rel="nofollow"><i class="icon-cog"></i> 个人资料</a></li> 
 			

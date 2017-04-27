@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50610
-Source Host           : 127.0.0.1:3306
+Source Server         : LOCALHOST
+Source Server Version : 50539
+Source Host           : localhost:3306
 Source Database       : roomtest
 
 Target Server Type    : MYSQL
-Target Server Version : 50610
+Target Server Version : 50539
 File Encoding         : 65001
 
-Date: 2017-04-27 01:08:04
+Date: 2017-04-27 21:57:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -183,21 +183,22 @@ CREATE TABLE `t_goods` (
   `gclick` int(11) DEFAULT NULL COMMENT '点击率',
   `gaddr` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+  `loginname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_goods
 -- ----------------------------
-INSERT INTO `t_goods` VALUES ('023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '阳光100', '11', 'das', 'dsa', '华苑新城北,das', null, '01', '2', '37', null, '1');
-INSERT INTO `t_goods` VALUES ('49e672e3-6b47-4366-ae97-15c3421cd63d', '米兰小屋', '2000', '米兰小屋', '米兰小屋', '120', null, '02', '1', '19', null, '1');
-INSERT INTO `t_goods` VALUES ('66974b91-03fd-47d2-ab6b-a61fdffa55a0', '塞纳北岸', '3000', '塞纳北岸', '塞纳北岸', '100', null, '01', '1', '2', null, '1');
-INSERT INTO `t_goods` VALUES ('70f37346-c42a-4eff-953c-db79b562c4c5', '水竹花园', '1100', '水竹花园', '水竹花园', '50', null, '01', '1', '3', '红桥区', '1');
-INSERT INTO `t_goods` VALUES ('73e4a807-3be3-43bd-a664-88c3521a1ac8', '恒大华府', '9000', '别名/恒大水岸嘉园', '东坝中街与单店北街交汇处西北侧（接待时间 9:00 - 18:00）', '100', null, '02', '1', null, '东坝中街与单店北街交汇处西北侧', '0');
-INSERT INTO `t_goods` VALUES ('74a1f600-7d9b-4779-9a45-48809c2039a1', '五福居', '1110', '五福居', '五福居', '111', null, '01', '1', '4', null, '2');
-INSERT INTO `t_goods` VALUES ('864acacc-7f24-4038-bc2e-11039ef97d4d', '霞公府', '10000', '北京饭店北侧，霞公府街', '北京饭店北侧，霞公府街', '100', null, '02', '2', null, '北京饭店北侧，霞公府街', '0');
-INSERT INTO `t_goods` VALUES ('bc05139a-2dae-44d0-a5ed-307c0fa797d8', '翠云居', '3000', '翠云居', '翠云居', '90', null, '02', '1', '19', '天通苑太平庄中介', '1');
-INSERT INTO `t_goods` VALUES ('f4597c96-6ef4-4d16-81c6-b365821d1d87', '水云居', '2700', '水云居', '水云居', '300', null, '01', '1', '19', null, '1');
+INSERT INTO `t_goods` VALUES ('023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '阳光100', '11', 'das', 'dsa', 'das', null, '01', '2', '37', '华苑新城北', '1', null);
+INSERT INTO `t_goods` VALUES ('49e672e3-6b47-4366-ae97-15c3421cd63d', '米兰小屋', '2000', '米兰小屋', '米兰小屋', '120', null, '02', '1', '26', '胜利路中段', '1', null);
+INSERT INTO `t_goods` VALUES ('66974b91-03fd-47d2-ab6b-a61fdffa55a0', '塞纳北岸', '3000', '塞纳北岸', '塞纳北岸', '100', null, '01', '1', '2', '塞纳桥北', '1', null);
+INSERT INTO `t_goods` VALUES ('70f37346-c42a-4eff-953c-db79b562c4c5', '水竹花园', '1100', '水竹花园', '水竹花园', '50', null, '01', '1', '3', '红桥区', '1', null);
+INSERT INTO `t_goods` VALUES ('73e4a807-3be3-43bd-a664-88c3521a1ac8', '恒大华府', '9000', '别名/恒大水岸嘉园', '东坝中街与单店北街交汇处西北侧（接待时间 9:00 - 18:00）', '100', null, '02', '1', null, '东坝中街与单店北街交汇处西北侧', '0', null);
+INSERT INTO `t_goods` VALUES ('74a1f600-7d9b-4779-9a45-48809c2039a1', '五福居', '1110', '五福居', '五福居', '111', null, '01', '1', '4', '蓝靛厂南路向西', '2', null);
+INSERT INTO `t_goods` VALUES ('864acacc-7f24-4038-bc2e-11039ef97d4d', '霞公府', '10000', '北京饭店北侧，霞公府街', '北京饭店北侧，霞公府街', '100', null, '02', '2', null, '北京饭店北侧，霞公府街', '0', null);
+INSERT INTO `t_goods` VALUES ('bc05139a-2dae-44d0-a5ed-307c0fa797d8', '翠云居', '3000', '翠云居', '翠云居', '90', null, '02', '1', '19', '天通苑太平庄中街', '1', null);
+INSERT INTO `t_goods` VALUES ('f4597c96-6ef4-4d16-81c6-b365821d1d87', '水云居', '2700', '水云居', '水云居', '300', null, '01', '1', '19', '美丽园中路', '1', 'chang');
 
 -- ----------------------------
 -- Table structure for t_msg
@@ -5563,7 +5564,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW
 FROM
 	t_cargo_c
 LEFT JOIN t_cargo_p ON t_cargo_c.pid = t_cargo_p.id
-LEFT JOIN t_goods ON t_cargo_c.gid = t_goods.id ;
+LEFT JOIN t_goods ON t_cargo_c.gid = t_goods.id ; ;
 
 -- ----------------------------
 -- View structure for v_goods_files

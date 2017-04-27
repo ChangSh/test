@@ -182,6 +182,7 @@ uploader.on( 'uploadSuccess', function( file,response) {
 		<div class="tit_down">
 			<form id="form">
 			<input id="good_id" type="hidden" name="id" value="${ob.id}">
+			<input id="good_id" type="hidden" name="status" value="${ob.status}">
 			 <input id="imgname" type="hidden" name="img_src" value="${op.filepath}">
 				<table class="table2 cus_info work" id ="tableinfo" style="margin:0 auto">
 					<tr>
@@ -207,7 +208,7 @@ uploader.on( 'uploadSuccess', function( file,response) {
 					</tr>
 										<tr>
 						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>地址：</span></label></td>
-						<td><input type="text" name="gsize" value="${ob.gaddr}"/></td>
+						<td><input type="text" name="gaddr" value="${ob.gaddr}"/></td>
 					</tr>
 					<tr>
 						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>面积：</span></label></td>

@@ -45,6 +45,15 @@ public class GoodsFrontController {
 
 	}
 
+	@RequestMapping("/house_list")
+	@ResponseBody
+	public Map<String, Object> house_list() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("house", service.findHouse());
+		return map;
+
+	}
+
 	@RequestMapping("/ajax_listfocus")
 	@ResponseBody
 	public Map<String, Object> findFocus() {
