@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50539
 File Encoding         : 65001
 
-Date: 2017-04-27 21:57:21
+Date: 2017-04-28 15:33:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -130,11 +130,13 @@ CREATE TABLE `t_customer` (
 -- ----------------------------
 INSERT INTO `t_customer` VALUES ('09e2a961-5d6d-4347-8b46-86c4c20750e2', '20160225134508', '刘诗诗', '12824342434', '2016-02-29 04:45:08', null);
 INSERT INTO `t_customer` VALUES ('131e69d4-081a-41b4-ba87-6dded8f430fa', '20160225134443', '吴奇隆', '15824322432', '2016-02-29 04:44:43', null);
+INSERT INTO `t_customer` VALUES ('175e23c4-c070-468b-8ebf-a2409bed35ce', null, null, null, '2017-04-28 13:55:34.11', 'admin0428test');
 INSERT INTO `t_customer` VALUES ('5a393a39-43be-4313-a43c-3aa920b3efb3', '20160225134132', '周杰伦', '13163155021', '2016-02-29 04:41:32', null);
 INSERT INTO `t_customer` VALUES ('631446d7-dec8-4234-8561-6f93c2b35aab', '20160225134222', '马天宇', '13820977321', '2016-02-29 04:42:22', null);
 INSERT INTO `t_customer` VALUES ('9d2c5e75-afa8-4409-9784-50263469602b', '20160225134201', '王力宏', '13122223333', '2016-02-29 04:42:01', null);
 INSERT INTO `t_customer` VALUES ('a02362e7-bd91-4fde-8909-7569b143b680', '20160225134349', '陈伯宇', '13322334567', '2016-02-29 04:43:49', null);
 INSERT INTO `t_customer` VALUES ('b19b13f2-f8d1-4cfa-a9d4-0ac370dfb830', '20160225134245', '王小丫', '13429543124', '2016-02-29 04:42:45', null);
+INSERT INTO `t_customer` VALUES ('b84d5149-d78c-46a1-b72c-64bba967eb74', null, null, null, '2017-04-28 13:56:51.29', '0428test');
 INSERT INTO `t_customer` VALUES ('c4d5b03d-8fe8-423e-b53c-02a00b970045', '20160225134304', '李晨', '13324421212', '2016-02-29 04:43:04', null);
 INSERT INTO `t_customer` VALUES ('e819de93-4242-4160-aff6-804aa5c10bcb', '20160225134325', '范冰冰', '13833555533', '2016-02-29 04:43:25', null);
 
@@ -152,6 +154,7 @@ CREATE TABLE `t_file` (
 -- ----------------------------
 -- Records of t_file
 -- ----------------------------
+INSERT INTO `t_file` VALUES ('01f02ba1-7e72-48ce-bdb4-d2847776e131', '54e04e52-b70e-4fe4-91a5-0d9328e60b1e', '/71f6ee7a-6a2f-4fd8-807f-62b05934b33e.jpg');
 INSERT INTO `t_file` VALUES ('0d89412e-7113-469b-8ece-a8265bd712ff', '49e672e3-6b47-4366-ae97-15c3421cd63d', '/09b59d90-0bd5-4d03-ab3f-5844bceab7f1.jpg');
 INSERT INTO `t_file` VALUES ('12b03586-83cd-4316-aaee-0012d3addc33', 'a484272c-4523-454b-abe8-7d819a9bc0ca', '/f1764bfa-4900-488e-937d-c34b36e4caa4.gif');
 INSERT INTO `t_file` VALUES ('2be13ae1-49ad-409a-8865-c3b457103deb', 'f4597c96-6ef4-4d16-81c6-b365821d1d87', '/d2e98e05-7343-4bed-8515-07fdad55c1be.jpg');
@@ -160,6 +163,7 @@ INSERT INTO `t_file` VALUES ('3c2f0d9f-98b2-466c-a5f7-2ae693c4702a', 'aa735f25-1
 INSERT INTO `t_file` VALUES ('42f392ed-e653-4f32-a874-4aacb1711ec2', '023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '/0b1f83bf-b690-4d1d-bf7f-3b1ffee1775f.jpg');
 INSERT INTO `t_file` VALUES ('4b925c20-0596-4d36-995f-df50cf7f8a48', '74a1f600-7d9b-4779-9a45-48809c2039a1', '/27b109e4-518d-49a4-b4f3-a29a5441e888.jpg');
 INSERT INTO `t_file` VALUES ('4e417ca5-e8cd-4e3b-82d6-a1a3bd1aa9f5', 'bc05139a-2dae-44d0-a5ed-307c0fa797d8', '/add24e86-780c-4ccd-acab-ef48c7ea1b8b.jpg');
+INSERT INTO `t_file` VALUES ('804c07f1-fd42-4275-9d4f-e31188b6990f', 'e4edcb1b-0bb7-4454-b7c8-84ac2771adb4', '/b60eae8d-8264-4818-a2cf-15f406441f7e.jpg');
 INSERT INTO `t_file` VALUES ('86f6d374-0809-4664-a5e2-7edf7498ba97', '3939e9a1-020d-4da9-a87d-d04fb829e47b', '/77ac81c3-8153-48a8-ab72-1cd156309beb.jpg');
 INSERT INTO `t_file` VALUES ('922bdc6d-21aa-46ba-b6b0-06ff3dfe8773', '2e207cde-996a-4761-88e0-d506367d5196', '/5787a849-b308-4bcd-b241-e7d9282bd500.jpg');
 INSERT INTO `t_file` VALUES ('c2881873-37b2-405f-b63f-fdf3738ba2c4', '73e4a807-3be3-43bd-a664-88c3521a1ac8', '/d51b56b2-824c-4cfa-bc2f-d7da7e9f5b2a.jpg');
@@ -184,21 +188,25 @@ CREATE TABLE `t_goods` (
   `gaddr` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `loginname` varchar(50) DEFAULT NULL,
+  `garound` varchar(255) DEFAULT NULL,
+  `gtraffic` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_goods
 -- ----------------------------
-INSERT INTO `t_goods` VALUES ('023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '阳光100', '11', 'das', 'dsa', 'das', null, '01', '2', '37', '华苑新城北', '1', null);
-INSERT INTO `t_goods` VALUES ('49e672e3-6b47-4366-ae97-15c3421cd63d', '米兰小屋', '2000', '米兰小屋', '米兰小屋', '120', null, '02', '1', '26', '胜利路中段', '1', null);
-INSERT INTO `t_goods` VALUES ('66974b91-03fd-47d2-ab6b-a61fdffa55a0', '塞纳北岸', '3000', '塞纳北岸', '塞纳北岸', '100', null, '01', '1', '2', '塞纳桥北', '1', null);
-INSERT INTO `t_goods` VALUES ('70f37346-c42a-4eff-953c-db79b562c4c5', '水竹花园', '1100', '水竹花园', '水竹花园', '50', null, '01', '1', '3', '红桥区', '1', null);
-INSERT INTO `t_goods` VALUES ('73e4a807-3be3-43bd-a664-88c3521a1ac8', '恒大华府', '9000', '别名/恒大水岸嘉园', '东坝中街与单店北街交汇处西北侧（接待时间 9:00 - 18:00）', '100', null, '02', '1', null, '东坝中街与单店北街交汇处西北侧', '0', null);
-INSERT INTO `t_goods` VALUES ('74a1f600-7d9b-4779-9a45-48809c2039a1', '五福居', '1110', '五福居', '五福居', '111', null, '01', '1', '4', '蓝靛厂南路向西', '2', null);
-INSERT INTO `t_goods` VALUES ('864acacc-7f24-4038-bc2e-11039ef97d4d', '霞公府', '10000', '北京饭店北侧，霞公府街', '北京饭店北侧，霞公府街', '100', null, '02', '2', null, '北京饭店北侧，霞公府街', '0', null);
-INSERT INTO `t_goods` VALUES ('bc05139a-2dae-44d0-a5ed-307c0fa797d8', '翠云居', '3000', '翠云居', '翠云居', '90', null, '02', '1', '19', '天通苑太平庄中街', '1', null);
-INSERT INTO `t_goods` VALUES ('f4597c96-6ef4-4d16-81c6-b365821d1d87', '水云居', '2700', '水云居', '水云居', '300', null, '01', '1', '19', '美丽园中路', '1', 'chang');
+INSERT INTO `t_goods` VALUES ('023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '阳光100', '11', 'das', 'dsa', '122', null, '01', '2', '43', '华苑新城北', '1', null, '小区西边就是物美大卖场，商场有苏荷时代广场，苏宁电器,家乐福超市，罗斯福广场，肯德基，吉野家，呷哺呷哺。生活便利，不用为您的生活担忧。', '社区邻京通高速，两广路，驾车出行便利；距离八通线果园站约513米，更方便交通出行，减少时间成本。');
+INSERT INTO `t_goods` VALUES ('49e672e3-6b47-4366-ae97-15c3421cd63d', '米兰小屋', '2000', '米兰小屋', '西南向两居室，进门是朝西带阳台的客厅，可客厅餐厅分离，一卧室朝西，主卧室西南向，房屋特殊楼层，挑高高，可做大吊顶或者隔出阁楼，房屋简单装修，目前空置，看房随时。小区三栋楼围成的中心花园，位置安静，购物方便，距离地铁较近，出行便利。小区单独物业，单独管理，居住舒适放心。', '120', null, '02', '1', '43', '胜利路中段', '1', null, null, null);
+INSERT INTO `t_goods` VALUES ('54e04e52-b70e-4fe4-91a5-0d9328e60b1e', '111', '11', '11', '11', '11', null, '01', '1', '10', '11', '1', '0428test', '11', '11');
+INSERT INTO `t_goods` VALUES ('66974b91-03fd-47d2-ab6b-a61fdffa55a0', '塞纳北岸', '3000', '塞纳北岸', '塞纳北岸', '100', null, '01', '1', '2', '塞纳桥北', '1', null, null, null);
+INSERT INTO `t_goods` VALUES ('70f37346-c42a-4eff-953c-db79b562c4c5', '水竹花园', '1100', '水竹花园', '水竹花园', '50', null, '01', '1', '5', '红桥区', '1', null, null, null);
+INSERT INTO `t_goods` VALUES ('73e4a807-3be3-43bd-a664-88c3521a1ac8', '恒大华府', '9000', '别名/恒大水岸嘉园', '东坝中街与单店北街交汇处西北侧（接待时间 9:00 - 18:00）', '100', null, '02', '1', null, '东坝中街与单店北街交汇处西北侧', '0', null, null, null);
+INSERT INTO `t_goods` VALUES ('74a1f600-7d9b-4779-9a45-48809c2039a1', '五福居', '1110', '五福居', '五福居', '111', null, '01', '1', '4', '蓝靛厂南路向西', '2', null, null, null);
+INSERT INTO `t_goods` VALUES ('864acacc-7f24-4038-bc2e-11039ef97d4d', '霞公府', '10000', '北京饭店北侧，霞公府街', '北京饭店北侧，霞公府街', '100', null, '02', '2', null, '北京饭店北侧，霞公府街', '0', null, null, null);
+INSERT INTO `t_goods` VALUES ('bc05139a-2dae-44d0-a5ed-307c0fa797d8', '翠云居', '3000', '翠云居', '翠云居', '90', null, '02', '1', '19', '天通苑太平庄中街', '1', null, null, null);
+INSERT INTO `t_goods` VALUES ('e4edcb1b-0bb7-4454-b7c8-84ac2771adb4', '天时名苑', '3000', '小区环境优美，09年的社区，绿化和植被茂。', '此房进门是一个玄关，左手边是储物间，右手边是厨房，旁边是客厅。两个大卧室，一南一北，落地窗，光线好。客厅朝南，落地阳台，空间感大，格局方正，双卫格局，一个卫生间朝北明卫。', '90', null, '02', '2', '1', '六里桥地铁站附近', '1', '0428test', '小区旁边有白坊菜市场、苏宁电器、大物美超市、国泰百货，银行有农行、工行、建行等 医院：天苑医院，120急救医院，清华长庚医院，航空医院天通苑分院，多条公交线路直达地铁5号线，出行方便。', '小区楼下就是地铁14号线方庄站，在小区的西北角就是左安门外公交站，有12路，122路，352路，684路，特12，夜3路等十几条公交线路，确实出行很方便。');
+INSERT INTO `t_goods` VALUES ('f4597c96-6ef4-4d16-81c6-b365821d1d87', '水云居', '2700', '水云居', '水云居', '300', null, '01', '1', '19', '美丽园中路', '1', 'chang', null, null);
 
 -- ----------------------------
 -- Table structure for t_msg
@@ -994,7 +1002,7 @@ CREATE TABLE `t_system_user` (
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginname` (`loginname`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2015 DEFAULT CHARSET=utf8 COMMENT='用户信息';
+) ENGINE=InnoDB AUTO_INCREMENT=2017 DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
 -- ----------------------------
 -- Records of t_system_user
@@ -1005,6 +1013,7 @@ INSERT INTO `t_system_user` VALUES ('2009', 'chang', 'chang', 'e10adc3949ba59abb
 INSERT INTO `t_system_user` VALUES ('2010', 'yangke', 'yangke', 'e10adc3949ba59abbe56e057f20f883e', '2016-03-21 14:04:28', null, null, null, null);
 INSERT INTO `t_system_user` VALUES ('2011', 'add', '123', '96e79218965eb72c92a549dd5a330112', null, null, null, null, '');
 INSERT INTO `t_system_user` VALUES ('2014', 'zzz123', 'zzz123', 'e10adc3949ba59abbe56e057f20f883e', '2016-04-08 16:42:00', null, null, null, null);
+INSERT INTO `t_system_user` VALUES ('2016', '0428test', '0428test', '96e79218965eb72c92a549dd5a330112', '2017-04-28 13:56:51', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for t_system_user_role
@@ -1016,7 +1025,7 @@ CREATE TABLE `t_system_user_role` (
   `roleid` int(11) NOT NULL DEFAULT '0' COMMENT '{"name":"角色id","inputType":"text"}',
   PRIMARY KEY (`id`),
   KEY `idx_t_user_rold_uid_rid` (`userid`,`roleid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=31756 DEFAULT CHARSET=utf8 COMMENT='用户角色';
+) ENGINE=InnoDB AUTO_INCREMENT=31758 DEFAULT CHARSET=utf8 COMMENT='用户角色';
 
 -- ----------------------------
 -- Records of t_system_user_role
@@ -5262,7 +5271,9 @@ INSERT INTO `t_system_user_role` VALUES ('31472', '2012', '11');
 INSERT INTO `t_system_user_role` VALUES ('31510', '2013', '11');
 INSERT INTO `t_system_user_role` VALUES ('31755', '2014', '4');
 INSERT INTO `t_system_user_role` VALUES ('31474', '2014', '11');
+INSERT INTO `t_system_user_role` VALUES ('31756', '2015', '4');
 INSERT INTO `t_system_user_role` VALUES ('31507', '2015', '11');
+INSERT INTO `t_system_user_role` VALUES ('31757', '2016', '4');
 INSERT INTO `t_system_user_role` VALUES ('31478', '2016', '10');
 INSERT INTO `t_system_user_role` VALUES ('31477', '2017', '10');
 INSERT INTO `t_system_user_role` VALUES ('31499', '2018', '10');
@@ -5581,6 +5592,8 @@ t_goods.gisfocus,
 t_goods.gname,
 t_goods.gsize,
 t_goods.gunitprice,
+t_goods.garound,
+t_goods.gtraffic,
 t_goods.id,
 t_goods.`status`,
 (SELECT codename FROM t_system_codedic WHERE sectionname = '分类' AND t_system_codedic.`code` = t_goods.gtype ) as codename,

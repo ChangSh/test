@@ -34,6 +34,10 @@ public class GoodsDetailVo {
 	private String status;
 	@Column
 	private String codename;
+	@Column
+	private String garound;
+	@Column
+	private String gtraffic;
 
 	public String getId() {
 		return id;
@@ -153,6 +157,22 @@ public class GoodsDetailVo {
 
 	public void setCodename(String codename) {
 		this.codename = codename;
+	}
+
+	public String getGaround() {
+		return garound;
+	}
+
+	public void setGaround(String garound) {
+		this.garound = garound;
+	}
+
+	public String getGtraffic() {
+		return gtraffic;
+	}
+
+	public void setGtraffic(String gtraffic) {
+		this.gtraffic = gtraffic;
 	}
 
 }

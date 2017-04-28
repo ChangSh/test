@@ -124,6 +124,12 @@ $(function(){
 		
 		<div class="menu_link">
 			<div class="menu_link_item"><a href="${ctx}/views/front/index.jsp">首页</a></div>
+<shiro:lacksRole name="普通用户">
+	<div class="menu_link_item"><a href="javascript:member_dialog('${ctx}/views/front/login.jsp',850,450,'');">发布房源</a></div> 
+</shiro:lacksRole>
+<shiro:hasRole name="普通用户">
+ 	<div class="menu_link_item"><a href="javascript:member_dialog('${ctx}/views/front/goodsNew.jsp',900,700,'');">发布房源</a></div> 
+</shiro:hasRole>			
 						<div class="menu_link_item"><a href="#">关于</a></div> 
 						<div class="menu_link_item"><a href="#">联系我们</a></div> 
 			  
@@ -288,21 +294,43 @@ $(document).ready(function() {
 			<li></li>
 			<li></li>
 		</ul>
-		简介:
-		<p style="text-align:left;color:#a37e37;">
+		<table>
+		<tr>
+		<td width="25%">简介:</td>
+		<td><p style="text-align:left;color:#a37e37;">
 			${ob.gbriefintro}
-		</p>
-		详细介绍:
-		<p style="text-align:left;color:#a37e37;">
+		</p></td>
+		</tr>
+		<tr>
+		<td>面积:</td>
+		<td><p style="text-align:left;color:#a37e37;">
+			${ob.gsize}平方米
+		</p></td>
+		</tr>
+		<tr>
+		<td>详细介绍:</td>
+		<td><p style="text-align:left;color:#a37e37;">
 			${ob.gdetailintro}
-		</p>
-		面积:
-		<p style="text-align:left;color:#a37e37;">
-			${ob.gsize}
-		</p>
-		实拍图：<br/>
-		<img src="${ob.filepath}" onerror=javascript:this.src="${ctx}/static/images/model.png"  width="459" title="" >
-		<br/>
+		</p></td>
+		</tr>
+		<tr>
+		<td width="25%">附近:</td>
+		<td><p style="text-align:left;color:#a37e37;">
+			${ob.garound}
+		</p></td>
+		</tr>
+		<tr>
+		<td width="25%">交通:</td>
+		<td><p style="text-align:left;color:#a37e37;">
+			${ob.gtraffic}
+		</p></td>
+		</tr>				
+		<tr>
+		<td>实拍图：</td>
+		<td><img src="${ob.filepath}" onerror=javascript:this.src="${ctx}/static/images/model.png"  width="459" title="" ></td>
+		</tr>
+		</table>
+		
 	</div>
  		</div>
 

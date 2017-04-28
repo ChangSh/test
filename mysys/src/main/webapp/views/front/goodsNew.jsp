@@ -36,6 +36,14 @@
 					required:true,
 					maxlength:30
 				},
+				garound:{
+					required:true,
+					maxlength:200
+				},
+				gtraffic:{
+					required:true,
+					maxlength:200
+				}
 			
 			}
 	}).form();
@@ -197,6 +205,14 @@ uploader.on( 'uploadSuccess', function( file,response) {
 						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>地址：</span></label></td>
 						<td ><input type="text" name="gaddr" /></td>
 					</tr>
+					<tr>
+						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>周边：</span></label></td>
+						<td><input type="text" name="garound" value="${ob.garound}"/></td>
+					</tr>
+					<tr>
+						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>交通：</span></label></td>
+						<td><input type="text" name="gtraffic" value="${ob.gtraffic}"/></td>
+					</tr>					
 					<tr>
 						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>面积：</span></label></td>
 						<td><input type="text" name="gsize" /></td>

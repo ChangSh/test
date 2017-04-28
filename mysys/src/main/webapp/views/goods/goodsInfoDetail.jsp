@@ -50,6 +50,14 @@
 						<td><p>${ob.gaddr}</p></td>
 					</tr>
 					<tr>
+						<td><label for="" class="lb" >周边：</label></td>
+						<td><p>${ob.garound}</p></td>
+					</tr>
+					<tr>
+						<td><label for="" class="lb" >交通：</label></td>
+						<td><p>${ob.gtraffic}</p></td>
+					</tr>
+					<tr>
 						<td><label for="" class="lb" >面积：</label></td>
 						<td><p>${ob.gsize}</p></td>
 					</tr>
