@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50610
-Source Host           : 127.0.0.1:3306
+Source Server         : LOCALHOST
+Source Server Version : 50539
+Source Host           : localhost:3306
 Source Database       : edutest
 
 Target Server Type    : MYSQL
-Target Server Version : 50610
+Target Server Version : 50539
 File Encoding         : 65001
 
-Date: 2017-04-27 01:07:50
+Date: 2017-04-28 15:34:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -193,7 +193,7 @@ CREATE TABLE `t_file` (
 INSERT INTO `t_file` VALUES ('12b03586-83cd-4316-aaee-0012d3addc33', 'a484272c-4523-454b-abe8-7d819a9bc0ca', '/f1764bfa-4900-488e-937d-c34b36e4caa4.gif');
 INSERT INTO `t_file` VALUES ('3c2f0d9f-98b2-466c-a5f7-2ae693c4702a', 'aa735f25-1b56-4359-929d-5e6e75f16331', '/979c66f5-09f1-41a7-848e-31d30cf64a3c.gif');
 INSERT INTO `t_file` VALUES ('42f392ed-e653-4f32-a874-4aacb1711ec2', '023b1cd8-e57a-42cb-8b69-6cf24ad34dc3', '/f57de4b8-e418-4de4-9a4a-6f144c65192a.jpg');
-INSERT INTO `t_file` VALUES ('5ca772aa-7a1d-4a33-a06c-6260d8a71221', 'zhangxiaobai', '开题报告表.doc');
+INSERT INTO `t_file` VALUES ('5ca772aa-7a1d-4a33-a06c-6260d8a71221', 'zhangxiaobai', '0427.doc');
 INSERT INTO `t_file` VALUES ('86f6d374-0809-4664-a5e2-7edf7498ba97', '3939e9a1-020d-4da9-a87d-d04fb829e47b', '/77ac81c3-8153-48a8-ab72-1cd156309beb.jpg');
 INSERT INTO `t_file` VALUES ('922bdc6d-21aa-46ba-b6b0-06ff3dfe8773', '2e207cde-996a-4761-88e0-d506367d5196', '/f001777c-7633-45c2-9668-b56423a1847e.jpg');
 
@@ -5687,7 +5687,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW
 FROM
 	t_cargo_c
 LEFT JOIN t_cargo_p ON t_cargo_c.pid = t_cargo_p.id
-LEFT JOIN t_goods ON t_cargo_c.gid = t_goods.id ;
+LEFT JOIN t_goods ON t_cargo_c.gid = t_goods.id ; ;
 
 -- ----------------------------
 -- View structure for v_goods_files

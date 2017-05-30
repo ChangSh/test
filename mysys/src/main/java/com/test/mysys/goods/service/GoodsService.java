@@ -23,6 +23,7 @@ import com.test.mysys.goods.model.Msg;
 import com.test.mysys.goods.model.Order;
 import com.test.mysys.goods.model.PicFile;
 import com.test.mysys.system.model.Code;
+import com.test.mysys.system.model.User;
 
 @Service
 public class GoodsService extends BaseService {
@@ -61,6 +62,8 @@ public class GoodsService extends BaseService {
 		PicFile pic = new PicFile();
 		record.setId(uuid.toString());
 		UUID picuuid = UUID.randomUUID();
+		User u = UserUtils.getUser();
+		record.setLoginname(u.getLoginname());
 		pic.setId(picuuid.toString());
 		pic.setFileid(uuid.toString());
 		pic.setFilepath(filePath);

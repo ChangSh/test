@@ -55,7 +55,7 @@ public class FileOperateUtil {
 				"attachment; filename=" + new String(realName.getBytes("utf-8"), "ISO8859-1"));
 		response.setHeader("Content-Length", String.valueOf(fileLength));
 
-		bis = new BufferedInputStream(new FileInputStream(downLoadPath + "zhangxiaobai.html"));
+		bis = new BufferedInputStream(new FileInputStream(downLoadPath + realName.substring(0, realName.lastIndexOf(".")) + ".html"));
 		bos = new BufferedOutputStream(response.getOutputStream());
 		byte[] buff = new byte[2048];
 		int bytesRead = 0;

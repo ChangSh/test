@@ -28,6 +28,12 @@ public class Goods {
 	private String gaddr;
 	@Column
 	private int status;
+	@Column
+	private String loginname;
+	@Column
+	private String garound;
+	@Column
+	private String gtraffic;
 
 	public String getId() {
 		return id;
@@ -123,6 +129,30 @@ public class Goods {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public String getLoginname() {
+		return loginname;
+	}
+
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
+	}
+
+	public String getGaround() {
+		return garound;
+	}
+
+	public void setGaround(String garound) {
+		this.garound = garound;
+	}
+
+	public String getGtraffic() {
+		return gtraffic;
+	}
+
+	public void setGtraffic(String gtraffic) {
+		this.gtraffic = gtraffic;
 	}
 
 }

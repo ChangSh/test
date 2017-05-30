@@ -238,7 +238,7 @@ $(function(){
 	<div class="menu_link_item"><a href="javascript:member_dialog('login.jsp',850,450,'');">发布房源</a></div> 
 </shiro:lacksRole>
 <shiro:hasRole name="普通用户">
- 	<div class="menu_link_item"><a href="javascript:member_dialog('goodsNew.jsp',900,600,'');">发布房源</a></div> 
+ 	<div class="menu_link_item"><a href="javascript:member_dialog('goodsNew.jsp',900,700,'');">发布房源</a></div> 
 </shiro:hasRole>
 			
 			<div class="menu_link_item"><a href="#">关于</a></div> 

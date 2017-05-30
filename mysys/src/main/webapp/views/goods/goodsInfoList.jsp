@@ -21,13 +21,13 @@ Free.getCodeNames("${ctx}","分类");
 			{
 				display : '类型',
 				name : 'gtype',
-				width :7,
+				width :5,
 				render:function (row){
    				 return Free.getCodeName("分类",row.gtype);
                 	} 	 
 			},
 			{
-				display : '价格',
+				display : '月租',
 				name : 'gunitprice',
 				width : 4
 			},
@@ -39,24 +39,64 @@ Free.getCodeNames("${ctx}","分类");
 			{
 				display : '详细',
 				name : 'gdetailintro',
-				width : 15,
-				style:'text-align:left'
+				width : 7,
+				style:'text-align:left',
+				render : function(row) {
+					if(row.gdetailintro.length>30){
+						return row.gdetailintro.substring(0,10)+"...";
+					}
+					return row.gdetailintro;
+			}
 			},
 			{
 				display : '地址',
 				name : 'gaddr',
-				width : 15,
+				width : 7,
 				style:'text-align:left'
+				
 			},
 			{
-				display : '面积',
+				display : '面积/㎡',
 				name : 'gsize',
-				width : 7
+				width : 5
+			},
+			{
+				display : '周边',
+				name : 'garound',
+				width : 7,
+				style:'text-align:left',
+				render : function(row) {
+					if(row.garound!=null){
+						if(row.garound.length>30){
+							return row.garound.substring(0,10)+"...";
+						}
+					}
+					return row.garound;
+			}
+			},
+			{
+				display : '交通',
+				name : 'gtraffic',
+				width : 7,
+				style:'text-align:left',
+				render : function(row) {
+					if(row.gtraffic!=null){
+						if(row.gtraffic.length>30){
+							return row.gtraffic.substring(0,10)+"...";
+						}
+					}
+					return row.gtraffic;
+			}
 			},
 			{
 				display : '折扣',
 				name : 'discount',
-				width : 7
+				width : 2
+			},
+			{
+				display : '房源所属',
+				name : 'loginname',
+				width : 2
 			},
 			{
 				display : '操作',

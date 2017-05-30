@@ -55,8 +55,8 @@ function upload(){
 				return false;
 			}else{
 				var suffix = fileName.substring(fileName.lastIndexOf(".")+1);
-				if(suffix != "doc" && suffix != "docx"){
-					alert("文件格式错误");
+				if(suffix != "doc"){
+					alert("请上传doc格式文档");
 					return false;
 				}
 			}

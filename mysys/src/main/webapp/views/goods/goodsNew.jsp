@@ -38,6 +38,14 @@
 					required:true,
 					maxlength:30
 				},
+				garound:{
+					required:true,
+					maxlength:200
+				},
+				gtraffic:{
+					required:true,
+					maxlength:200
+				}
 			
 			}
 	}).form();
@@ -168,11 +176,11 @@ uploader.on( 'uploadSuccess', function( file,response) {
 });  
 
 </script>
-<title>商品信息</title>
+<title>房源信息</title>
 </head>
 <body>
 	<div class="content">
-		<div class="tit">新增商品信息</div>
+		<div class="tit">新增房源</div>
 		<div class="tit_down">
 			<form id="form">
 			 <input id="imgname" type="hidden" name="img_src">
@@ -202,6 +210,14 @@ uploader.on( 'uploadSuccess', function( file,response) {
 						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>地址：</span></label></td>
 						<td ><input type="text" name="gaddr" /></td>
 					</tr>
+					<tr>
+						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>周边：</span></label></td>
+						<td><input type="text" name="garound" value="${ob.garound}"/></td>
+					</tr>
+					<tr>
+						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>交通：</span></label></td>
+						<td><input type="text" name="gtraffic" value="${ob.gtraffic}"/></td>
+					</tr>					
 					<tr>
 						<td style="width:70px;"><label for="" class="lb" style="width:70px;"><span style = "color: Red">*</span><span>面积：</span></label></td>
 						<td><input type="text" name="gsize" /></td>
