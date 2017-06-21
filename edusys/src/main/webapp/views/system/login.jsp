@@ -147,7 +147,7 @@
 		</div>
 	</div>
 	<!-- login_box结束 -->
-	<div id="bottom"><p>Copyright © 2016-2017 大咖网咖啡平台 版权所有${message}</p></div>
+	<div id="bottom"><p>Copyright © 2016-2017 版权所有${message}</p></div>
 	<div class="screenbg">
 		<ul>
 			<li><img src="${ctx}/static/images/bg.jpg" alt="" width="100%" /></li>

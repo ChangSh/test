@@ -42,12 +42,12 @@ td,th{
 }
 </style>
 <script>
-$(document).ready(function() {
+/* $(document).ready(function() {
 	$("#login_form").validationEngine();
 });
 $(document).ready(function() {
 	$("#register_form").validationEngine();
-});
+}); */
 function judge(){
 	 $.ajax({
          url:"${ctx}/system/user/checkRepeak-loginname.do",
@@ -57,6 +57,8 @@ function judge(){
               if(!data){
            	   $("#alert").text("用户名已存在！");
               $("#loginname1").val("");
+              }else{
+            	  $("#alert").text("");
               }
               
          }
@@ -65,22 +67,30 @@ function judge(){
 }
 
 function register(){
-	$.ajax({
-		type:"POST",
-		url:"${ctx}/system/user/register.do",
-		data:$("#register_form").serialize(),
-		success:function(data){
-			if(data){
-              alert("注册成功，请登录！");
-              $("#loginname1").val("");
-              $("#password").val("");
-              $("#repassword").val("");
-             
-              
-              
+	var pas = $("#password").val();
+	var repas = $("#repassword").val();
+	if(pas != repas){
+		alert("两次密码不一致");
+	}else{
+		$.ajax({
+			type:"POST",
+			url:"${ctx}/system/user/register.do",
+			data:$("#register_form").serialize(),
+			success:function(data){
+				if(data){
+	              alert("注册成功，请登录！");
+	              $("#loginname1").val("");
+	              $("#password").val("");
+	              $("#repassword").val("");
+	             
+	              
+	              
+				}
 			}
-		}
-	})
+		})
+		
+	}
+
 	
 	
 }
@@ -93,7 +103,7 @@ function login(){
         data:{loginname:$("#id_username").val(),password:$("#id_password").val(),code:$("#code").val()},
         success:function(data){
              if(data=="loginFail"){
-          	   alert('${message}');
+          	   alert('登陆失败');
              }else if(data=="codeFail"){
           	   alert("验证码错误");
         	   
@@ -133,7 +143,7 @@ function changeImg() {
             </tr>
             <tr>
               <td align="right">用户名：</td>
-              <td><input id="id_username" name="loginname" type="text" class="validate[required,length[5,255]] input_text" size="30" placeholder="用户名…"> </td>
+              <td><input id="id_username" name="loginname" type="text" class="input_text" size="30" placeholder="用户名…"> </td>
             </tr>
             <tr>
               <td align="right">密 码：</td>

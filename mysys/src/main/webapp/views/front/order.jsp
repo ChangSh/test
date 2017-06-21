@@ -59,14 +59,12 @@ td,th{
 					   		  statu="未付款";
 					   		  break;
 					   case -2:
-					   		  statu="未确认";
+					   		  statu="已付款";
 					   		  break;
 					   case -3:
-					   		  statu="已确认";
-					   		  break;
-					   case  3:
 					   		  statu="已评价";
 					   		  break;
+					  
 					   }
 			    	  
 			    	   $("#cart").append('<tr><td style="width:16%"><img src="'+value.filepath+'" style="height:50px" class="img-circle"/></td>'+
@@ -106,7 +104,7 @@ function jiesuan(){
 		<li class=" dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">我的账户 <b class="caret"></b></a>
 		<ul class="dropdown-menu">
-			<li><a href="mydetail.jsp"  rel="nofollow"><i class="icon-cog"></i> 个人资料</a></li> 
+			<!-- <li><a href="mydetail.jsp"  rel="nofollow"><i class="icon-cog"></i> 个人资料</a></li>  -->
 			
 			<li><a href="update_password.jsp"  rel="nofollow"><i class="icon-key"></i> 更改密码</a></li> 
 			

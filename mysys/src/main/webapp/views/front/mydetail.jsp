@@ -61,7 +61,7 @@ $(document).ready(function() {
 		<li class=" dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">预定详情 <b class="caret"></b></a>
 		<ul class="dropdown-menu">
-			<li class="active"><a href="#" rel="nofollow"><i class="icon-cog"></i> 个人资料</a></li> 
+		<!-- 	<li class="active"><a href="#" rel="nofollow"><i class="icon-cog"></i> 个人资料</a></li>  -->
 			
 			<li><a href="update_password.jsp"  rel="nofollow"><i class="icon-key"></i> 更改密码</a></li> 
 			

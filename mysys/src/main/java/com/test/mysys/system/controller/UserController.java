@@ -348,7 +348,8 @@ public class UserController {
 		try {
 			currentUser.login(token);
 		} catch (AuthenticationException e) {
-			e.printStackTrace();
+			request.setAttribute("message", "登录失败");
+			/*e.printStackTrace();*/
 			return "loginFail";
 		}
 		if (currentUser.isAuthenticated() && (currentUser.hasRole("普通用户"))) {
