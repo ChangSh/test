@@ -29,34 +29,31 @@ public class RpcServerSender {
                             try {
                                 objectInputStream = new ObjectInputStream(socket.getInputStream());
                                 RpcRequest rpcRequest = null;
-                                try {
-                                    rpcRequest = (RpcRequest) objectInputStream.readObject();
-                                } catch (ClassNotFoundException e) {
-                                    e.printStackTrace();
-                                }
+
+                                rpcRequest = (RpcRequest) objectInputStream.readObject();
 
                                 Object[] args = rpcRequest.getParams();
                                 Class<?>[] types = new Class[args.length];
                                 for (int i = 0; i < args.length; i++) {
                                     types[i] = args[i].getClass();
                                 }
-                                try {
-                                    Method method = service.getClass().getMethod(rpcRequest.getMethodName(), types);
-                                    System.out.println(rpcRequest.getMethodName());
-                                    try {
-                                        Object result = method.invoke(service, args);
-                                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-                                        objectOutputStream.writeObject(result);
-                                    } catch (IllegalAccessException e) {
-                                        e.printStackTrace();
-                                    } catch (InvocationTargetException e) {
-                                        e.printStackTrace();
-                                    }
-                                } catch (NoSuchMethodException e) {
-                                    e.printStackTrace();
-                                }
+
+                                Method method = service.getClass().getMethod(rpcRequest.getMethodName(), types);
+                                System.out.println(rpcRequest.getMethodName());
+
+                                Object result = method.invoke(service, args);
+                                ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                                objectOutputStream.writeObject(result);
 
                             } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (NoSuchMethodException e) {
+                                e.printStackTrace();
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException e) {
+                                e.printStackTrace();
+                            } catch (ClassNotFoundException e) {
                                 e.printStackTrace();
                             } finally {
                                 if (objectInputStream != null) {
