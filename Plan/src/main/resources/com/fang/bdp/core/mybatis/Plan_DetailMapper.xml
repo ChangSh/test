@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fang.plan.mapper.Plan_DetailMapper">
+
+    <resultMap type="com.fang.plan.entity.AdPlacePrice" id="priceList">	
+ 		<id property="priceId" column="id" javaType="int" jdbcType="INTEGER"/>  
+        <result property="websiteid" column="websiteid" javaType="string" jdbcType="VARCHAR"/>  
+        <result property="channelid" column="channelid" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="platform" column="platform" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="adplaceid" column="adplaceid" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="pprice" column="Price" javaType="BigDecimal" jdbcType="DECIMAL"/> 
+        <result property="IsPay" column="IsPay" javaType="int" jdbcType="INTEGER"/> 
+
+        <result property="ReserveHour" column="ReserveHour" javaType="int" jdbcType="INTEGER"/> 
+        
+    <collection property="Times" column="ReserveDate" ofType="string">  
+                 <result property="Times" column="ReserveDate"/> 
+    </collection>  
+	</resultMap>  
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+	 <!--userid,cityname,username,email,realname-->
+	</sql>
+  
+   <insert id="insertPlan_Detail">
+   ${sql}
+   </insert>
+   
+   <select id="deletes">
+  	${sql}
+   </select>
+   
+   <update id="updateState">
+   ${sql}
+   </update>
+   
+   <select id="selectCheck" resultType="com.fang.plan.entity.Plan_Detail">
+  	${sql}
+   </select>
+       
+     <select id="selectPrice" resultMap="priceList">
+    	SELECT Id,CAST (WebsiteId AS VARCHAR) WebsiteId,
+	    CAST (ChannelId AS VARCHAR)	ChannelId,PlatForm,
+	    CAST (AdplaceId AS VARCHAR) AdplaceId,Price,r.IsPay,ReserveDate,ADPId,ReserveHour
+		FROM [dbo].[AdPlacePrice] ad
+		LEFT JOIN  (
+		${sql}
+		)r
+		ON r.ADPId=ad.id 
+		WHERE ad.State=1 AND ReserveDate IS NOT NULL 
+		ORDER BY  ReserveDate
+    </select>
+
+</mapper>

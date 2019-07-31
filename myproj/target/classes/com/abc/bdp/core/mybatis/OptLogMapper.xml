@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OptLog">
+
+	<!-- 查询系统日志 -->
+	<select id="listOptLog" resultType="com.abc.myproj.entity.OptLog">
+		${sql}
+	</select>
+	<!-- 增加系统日志 -->
+	<insert id="addOptLog" parameterType="com.abc.myproj.entity.OptLog">
+		insert into Plan_Opt_log (
+		operatorName,
+		operatorIp,
+		optTime,
+		optLogDesc,
+		optResult,
+		failReason)
+		values (
+		#{OptLog.operatorName,jdbcType=VARCHAR},
+		#{OptLog.operatorIp},
+		#{OptLog.optTime},
+		#{OptLog.optLogDesc},
+		#{OptLog.optResult},
+		#{OptLog.failReason}
+		)
+	</insert>
+	<!-- 用户登录日志 -->
+	<select id="addUserLoginLog" resultType="int">
+		select 1
+	</select>
+	<!-- 增加用户操作日志 -->
+	<select id="addUserOptLog" resultType="int">
+		insert into
+		Plan_log(Url,Description,Type)
+		values (#{OptLog.url},#{OptLog.optLogDesc},#{OptLog.typeName})
+	</select>
+
+
+	<!-- 查询分页总记录数 -->
+	<select id="countOptLog" resultType="long">
+		${sql}
+	</select>
+	<!-- 根据 -->
+	<select id="getOptLogById" resultType="com.abc.myproj.entity.OptLog"
+		parameterType="String">
+		select * from Plan_Opt_log
+		where
+		id = #{userid}
+	</select>
+</mapper>
+ 

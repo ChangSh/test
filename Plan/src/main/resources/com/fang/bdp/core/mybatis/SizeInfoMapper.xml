@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fang.plan.mapper.SizeInfoMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+	 <!--userid,cityname,username,email,realname-->
+	</sql>
+	<resultMap type="com.fang.plan.entity.SizeInfo" id="sizeinfo">	
+ 		<id property="id" column="id" javaType="string" jdbcType="INTEGER"/>  
+        <result property="type" column="type" javaType="int" jdbcType="INTEGER"/>  
+        <result property="name" column="name" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="modalType" column="modalType" javaType="string" jdbcType="INTEGER"/> 
+        <result property="html" column="html" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="width" column="width" javaType="double" jdbcType="DECIMAL"/> 
+         <result property="height" column="height" javaType="double" jdbcType="DECIMAL"/> 
+         <result property="modalnum" column="modalnum" javaType="int" jdbcType="INTEGER"/> 
+     
+</resultMap> 
+<select  id="sizelist" resultType="com.fang.plan.entity.SizeInfo">
+ 		SELECT a.*,count(bannerid) modalnum
+  FROM [dbo].[SizeInfo] a left join dbo.SizeBannerRelation b on (a.id=b.SizeId)  
+   where type=#{size.type} 
+  <if test="size.name != null and size.name !='' ">
+      and name like '%${size.name}%'
+    </if>
+    group by a.id,a.type,a.name,a.modalType,a.html,a.width,a.height
+    </select>
+    <select  id="getAllSizeInfo" resultType="com.fang.plan.entity.SizeInfo">
+ 		SELECT * FROM [dbo].[SizeInfo]  where type=1
+ 
+    </select>
+    <select  id="getSizeById" resultType="com.fang.plan.entity.SizeInfo" parameterType="int">
+ 		SELECT * FROM [dbo].[SizeInfo]  where type=1 and id=#{id}
+ 
+    </select>
+</mapper>

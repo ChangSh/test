@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abc.myproj.mapper.UserInitMapper">
+
+<resultMap type="com.abc.myproj.entity.UserInit" id="userInitList">	
+ 		<id property="uuid" column="uuid" javaType="string" jdbcType="VARCHAR"/>  
+        <result property="OaUserID" column="OAUserID" javaType="int" jdbcType="INTEGER"/>  
+        <result property="email" column="EMAIL" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="realName" column="REALNAME" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="userName" column="UserName" javaType="string" jdbcType="VARCHAR"/> 
+        <result property="groupName" column="GroupName" javaType="string" jdbcType="VARCHAR"/> 
+        
+    <collection property="roleIds" column="RoleId" ofType="Integer">  
+      <result property="RoleId" column="RoleId"/> 
+    </collection>  
+    <collection property="cityIds" column="CityId" ofType="Integer">  
+      <result property="CityId" column="CityId"/> 
+    </collection>  
+</resultMap>  
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+	 EMAIL,REALNAME,UserName
+	</sql>
+	
+	<select  id="userlist" resultMap="userInitList">
+ 		 SELECT [uuid]
+	      ,[OAUserID]
+	      ,u.[EMAIL]
+	      ,[REALNAME]
+	      ,[UserName]
+	      ,[GroupName]
+	      ,ur.cityid as CityId
+		  ,urr.RoleId as RoleId
+	 	 FROM [dbo].[UserInit] u
+	 	 left join UserCityRelation ur on u.EMAIL=ur.Email
+		 left join [dbo].[UserRoleRelation] urr on u.EMAIL=urr.Email
+    </select>
+	
+   <select id="myPermission" resultType="com.abc.myproj.entity.Resource">
+    <if test="username ==''">
+	  select distinct MoudleName+FunctionId as authUrl, MoudleName+case when 2>=FunctionLevel then '/**' else '' end  as url from [dbo].[CYFunction]
+  	  where MoudleName is not null  and len(MoudleName)>0
+	 </if>
+	 <if test="username !=''">
+	  select distinct MoudleName+FunctionId as authUrl, MoudleName+case when 2>=FunctionLevel then '/**' else '' end  as url 
+	  from [dbo].[CYFunction] where FunctionID in(
+	  select FunctionID from [dbo].[RoleFunctionRelation] where RoleID in(
+	  select RoleId from [dbo].[Role]
+	  where RoleId in (
+	  select RoleId from [dbo].[UserRoleRelation] where Email='${username}'
+	  ))
+	  )
+	  and MoudleName is not null and len(MoudleName)>0
+	 </if>
+   </select>
+   
+   	 <select  id="mySource" resultType="com.abc.myproj.entity.Resource">
+	 	  select FunctionId as code,PFunctionId as pcode,FunctionName as name,Url as url from [dbo].[CYFunction] where FunctionID in(
+		  select FunctionID from [dbo].[RoleFunctionRelation] where RoleID in(
+		  select RoleId from [dbo].[Role]
+		  where RoleId in (
+		  select RoleId from [dbo].[UserRoleRelation] where Email='${email}'
+		  ))
+		  ) AND 2>=FunctionLevel
+	 </select>
+	 
+	 <select  id="myCity" resultType="com.abc.myproj.entity.City">
+	  SELECT [CityId]
+      ,[CityName]
+      ,[ShortName]
+	  FROM [Structure_City]
+	  where CityId in (
+	  select CItyId from UserCityRelation where Email='${email}'
+	  )
+	 </select>
+   <select id="ifExistUser" resultType="int">
+        select count(*) from [dbo].[UserInit] where 1=1 and email=#{email}
+   </select>
+   <select  id="allCity" resultType="com.abc.myproj.entity.City">
+	  SELECT [CityId]
+      ,[CityName]
+      ,[ShortName]
+	  FROM [Structure_City]
+	 </select>
+
+</mapper>

@@ -1,0 +1,93 @@
+@charset "gb2312";
+/* CSS Document */
+
+.search,.drumcontent{border:1px solid #93A3B3;background:#fff;overflow:hidden;}
+
+.search h2{height:28px;line-height:28px;font-size:12px;background:#dde9f3;padding-left:10px;overflow:hidden;padding-top:0px;margin:0px;cursor:pointer}
+.search h2 span{cursor:pointer;}
+.search h2 span.on{padding-left:15px;background:url(http://js.soufunimg.com/ggcp/plan/images/on.gif) no-repeat;}
+.search h2 span.out{padding-left:15px;background:url(http://js.soufunimg.com/ggcp/plan/images/out.gif) no-repeat;}
+input,select{vertical-align:middle;}
+.dot{margin:15px auto;overflow:hidden;}
+.tj,.tj01{padding:0px 18px;margin-top:20px;}
+
+.tj td,.tjggw td{height:35px;line-height:35px;border:none; padding:0; margin:0;}
+.tj table,.tjggw table{border:none; padding:0; margin:0;}
+.tj .dot,.tjggw dot{height:2px;}
+.tj select,.tjggw select{color:#888;}
+
+.list1{border:1px solid #93A3B3;background:#fff;border-bottom:none;overflow:hidden}
+.list1 h3,.list1ss h3{height:28px;line-height:28px;font-size:12px;background:#dde9f3;padding-left:10px;overflow:hidden;padding-top:0px;margin:0px;}
+.list1 h3 input,.list1ss h3 input{width:76px;height:23px;background:url(http://js.soufunimg.com/ggcp/plan/images/btn_m.gif) no-repeat;border:none; font-size:12px;float:right;margin:3px 5px 0 0;color:#333;cursor:pointer;}
+.list1 div span,.list1ss div span{float:left;height:50px;line-height:50px;margin-left:20px;font-weight:800;}
+.list1 div span em,.list1ss div span em{font-style:normal;font-size:18px;color: #C00;padding:0px 4px;}
+.list1 div span.left,.list1ss div span.left{margin-left:140px;}
+
+/*广告管理*/
+.drumcontent h2{height:28px;line-height:28px;font-size:12px;padding-left:25px;background:#dde9f3 url(http://js.soufunimg.com/ggcp/plan/images/out.gif) no-repeat 10px 8px;margin:0;}
+.drumcontent table{margin:10px 18px 0; line-height:25px;}
+.drumbq{padding:0 0 10px 112px;}
+.drumcontent td{height:30px;word-break:keep-all}
+
+/*排期查询*/
+.tj01 td{height:35px;line-height:35px;}
+.tj01 select{color:#888;
+    margin-left: 4px;
+}
+.tj01 em{font-style:normal;padding-right:3px;color:red;}
+.tj01 td span{padding-left:30px;}
+.tj01 td .nv{margin-left:30px;}
+.tj01 td i{font-style:normal;}
+.dcbbbox{float:right}
+.dcbb{width:76px;height:23px;background:url(http://js.soufunimg.com/ggcp/plan/images/btn_m.gif) no-repeat;border:none; font-size:12px;color:#333; margin:1px 2px 0 0;}
+.list1ss{border:1px solid #93A3B3;background:#fff;overflow:hidden}
+.index1 th input{color:#333;}
+
+/*提示框样式*/
+
+.tip{background:#fff;}
+.shadow{width:450px;height:190px;background:#90C6ff;margin:120px auto;overflow:hidden;}
+.tip_box{margin:4px;background:#fff;width:442px;height:182px;overflow:hidden;}
+.tip_t{width:250px;height:75px;margin:0 auto;margin-top:20px;padding-left:80px;padding-top:10px;background:url(http://js.soufunimg.com/ggcp/plan/images/ico-pa.png) -895px 5px no-repeat;}
+.tip_t span{font-size:20px;font-weight:800;display:block;}
+.tip_t a{color:#0000ff;display:block;padding:10px 0px 10px 3px;}
+.tip_b{text-align:center;}
+.tip_b input{height:24px;line-height:20px;color:#333;margin:10px 10px;cursor:pointer;}
+.tip_box .lose{background:url(http://js.soufunimg.com/ggcp/plan/images/ico-pa.png) -530px -235px no-repeat;}
+.tip_box .alert{background:url(http://js.soufunimg.com/ggcp/plan/images/ico-pa.png) -620px -175px no-repeat;}
+.tip_box .question{background:url(http://js.soufunimg.com/ggcp/plan/images/ico-pa.png) -435px -294px no-repeat;}
+
+.search .tjggw{padding:0px 18px;margin:20px 18px;overflow:hidden;display:block;}
+
+.declare{ padding-left:10px; margin-bottom:25px;line-height:30px; border:1px #f8cf98 solid;background-color:#ffffca; overflow:hidden; clear:both;}
+.tjggw span{ padding-left:5px;color:#888;}
+.tjggw .red{ color:red;}
+
+/*2011.1.27*/
+.inputfontred{width:240px; font-family:Arial, Helvetica, sans-serif; color:#F00; font-size:13px;}
+.ask_icoss{ background:url(http://js.soufunimg.com/ggcp/plan/images/ico_ask.png) no-repeat; float: left; margin: 4px 0px 0px 6px; width: 16px; height: 15px;}
+.bjhtask,.bjhtask01{left:330px;position:absolute; border: #fdd66f 1px solid; padding:6px; background-color: #fff8c1; width: 200px;line-height: 22px}
+.bjhtask{ top:125px;}
+.bjhtask01{ top:230px; }
+.fontmoney{color: #C00; font-size:14px; font-weight:bold;}
+
+#loading
+{
+position:absolute;
+width: 260px;
+border-width:1px;
+border-style:solid;
+background-color:#fff;
+height: 60px;
+left: 50%; /*FF IE7*/
+top: 55%; /*FF IE7*/
+margin-left: -130px !important;
+margin-top: -30px !important; 
+margin-left: 0px;
+margin-top: 0px;
+z-index: 99;
+position: fixed !important; /*FF IE7*/
+position: absolute; /*IE6*/
+_top: expression(eval(document.compatMode &&document.compatMode=='CSS1Compat') ? documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 : /*IE6*/ document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2); /*IE5 IE5.5*/
+_left: expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollLeft + (document.documentElement.clientWidth-this.offsetWidth)/2 : /*IE6*/ document.body.scrollLeft + (document.body.clientWidth - this.clientWidth)/2); /*IE5 IE5.5*/
+text-align:center;padding:7px 0 0 0;font:bold 11px Arial, Helvetica, sans-serif;}
