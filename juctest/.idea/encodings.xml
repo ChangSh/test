@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://D:/autohome/projects/pj_ec_mall_item/mall-api/src/main/profile/yz_outtest/dubbo.properties" charset="UTF-8" />
+    <file url="file://D:/autohome/projects/pj_ec_mall_item/mall-apiv2/src/main/profile/front/yz_frontouttest/dubbo.properties" charset="UTF-8" />
+    <file url="file://D:/autohome/projects/pj_ec_mall_item/mall-apiv2/src/main/profile/yz_outtest/dubbo.properties" charset="UTF-8" />
+    <file url="file://D:/autohome/projects/pj_ec_mall_item/mall-mweb/src/main/profile/yz_outtest/turbo.properties" charset="UTF-8" />
+    <file url="file://D:/autohome/projects/pj_ec_mall_item/mall-seckill/src/main/profile/yz_outtest/dubbo.properties" charset="UTF-8" />
+    <file url="file://D:/autohome/projects/pj_ec_mall_item/mall-web/src/main/profile/yz_outtest/dubbo.properties" charset="UTF-8" />
+  </component>
+</project>
